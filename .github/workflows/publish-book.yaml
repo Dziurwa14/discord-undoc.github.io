@@ -1,0 +1,39 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Rust and Cargo
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features
+      - run: echo "Preparing to deploy documentation..."
+      - name: Deploy Docs
+        run: |
+          cd ..
+          ls -la
+          git config --global user.name 'arHSM'
+          git config --global user.email 'hanseungmin.ar@gmail.com'
+          if [[ ${{ github.event.commits[0].message }} == publish:* ]]
+          then
+            # rm -rf 
+            # echo "Deploying..."
+            # cargo install mdbook
+            # git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch master master
+            # git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch gh-pages gh-pages
+            # cd master
+            # mdbook build
+            # rm -rf ../gh-pages/*
+            # cp -r ./book/* ../gh-pages/
+            # cd ../gh-pages
+            # git commit -am "New documentation deploy, triggered by ${{ github.commits[0].sha }}"
+            # git push
+          else
+            echo "Not a deploy commit! Ignoring...."
+          fi
