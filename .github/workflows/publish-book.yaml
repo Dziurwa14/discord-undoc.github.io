@@ -24,8 +24,9 @@ jobs:
           cp -r ./book/* ../ghpages
           cd ../ghpages
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git commit -m "Automated deploy - ${{ github.event.head_commit.sha }}"
-          git log
+          git add .
+          git commit -m "[ ${{ github.event.head_commit.committer.name }} ] Automated deploy - ${{ github.event.head_commit.id }}"
+          git push origin gh-pages
       - name: Clean up master
         run: |
           cd master
