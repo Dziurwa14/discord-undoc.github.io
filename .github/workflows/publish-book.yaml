@@ -11,10 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: gh-pages
+      - run: cd ../ && mv ./discord-undoc.github.io ghpages
       - uses: actions/checkout@v2
         with:
-          ref: gh-pages
+          ref: master
+      - run: cd ../ && mv ./discord-undoc.github.io master
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -25,10 +27,11 @@ jobs:
       - run: |
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
-          cd ..
+          cd master
           mdbook build
-          cp -r ./book/* ./discord-undoc.github.io/
-          cd ./discord-undoc.github.io/
+          cp -r ./book/* ../ghpages/
+          cd ../ghpages/
           git add .
           git commit -m "Automated deploy triggered by ${{ github.event.head_commit.sha }}"
+          git push origin gh-pages
 
