@@ -21,7 +21,7 @@ jobs:
           echo $PWD
           ls -la
       - name: Clean up
-      - run: |
+        run: |
           /usr/bin/git version
           /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
           /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
