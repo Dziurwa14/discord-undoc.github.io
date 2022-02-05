@@ -23,6 +23,7 @@ jobs:
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           echo $PWD
+          ls -la
           cd ../
           echo $PWD
           ls -la
