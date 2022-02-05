@@ -23,9 +23,6 @@ jobs:
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           cd ../
-          cargo install mdbook
-          mdbook build
-          cp -r ./book ./discord-undoc.github.io/
-          cd ./discord-undoc.github.io/
-          git add .
-          git commit -m "Automated deploy triggered by ${{ github.event.head_commit.sha }}"
+          chmod get_theme.sh
+          ./get_theme.sh
+          ls -la
