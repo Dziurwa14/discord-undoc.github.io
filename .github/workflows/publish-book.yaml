@@ -20,6 +20,15 @@ jobs:
           toolchain: stable
       - uses: actions-rs/cargo@v1
         with:
-          command: build
-          args: --release --all-features
-      - run: ls -la && echo $PWD
+          command: install
+          args: mdbook
+      - run: |
+          git config --global user.name 'arHSM'
+          git config --global user.email 'hanseungmin.ar@gmail.com'
+          cd ..
+          mdbook build
+          cp -r ./book/* ./discord-undoc.github.io/
+          cd ./discord-undoc.github.io/
+          git add .
+          git commit -m "Automated deploy triggered by ${{ github.event.head_commit.sha }}"
+
