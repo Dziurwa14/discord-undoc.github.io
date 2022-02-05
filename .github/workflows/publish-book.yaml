@@ -11,17 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: gh-pages
+          ref: master
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: gh-pages
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: |
+      - name: Build Docs
+        run: |
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           cd ../
-          ls -la
-          ls -la ./discord-undoc.github.io/
-
+          cargo install mdbook
+          mdbook build
+          cp -r ./book ./discord-undoc.github.io/
+          cd ./discord-undoc.github.io/
+          git add .
+          git commit -m "Automated deploy triggered by ${{ github.event.head_commit.sha }}"
