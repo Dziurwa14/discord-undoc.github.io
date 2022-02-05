@@ -18,13 +18,10 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: mdbook
       - run: |
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           cd ../
           ls -la
+          ls -la ./discord-undoc.github.io/
 
