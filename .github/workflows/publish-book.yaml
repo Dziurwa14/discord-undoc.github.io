@@ -12,16 +12,31 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - run: cargo install mdbook
       - name: Build Docs
         run: |
           git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch master master
           git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch gh-pages ghpages
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
-          echo $PWD
-          ls -la
-      - name: Clean up
+          cd master
+          mdbook Build
+          cp -r ./book/* ../ghpages
+          cd ../ghpages
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git commit -m "Automated deploy - ${{ github.event.head_commit.sha }}"
+          git log
+      - name: Clean up master
         run: |
+          cd master
+          /usr/bin/git version
+          /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+          /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+          /usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+          /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+      - name: Clean up ghpages
+        run: |
+          cd ghpages
           /usr/bin/git version
           /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
           /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
