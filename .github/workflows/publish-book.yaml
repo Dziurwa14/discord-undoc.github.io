@@ -20,7 +20,7 @@ jobs:
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           cd master
-          mdbook Build
+          mdbook build
           cp -r ./book/* ../ghpages
           cd ../ghpages
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
