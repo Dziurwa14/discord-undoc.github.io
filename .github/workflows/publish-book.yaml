@@ -9,21 +9,21 @@ jobs:
     name: Check and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: master
-      - uses: actions/checkout@v2
-        with:
-          ref: gh-pages
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
       - name: Build Docs
         run: |
+          git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch master master
+          git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch gh-pages ghpages
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           echo $PWD
           ls -la
-          cd ../
-          echo $PWD
-          ls -la
+      - name: Clean up
+      - run: |
+          /usr/bin/git version
+          /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+          /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+          /usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+          /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
