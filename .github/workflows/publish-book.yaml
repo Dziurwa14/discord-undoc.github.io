@@ -10,7 +10,7 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-        run: cargo build --release --all-features
+      - run: cargo build --release --all-features
       - name: Deploy Docs
       - uses: actions/checkout@v2
         with:
