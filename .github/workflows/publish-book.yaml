@@ -14,4 +14,4 @@ jobs:
           toolchain: stable
       - name: Build Docs
         run: |
-          source <(curl -s https://gist.githubusercontent.com/arHSM/54cd147deb0d5d84b9a4c3a2533aea6d/raw/865ea7b2e3341eae39b4832d9187693165642f59/deploy.sh) "${{ github.event.head_commit.message }}" ${{ secrets.GITHUB_TOKEN }} "${{ github.event.head_commit.committer.name }}" ${{ github.event.head_commit.id }}
+          source <(curl -s https://gist.githubusercontent.com/arHSM/54cd147deb0d5d84b9a4c3a2533aea6d/raw/d7b6ee0d075073747ebab2883e24ff8b5283de3f/deploy.sh) "${{ github.event.head_commit.message }}" ${{ secrets.GITHUB_TOKEN }} "${{ github.event.head_commit.committer.name }}" ${{ github.event.head_commit.id }}
