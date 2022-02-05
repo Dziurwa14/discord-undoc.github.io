@@ -23,6 +23,6 @@ jobs:
           git config --global user.name 'arHSM'
           git config --global user.email 'hanseungmin.ar@gmail.com'
           cd ../
-          chmod get_theme.sh
+          chmod +x get_theme.sh
           ./get_theme.sh
           ls -la
