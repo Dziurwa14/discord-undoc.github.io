@@ -1,23 +1,25 @@
-name: GitHub Actions Demo
-on: 
+name: Check and Deploy Docs
+on:
   push:
-    branches: [master]
+    branches:
+      - "master"
+
 jobs:
-  Explore-GitHub-Actions:
+  check_n_deploy_docs:
+    name: Check and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Rust and Cargo
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - run: cargo build --release --all-features
-      - name: Deploy Docs
       - uses: actions/checkout@v2
         with:
           ref: master
       - uses: actions/checkout@v2
         with:
           ref: gh-pages
-        run: |
-          cd ..
-          ls -la
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features
+      - run: ls -la && echo $PWD
