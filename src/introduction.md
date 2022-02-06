@@ -57,5 +57,5 @@ By Luna Mendes, these docs cover stuff like: Discord's Infra, etc etc.\
 —
 
 **Discord Resources**: <https://discordresources.com/><br> 
-By Rydix and communty, Discord Resources is a greak wiki full of resources for you and your community.\
+By <b class="user" id="755792681313108018 a_90be0df51f8cf7dc36bec9cb1ad1459c">Rydix#1726</b> and communty, Discord Resources is a greak wiki full of resources for you and your community.\
 —
