@@ -9,20 +9,25 @@ jobs:
     name: Check and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.10'
-          architecture: 'x64'
-      - run: pip install mistletoe
-      - name: Publish Docs
-        if: contains(github.event.head_commit.message, 'publish:')
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
-        with:
-          branch: gh-pages
-          folder: .
-          clean: true
-          single-commit: true
-          git-config-name: "Automated Deploy"
-          git-config-email: ""
-          commit-message: ""
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Install mdbook
+      run: |
+        mkdir mdbook
+        curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
+        echo `pwd`/mdbook >> $GITHUB_PATH
+    - name: Deploy GitHub Pages
+      if: startsWith(github.event.head_commit.message, 'publish:')
+      run: |
+        mdbook build
+        git worktree add gh-pages gh-pages
+        git config user.name "Automated Deploy"
+        git config user.email ""
+        cd gh-pages
+        git update-ref -d refs/heads/gh-pages
+        rm -rf *
+        mv ../book/* .
+        git add .
+        git commit -m "Deploy $GITHUB_SHA to gh-pages"
+        git push --force
