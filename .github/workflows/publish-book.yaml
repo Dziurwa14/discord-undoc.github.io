@@ -18,6 +18,15 @@ jobs:
         with:
           python-version: '3.10'
           architecture: 'x64'
-      - name: Build Docs
-        run: |
-          source <(curl -s https://raw.githubusercontent.com/discord-undoc/discord-undoc.github.io/master/deploy.sh) "${{ github.event.head_commit.message }}" ${{ secrets.GITHUB_TOKEN }} "${{ github.event.head_commit.committer.name }}" "${{ github.event.head_commit.committer.email }}" ${{ github.event.head_commit.id }}
+      - run: pip install mistletoe
+      - name: Publish Docs
+        if: contains(github.event.head_commit.message, 'publish:')
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
+        with:
+          branch: gh-pages
+          folder: .
+          clean: true
+          single-commit: true
+          git-config-name: "Automated Deploy"
+          git-config-email: ""
+          commit-message: ""
