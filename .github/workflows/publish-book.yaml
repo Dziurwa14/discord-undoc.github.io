@@ -20,14 +20,15 @@ jobs:
     - name: Deploy GitHub Pages
       if: startsWith(github.event.head_commit.message, 'publish:')
       run: |
+        sh ./get_theme.sh
         mdbook build
         git worktree add gh-pages gh-pages
-        git config user.name "Automated Deploy"
-        git config user.email ""
+        git config user.name "${{ github.event.head_commit.committer.name }}"
+        git config user.email "${{ github.event.head_commit.committer.email }}"
         cd gh-pages
         git update-ref -d refs/heads/gh-pages
         rm -rf *
         mv ../book/* .
         git add .
-        git commit -m "Deploy $GITHUB_SHA to gh-pages"
+        git commit -m "Automated Deploy triggered by $GITHUB_SHA"
         git push --force
