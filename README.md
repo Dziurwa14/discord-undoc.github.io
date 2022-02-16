@@ -10,7 +10,11 @@ The website can be found at https://discord-undoc.github.io
 **Prerequisites**
 1. Rust
 2. Cargo
-3. MdBook (can be installed by `cargo install mdbook`)
+3. mdbook (can be installed by `cargo install mdbook`)
+4. Python
+5. Poetry (optional)
+6. mistletoe (can be installed by `pip install mistletoe`
+   or if you have poetry you can `poetry install` this also installs dev deps)
 
 After installing `mdbook` go ahead and grab the latest iteration of the theme.
 
