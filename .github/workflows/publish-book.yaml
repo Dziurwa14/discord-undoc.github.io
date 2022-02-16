@@ -9,6 +9,10 @@ jobs:
     name: Check and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
+      - name: Install mdbook
+        uses: dtolnay/install@master
+        with:
+          crate: mdbook
       - name: Install Python
         uses: actions/setup-python@v2
         with:

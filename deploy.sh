@@ -1,7 +1,6 @@
 if [[ $1 == publish:* ]]
 then
     echo "Preparing to download mdbook..."
-    sh <(curl -s --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf) -y
     cargo install mdbook > /dev/null 2>&1
     echo "Cloning repository..."
     git clone https://github.com/discord-undoc/discord-undoc.github.io.git --branch master master > /dev/null 2>&1
