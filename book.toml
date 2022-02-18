@@ -14,6 +14,7 @@ default-theme = "dark"
 preferred-dark-theme = "dark"
 curly-quotes = true
 copy-fonts = false
+no-section-label = true
 git-repository-url = "https://github.com/discord-undoc/discord-undoc.github.io"
 git-repository-icon = "source"
 edit-url-template = "https://github.com/discord-undoc/discord-undoc.github.io/edit/master/{path}"
