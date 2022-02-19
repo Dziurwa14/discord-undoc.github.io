@@ -1,165 +1,208 @@
 # Endpoints
 
 **Base API URL** - `https://canary.discord.com/api/v9/`\
-**Base Status API URL** - `https://status.dsicord.com/api/v2/`
+**Base Status API URL** - `https://status.discord.com/api/v2/`
 
-## Undocumented
+## API
 
-(UHHHHHHHHHHH, i forgot)
-- `auth/logout`\
-- `auth/location-metadata`\
-- `applications/detectable`\
-- `applications/public`\
-- `experiments`\
-- `users/@me/library`\
-- `users/@me/survey`\
-- `users/@me/affinities/guilds`\
-- `users/@me/affinities/users`\
-- `users/@me/billing/user-trial-offer`\
-- `users/@me/billing/payment-sources`\
-- `users/@me/billing/country-code`\
-- `users/@me/billing/subscriptions`\
-- `users/@me/settings-proto/2`\
-- `science`\
-- `bad-domains/hashes.json`\
-- `users/{user.id}/profile`\
-
-<br>
-
-Status
-- `metrics-display/5k2rt9f7pmny/day.json`
-
-<br>
-
-## Documented
-
-Interactions
-- `interactions/{interaction.id}/{interaction.token}/callback`
-- `webhooks/{application.id}/{interaction.token}/messages/@original`
-- `webhooks/{application.id}/{interaction.token}`
-- `webhooks/{application.id}/{interaction.token}/messages/{message.id}`
-
-<br>
-
-Channel
-- `channels/{channel.id}`
-- `channels/{channel.id}/permissions/{overwrite.id}`
-- `channels/{channel.id}/invites`
-- `channels/{channel.id}/followers`
-- `channels/{channel.id}/typing`
-- `channels/{channel.id}/pins`
-- `channels/{channel.id}/pins/{message.id}`
-- `channels/{channel.id}/messages`
-- `channels/{channel.id}/messages/bulk-delete`
-- `channels/{channel.id}/messages/{message.id}`
-- `channels/{channel.id}/messages/{message.id}/threads`
-- `channels/{channel.id}/messages/{message.id}/crosspost`
-- `channels/{channel.id}/messages/{message.id}/reactions`
-- `channels/{channel.id}/messages/{message.id}/reactions/{emoji}`
-- `channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me`
-- `channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}`
-- `channels/{channel.id}/recipients/{user.id}`
-- `channels/{channel.id}/threads`
-- `channels/{channel.id}/threads/active`
-- `channels/{channel.id}/threads/archived/public`
-- `channels/{channel.id}/threads/archived/private`
-- `channels/{channel.id}/users/@me/threads/archived/private`
-- `channels/{channel.id}/thread-members`
-- `channels/{channel.id}/thread-members/@me`
-- `channels/{channel.id}/thread-members/{user.id}`
-- `channels/{channel.id}/webhooks`
-
-<br>
-
-Emojis
-- `guilds/{guild.id}/emojis`
-- `guilds/{guild.id}/emojis/{emoji.id}`
-
-<br>
-
-Guilds
+- `activities`
+- `activities/statistics/applications/:application.id`
+- `application-news`
+- `application-news/:application.news.id`
+- `applications`
+- `applications/:application.id`
+- `applications/:application.id/branches`
+- `applications/:application.id/branches/:branch.id/builds`
+- `applications/:application.id/branches/:branch.id/builds/:build.id`
+- `applications/:application.id/branches/:branch.id/builds/live?locale=:locale&platform=:platform`
+- `applications/:application.id/commands`
+- `applications/:application.id/commands/:command.id`
+- `applications/:application.id/guilds/:guild.id/commands`
+- `applications/:application.id/guilds/:guild.id/commands/:command.id`
+- `applications/:application.id/guilds/:guild.id/commands/:command.id/permissions`
+- `applications/:application.id/guilds/:guild.id/commands/permissions`
+- `applications/:application.id/public`
+- `applications/:application.id/skus`
+- `applications/detectable`
+- `auth/location-metadata`
+- `auth/login`
+- `auth/logout`
+- `auth/register`
+- `bad-domains/hashes.json`
+- `channels/:channel.id`
+- `channels/:channel.id/call`
+- `channels/:channel.id/follower-message-stats`
+- `channels/:channel.id/follower-stats`
+- `channels/:channel.id/followers`
+- `channels/:channel.id/invites`
+- `channels/:channel.id/messages`
+- `channels/:channel.id/messages/:message.id`
+- `channels/:channel.id/messages/:message.id/crosspost`
+- `channels/:channel.id/messages/:message.id/reactions`
+- `channels/:channel.id/messages/:message.id/reactions/:emoji`
+- `channels/:channel.id/messages/:message.id/reactions/:emoji/:user.id`
+- `channels/:channel.id/messages/:message.id/reactions/:emoji/@me`
+- `channels/:channel.id/messages/:message.id/threads`
+- `channels/:channel.id/messages/bulk-delete`
+- `channels/:channel.id/messages/search`
+- `channels/:channel.id/permissions/:overwrite.id`
+- `channels/:channel.id/pins`
+- `channels/:channel.id/pins/:message.id`
+- `channels/:channel.id/recipients/:user.id`
+- `channels/:channel.id/store-listing`
+- `channels/:channel.id/store-listing/:sku.id`
+- `channels/:channel.id/thread-members`
+- `channels/:channel.id/thread-members/:user.id`
+- `channels/:channel.id/thread-members/@me`
+- `channels/:channel.id/threads`
+- `channels/:channel.id/threads/active`
+- `channels/:channel.id/threads/archived/private`
+- `channels/:channel.id/threads/archived/public`
+- `channels/:channel.id/typing`
+- `channels/:channel.id/users/@me/threads/archived/private`
+- `channels/:channel.id/webhooks`
+- `connections/:provider.id/authorize`
+- `discoverable-guilds`
+- `discovery/categories`
+- `entitlements/gift-codes/:gift.code`
+- `experiments`
+- `experiments?with_guild_experiments=true`
+- `friend-suggestions`
+- `gateway`
+- `gateway/bot`
+- `gifs/suggest?q=:query`
+- `gifs/trending`
 - `guilds`
-- `guilds/{guild.id}`
-- `guilds/{guild.id}/preview`
-- `guilds/{guild.id}/channels`
-- `guilds/{guild.id}/threads/active`
-- `guilds/{guild.id}/members`
-- `guilds/{guild.id}/members/@me`
-- `guilds/{guild.id}/members/{user.id}`
-- `guilds/{guild.id}/members/@me/nick`
-- `guilds/{guild.id}/members/search`
-- `guilds/{guild.id}/members/{user.id}/roles/{role.id}`
-- `guilds/{guild.id}/bans`
-- `guilds/{guild.id}/bans/{user.id}`
-- `guilds/{guild.id}/roles`
-- `guilds/{guild.id}/roles/{role.id}`
-- `guilds/{guild.id}/prune`
-- `guilds/{guild.id}/regions`
-- `guilds/{guild.id}/invites`
-- `guilds/{guild.id}/integrations`
-- `guilds/{guild.id}/integrations/{integration.id}`
-- `guilds/{guild.id}/widget`
-- `guilds/{guild.id}/widget.json`
-- `guilds/{guild.id}/widget.png`
-- `guilds/{guild.id}/audit-logs`
-- `guilds/{guild.id}/vanity-url`
-- `guilds/{guild.id}/welcome-screen`
-- `guilds/{guild.id}/voice-states/@me`
-- `guilds/{guild.id}/voice-states/{user.id}`
-- `guilds/{guild.id}/scheduled-events`
-- `guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}`
-- `guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users`
-- `guilds/templates/{template.code}`
-- `guilds/{guild.id}/templates`
-- `guilds/{guild.id}/templates/{template.code}`
-- `guilds/{guild.id}/stickers`
-- `guilds/{guild.id}/stickers/{sticker.id}`
-
-<br>
-
-Invite
-- `invites/{invite.code}`
-
-<br>
-
-Stage Instance
+- `guilds/:guild.id`
+- `guilds/:guild.id/analytics/engagement/overview`
+- `guilds/:guild.id/analytics/growth-activation/overview`
+- `guilds/:guild.id/analytics/growth-activation/retention`
+- `guilds/:guild.id/analytics/overview`
+- `guilds/:guild.id/applications`
+- `guilds/:guild.id/audit-logs`
+- `guilds/:guild.id/bans`
+- `guilds/:guild.id/bans/:user.id`
+- `guilds/:guild.id/channels`
+- `guilds/:guild.id/discovery-metadata`
+- `guilds/:guild.id/discovery-requirements`
+- `guilds/:guild.id/embed`
+- `guilds/:guild.id/emojis`
+- `guilds/:guild.id/emojis/:emoji.id`
+- `guilds/:guild.id/integrations`
+- `guilds/:guild.id/integrations/:integration.id`
+- `guilds/:guild.id/integrations/:integration.id/sync`
+- `guilds/:guild.id/invites`
+- `guilds/:guild.id/member-verification`
+- `guilds/:guild.id/members`
+- `guilds/:guild.id/members/:user.id`
+- `guilds/:guild.id/members/:user.id/roles/:role.id`
+- `guilds/:guild.id/members/@me`
+- `guilds/:guild.id/members/@me/nick`
+- `guilds/:guild.id/members/search`
+- `guilds/:guild.id/messages/search`
+- `guilds/:guild.id/premium/subscriptions`
+- `guilds/:guild.id/preview`
+- `guilds/:guild.id/prune`
+- `guilds/:guild.id/regions`
+- `guilds/:guild.id/roles`
+- `guilds/:guild.id/roles/:role.id`
+- `guilds/:guild.id/scheduled-events`
+- `guilds/:guild.id/scheduled-events/:guild_scheduled_event.id`
+- `guilds/:guild.id/scheduled-events/:guild_scheduled_event.id/users`
+- `guilds/:guild.id/stickers`
+- `guilds/:guild.id/stickers/:sticker.id`
+- `guilds/:guild.id/templates`
+- `guilds/:guild.id/templates/:template.code`
+- `guilds/:guild.id/threads/active`
+- `guilds/:guild.id/vanity-url`
+- `guilds/:guild.id/voice-states/:user.id`
+- `guilds/:guild.id/voice-states/@me`
+- `guilds/:guild.id/webhooks`
+- `guilds/:guild.id/welcome-screen`
+- `guilds/:guild.id/widget`
+- `guilds/:guild.id/widget.json`
+- `guilds/:guild.id/widget.png`
+- `guilds/templates/:template.code`
+- `interactions/:interaction.id/:interaction.token/callback`
+- `invite/:invite.code`
+- `invites/:invite.code`
+- `oauth2/@me`
+- `oauth2/applications`
+- `oauth2/applications/:application.id`
+- `oauth2/applications/:application.id/assets`
+- `oauth2/applications/:application.id/rpc`
+- `oauth2/authorize/webhook-channels?guild_id=:guild.id`
+- `oauth2/authorize?client_id=:client.id`
+- `oauth2/tokens`
+- `oauth2/tokens/:token`
+- `partners/:guild.id/requirements`
+- `partners/connections/`
+- `science`
 - `stage-instances`
-- `stage-instances/{channel.id}`
-
-<br>
-
-Sticker
-- `stickers/{sticker.id}`
+- `stage-instances/:channel.id`
 - `sticker-packs`
-
-<br>
-
-User
+- `stickers/:sticker.id`
+- `store/published-listings/applications/:application.id`
+- `store/published-listings/skus/:application.id`
+- `store/skus/:application.id`
+- `store/skus/:application.id/listings`
+- `streams/:stream.key/preview`
+- `teams`
+- `users/:user.id`
+- `users/:user.id/channels`
+- `users/:user.id/profile`
+- `users/:user.id/relationships`
+- `users/:user.id/sessions/:session.id/activities/:application.id/metadata`
 - `users/@me`
-- `users/@me/guilds`
-- `users/@me/guilds/{guild.id}`
-- `users/@me/guilds/{guild.id}/member`
+- `users/@me/activities/statistics/applications`
+- `users/@me/affinities/guilds`
+- `users/@me/affinities/users`
+- `users/@me/applications/:application.id/achievements`
+- `users/@me/applications/:application.id/entitlements`
+- `users/@me/billing/country-code`
+- `users/@me/billing/payment-sources`
+- `users/@me/billing/payment-sources/:payment.source`
+- `users/@me/billing/payments`
+- `users/@me/billing/stripe/payment-intents/payments/:payment`
+- `users/@me/billing/subscriptions`
+- `users/@me/billing/subscriptions/:subscription.id`
+- `users/@me/billing/trials/:trial.id/eligibility`
+- `users/@me/billing/user-trial-offer`
 - `users/@me/channels`
 - `users/@me/connections`
-- `users/{user.id}`
-
-<br>
-
-Voice
+- `users/@me/consent`
+- `users/@me/entitlements/gifts`
+- `users/@me/feed/settings`
+- `users/@me/feed/unsubscribed_users`
+- `users/@me/guilds`
+- `users/@me/guilds/:guild.id`
+- `users/@me/guilds/:guild.id/member`
+- `users/@me/guilds/premium/subscription-slots`
+- `users/@me/guilds/premium/subscriptions`
+- `users/@me/guilds/premium/subscriptions/cooldown`
+- `users/@me/harvest`
+- `users/@me/library`
+- `users/@me/mentions`
+- `users/@me/notes`
+- `users/@me/notes/:note.user.id`
+- `users/@me/relationships`
+- `users/@me/settings`
+- `users/@me/settings-proto/2`
+- `users/@me/survey`
+- `users/@me?with_analytics_token=true`
+- `voice/ice`
 - `voice/regions`
+- `webhooks/:application.id/:interaction.token`
+- `webhooks/:application.id/:interaction.token/messages/:message.id`
+- `webhooks/:application.id/:interaction.token/messages/@original`
+- `webhooks/:webhook.id`
+- `webhooks/:webhook.id/:webhook.token`
+- `webhooks/:webhook.id/:webhook.token/github`
+- `webhooks/:webhook.id/:webhook.token/messages/:message.id`
+- `webhooks/:webhook.id/:webhook.token/slack`
 
-<br>
+## Status API
 
-Webhook
-- `webhooks/{webhook.id}`
-- `webhooks/{webhook.id}/{webhook.token}`
-- `webhooks/{webhook.id}/{webhook.token}/slack`
-- `webhooks/{webhook.id}/{webhook.token}/github`
-- `webhooks/{webhook.id}/{webhook.token}/messages/{message.id}`
-
-<br>
-
-Status
 - `summary.json`
 - `status.json`
 - `components.json`
@@ -168,3 +211,4 @@ Status
 - `scheduled-maintenances.json`
 - `scheduled-maintenances/active.json`
 - `scheduled-maintenances/upcoming.json`
+- `metrics-display/5k2rt9f7pmny/day.json`
