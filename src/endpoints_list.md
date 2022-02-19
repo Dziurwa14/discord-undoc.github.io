@@ -1,7 +1,9 @@
 # Endpoints
 
+## Base URLs
+
 **Base API URL** - `https://canary.discord.com/api/v9/`\
-**Base Status API URL** - `https://status.discord.com/api/v2/`
+**Base Status API URL** - `https://status.discord.com/api/v2/` or `https://discordstatus.com/`
 
 ## API
 
@@ -203,12 +205,14 @@
 
 ## Status API
 
-- `summary.json`
-- `status.json`
 - `components.json`
 - `incidents.json`
 - `incidents/unresolved.json`
+- `metrics-display/5k2rt9f7pmny/day.json`
+- `metrics-display/5k2rt9f7pmny/month.json`
+- `metrics-display/5k2rt9f7pmny/week.json`
 - `scheduled-maintenances.json`
 - `scheduled-maintenances/active.json`
 - `scheduled-maintenances/upcoming.json`
-- `metrics-display/5k2rt9f7pmny/day.json`
+- `status.json`
+- `summary.json`

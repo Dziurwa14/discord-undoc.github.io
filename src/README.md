@@ -6,9 +6,33 @@ The purpose of this project is to cover all of it, from more in -- depth
 documentation to document entire new areas and endpoints, to make your 
 understanding of the API and bot development better.
 
+<br>
+
+Read 
+[navigation.md](https://discord-undoc.github.io/discord-undoc-theme/kbdcombo.html) 
+to get a basic understanding about how to navigate the docs.
+
 ## FAQ
 
-TBD :P
+### Is this official?
+
+No. We are not affiliated with Discord in any form.
+
+### What is the purpose of this project?
+
+As stated in the [introduction](#introduction), this project is to make your
+understanding of the API and bot development better and also to document
+most if not all the things that the Discord API has to offer.
+
+### Why this when we already have the official API docs?
+
+The official docs are great and have a big community behind them.
+But there are certain things that are not covered in the official docs.
+Either they are not useable by bots, or Discord just doesn't want you to know about them.
+
+### Can I parse the API Types?
+
+Yesn't. Read the [API Types](apitypes.md) page for more information.
 
 ## Links
 
