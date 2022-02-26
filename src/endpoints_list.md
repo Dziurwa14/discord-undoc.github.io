@@ -3,7 +3,7 @@
 ## Base URLs
 
 **Base API URL** - `https://canary.discord.com/api/v9/`\
-**Base Status API URL** - `https://status.discord.com/api/v2/` or `https://discordstatus.com/`
+**Base Status API URL** - `https://discordstatus.com/api/v2/` or `https://discordstatus.com/`
 
 ## API
 
@@ -101,12 +101,20 @@
 - `guilds/:guild.id/members/@me`
 - `guilds/:guild.id/members/@me/nick`
 - `guilds/:guild.id/members/search`
+- `guilds/897162092652683314/member-verification?with_guild=false`
+- `guilds/897162092652683314/member-verification?with_guild=true`
 - `guilds/:guild.id/messages/search`
 - `guilds/:guild.id/premium/subscriptions`
 - `guilds/:guild.id/preview`
 - `guilds/:guild.id/prune`
 - `guilds/:guild.id/regions`
 - `guilds/:guild.id/roles`
+- `guilds/:guild.id/requests?status=SUBMITTED&limit=100&before=:before`
+- `guilds/:guild.id/requests?status=APPROVED&limit=100&before=:before`
+- `guilds/:guild.id/requests?status=REJECTED&limit=100&before=:before`
+- `guilds/:guild.id/requests?status=SUBMITTED&limit=100&after=:after`
+- `guilds/:guild.id/requests?status=APPROVED&limit=100&after=:after`
+- `guilds/:guild.id/requests?status=REJECTED&limit=100&after=:after`
 - `guilds/:guild.id/roles/:role.id`
 - `guilds/:guild.id/scheduled-events`
 - `guilds/:guild.id/scheduled-events/:guild_scheduled_event.id`

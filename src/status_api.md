@@ -1,12 +1,17 @@
 # Status API
 
-Base URL: `https://status.discord.com/api/v2/`
+#### Base URL: `https://discordstatus.com/api/v2/`
+
+## Components
+
+These are the fancy little components displayed at the beginning of the status page.
+
+### {::get components.json}
+
+Returns the components to be displayed.
 
 {::details 
-### components.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -36,13 +41,22 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+## Incidents
+
+Incidents, these are followed by an Ian 2 deploy {::iandeploy} /j
+
+<br>
+
+**Status**: *Investigating, Identified, Monitoring, Resolved, or Postmortem*\
+**Impact**: *None (black), Minor (yellow), Major (orange), or Critical (red)*
+
+### {::get incidents.json}
+
+Returns up-to 50 recent incidents. This endpoint returns **all** incidents no matter the status.
 
 {::details 
-### incidents.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -66,66 +80,6 @@ Base URL: `https://status.discord.com/api/v2/`
             "started_at": "2022-02-15T13:14:17.737-08:00",
             "page_id": "srhpyqt94yxb",
             "incident_updates": [
-                {
-                    "id": "g93t2s4f10jh",
-                    "status": "resolved",
-                    "body": "This incident has been resolved.",
-                    "incident_id": "n4njzfn1mqy0",
-                    "created_at": "2022-02-15T13:37:37.388-08:00",
-                    "updated_at": "2022-02-15T13:37:37.388-08:00",
-                    "display_at": "2022-02-15T13:37:37.388-08:00",
-                    "affected_components": [
-                        {
-                            "code": "rhznvxg4v7yh",
-                            "name": "API",
-                            "old_status": "operational",
-                            "new_status": "operational"
-                        }
-                    ],
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
-                {
-                    "id": "2shj4d01hc9g",
-                    "status": "monitoring",
-                    "body": "We believe we have mitigated the root cause and are continuing to monitor.",
-                    "incident_id": "n4njzfn1mqy0",
-                    "created_at": "2022-02-15T13:21:55.183-08:00",
-                    "updated_at": "2022-02-15T13:21:55.183-08:00",
-                    "display_at": "2022-02-15T13:21:55.183-08:00",
-                    "affected_components": [
-                        {
-                            "code": "rhznvxg4v7yh",
-                            "name": "API",
-                            "old_status": "degraded_performance",
-                            "new_status": "operational"
-                        }
-                    ],
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
-                {
-                    "id": "8tkvrgqxbpr0",
-                    "status": "investigating",
-                    "body": "We are continuing to investigate this issue.",
-                    "incident_id": "n4njzfn1mqy0",
-                    "created_at": "2022-02-15T13:21:31.892-08:00",
-                    "updated_at": "2022-02-15T13:21:31.892-08:00",
-                    "display_at": "2022-02-15T13:21:31.892-08:00",
-                    "affected_components": [
-                        {
-                            "code": "rhznvxg4v7yh",
-                            "name": "API",
-                            "old_status": "degraded_performance",
-                            "new_status": "degraded_performance"
-                        }
-                    ],
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
                 {
                     "id": "7gv6pn1zyz2n",
                     "status": "investigating",
@@ -169,13 +123,18 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+### {::get incidents/unresolved.json}
+
+Returns information on unresolved incidents.
+
+Only returns incidents that are in the following state:
+- Investigating
+- Identified
+- Monitoring
 
 {::details 
-### incidents/unresolved.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -189,13 +148,18 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+## Scheduled Maintenances
+
+Quote from official status api docs:
+> Scheduled maintenances are planned outages, upgrades, or general notices that we're working on infrastructure and disruptions may occurr.
+
+### {::get scheduled-maintenances.json}
+
+Returns up-to 50 recent scheduled maintenances. The result includes both scheduled and "Completed" maintenances.
 
 {::details 
-### scheduled-maintenances.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -220,45 +184,6 @@ Base URL: `https://status.discord.com/api/v2/`
             "page_id": "srhpyqt94yxb",
             "incident_updates": [
                 {
-                    "id": "m4nqbp4s5jxj",
-                    "status": "completed",
-                    "body": "Everything seems to be working! \r\nSorry for the brief interruption.",
-                    "incident_id": "chkt3cr0jf7b",
-                    "created_at": "2015-09-22T02:25:20.034-07:00",
-                    "updated_at": "2015-09-22T02:25:20.034-07:00",
-                    "display_at": "2015-09-22T02:25:20.034-07:00",
-                    "affected_components": null,
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
-                {
-                    "id": "l44j4c4st6mh",
-                    "status": "verifying",
-                    "body": "New updates are deployed. Monitoring it.",
-                    "incident_id": "chkt3cr0jf7b",
-                    "created_at": "2015-09-22T01:07:50.805-07:00",
-                    "updated_at": "2015-09-22T01:07:50.805-07:00",
-                    "display_at": "2015-09-22T01:07:50.805-07:00",
-                    "affected_components": null,
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
-                {
-                    "id": "qx6z06wkmsfd",
-                    "status": "in_progress",
-                    "body": "Maintenance has started! We will be back as soon as possible.",
-                    "incident_id": "chkt3cr0jf7b",
-                    "created_at": "2015-09-22T00:55:02.284-07:00",
-                    "updated_at": "2015-09-22T00:55:02.284-07:00",
-                    "display_at": "2015-09-22T00:55:02.284-07:00",
-                    "affected_components": null,
-                    "deliver_notifications": true,
-                    "custom_tweet": null,
-                    "tweet_id": null
-                },
-                {
                     "id": "1nz6l9z9fbyc",
                     "status": "scheduled",
                     "body": "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Wow our servers wow. They're getting so much juice wow. Please wait while we give them juice (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧\r\n\r\nWe're powering up our servers to handle more fabulous Discord people 〜(￣▽￣〜)\r\n\r\nOn a serious note, we worked hard to attempt to do this without downtime, but have come to the conclusion it would be impossible.",
@@ -280,13 +205,17 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+### {::get scheduled-maintenances/active.json}
+
+Returns active scheduled maintenances.
+
+Only includes the following states:
+- In Progress
+- Verifying
 
 {::details 
-### scheduled-maintenances/active.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -300,13 +229,13 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+### {::get scheduled-maintenances/upcoming.json}
+
+Returns maintenances that are still in the "Scheduled" state.
 
 {::details 
-### scheduled-maintenances/upcoming.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -320,13 +249,15 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+# Miscellaneous
+
+### {::get status.json}
+
+Returns information on the current status of the API. Contains a description for further information.
 
 {::details 
-### status.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -343,13 +274,17 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
+
+### {::get summary.json}
+
+A summary of the page, contains:
+- Status
+- Components
+- Incidents
+- Scheduled Maintenances
 
 {::details 
-### summary.json<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "page": {
@@ -385,17 +320,21 @@ Base URL: `https://status.discord.com/api/v2/`
 }
 ```
 }
-}
 
 <br>
 
-Base URL: `https://discordstatus.com/`
+# Metrics
+
+These endpoints return API response time metrics for the particular day|week|month.
+
+You'll ony see spikes in these numbers when {::user Desch#3091-90339695967350784-ab775dfe83d1a8057587a837eedde447} commits to `discord/discord@master`
+
+#### Base URL: `https://discordstatus.com/`
+
+### {::get metrics-display/5k2rt9f7pmny/day.json {::undoc}}
 
 {::details 
-### metrics-display/5k2rt9f7pmny/day.json {::undoc}<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "period": {
@@ -438,13 +377,11 @@ Base URL: `https://discordstatus.com/`
 }
 ```
 }
-}
+
+### {::get metrics-display/5k2rt9f7pmny/month.json {::undoc}}
 
 {::details 
-### metrics-display/5k2rt9f7pmny/month.json {::undoc}<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "period": {
@@ -487,13 +424,11 @@ Base URL: `https://discordstatus.com/`
 }
 ```
 }
-}
+
+### {::get metrics-display/5k2rt9f7pmny/week.json {::undoc}}
 
 {::details 
-### metrics-display/5k2rt9f7pmny/week.json {::undoc}<summ>
-
-{::details 
-{::get }<summ>
+Response<summ>
 ```json
 {
     "period": {
@@ -535,5 +470,4 @@ Base URL: `https://discordstatus.com/`
     }
 }
 ```
-}
 }
