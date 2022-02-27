@@ -32,9 +32,9 @@ Either they are not useable by bots, or Discord just doesn't want you to know ab
 
 ### Can I parse the API Types?
 
-Yesn't. Read the [API Types](apitypes.md) page for more information.
+Yesn't. Read [Reference#API Types](./reference.md#api-types) section for more information.
 
-## Links
+## Additional Links/Resources
 
 **Discord Developers** - <https://discord.gg/discord-developers> and <https://dis.gd/docs>\
 Discord Developers (aka DDevs) is the official community dedicated to helping 
