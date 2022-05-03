@@ -2,35 +2,41 @@
 
 [![Discord](https://img.shields.io/discord/943759314856849468?style=flat-square&color=fd745e&label=Unofficial%20Discord%20Documentation&logo=discord&logoColor=FFFFFF&labelColor=36393F)](https://discord.gg/zVB5P96GE2)
 
-
 Main repository for the Discord-Undoc website, the documentation lives in `./src`\
-The website can be found at https://discord-undoc.github.io
+The website can be found at <https://discord-undoc.github.io>
 
 ## How do I contribute?
 
-> NOTE: You cannot preview the documenation without the `./theme` folder!
+Make sure to read our [Contribution Guidelines](./.github/CONTRIBUTING.md) first!
 
-**Prerequisites**
+### You need
+
 1. Rust
-2. Cargo
-3. mdbook (can be installed by `cargo install mdbook`)
-4. Python
-5. Poetry (optional)
-6. mistletoe (can be installed by `pip install mistletoe`
-   or if you have poetry you can `poetry install` this also installs dev deps)
+2. mdbook
+3. Python
 
-After installing `mdbook` go ahead and grab the latest iteration of the theme.
+Go ahead and grab the latest iteration of the theme.
 
 If you are on unix:
+
 ```bash
 $ chmod +x ./get_theme.sh
+>
 $ ./get_theme.sh
+>
 ```
 
 If you are on windows:
 *Unfortunately we don't have a script for windows yet, you have to manually downlaod the
 theme from the [`/discord-undoc/discord-undoc-theme`](https://github.com/discord-undoc/discord-undoc-theme) repository.*
+or use something like git bash.
 
-Once you have the theme, you can start editing the files.\
-Make sure to start your mdbook server to see the changes live!
-— Can be done by `mdbook serve`
+Once you have the theme, you can install the required dependencies; i.e:
+
+- mistletoe
+- httpx
+- orjson
+- beautifulsoup4
+
+After this you can go ahead and start writing some documentation,\
+dont forget to use `mdbook serve` for a live preview!

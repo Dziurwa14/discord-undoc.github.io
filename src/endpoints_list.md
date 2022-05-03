@@ -37,6 +37,7 @@
 - `channels/:channel.id/follower-stats`
 - `channels/:channel.id/followers`
 - `channels/:channel.id/invites`
+- `channels/:channel.id/greet`
 - `channels/:channel.id/messages`
 - `channels/:channel.id/messages/:message.id`
 - `channels/:channel.id/messages/:message.id/crosspost`
