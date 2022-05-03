@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.x"
           architecture: "x64"
-      - run: pip install mistletoe httpx orjson
+      - run: pip install mistletoe httpx orjson beautifulsoup4
       - name: Deploy GitHub Pages
         if: startsWith(github.event.head_commit.message, 'publish:')
         run: |
