@@ -9,34 +9,34 @@ jobs:
     name: Check and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      if: startsWith(github.event.head_commit.message, 'publish:')
-      with:
-        fetch-depth: 0
-    - name: Install mdbook
-      if: startsWith(github.event.head_commit.message, 'publish:')
-      run: |
-        mkdir mdbook
-        curl -sSL $$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py) | tar -xz --directory=./mdbook
-        echo `pwd`/mdbook >> $GITHUB_PATH
-    - uses: actions/setup-python@v2
-      if: startsWith(github.event.head_commit.message, 'publish:')
-      with:
-        python-version: '3.x'
-        architecture: 'x64'
-    - run: pip install mistletoe httpx orjson
-    - name: Deploy GitHub Pages
-      if: startsWith(github.event.head_commit.message, 'publish:')
-      run: |
-        sh ./get_theme.sh
-        mdbook build
-        git worktree add gh-pages gh-pages
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        cd gh-pages
-        git update-ref -d refs/heads/gh-pages
-        rm -rf *
-        mv ../book/* .
-        git add .
-        git commit -m "Automated Deploy triggered by $GITHUB_SHA"
-        git push --force
+      - uses: actions/checkout@v2
+        if: startsWith(github.event.head_commit.message, 'publish:')
+        with:
+          fetch-depth: 0
+      - name: Install mdbook
+        if: startsWith(github.event.head_commit.message, 'publish:')
+        run: |
+          mkdir mdbook
+          curl -sSL $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py) | tar -xz --directory=./mdbook
+          echo `pwd`/mdbook >> $GITHUB_PATH
+      - uses: actions/setup-python@v2
+        if: startsWith(github.event.head_commit.message, 'publish:')
+        with:
+          python-version: "3.x"
+          architecture: "x64"
+      - run: pip install mistletoe httpx orjson
+      - name: Deploy GitHub Pages
+        if: startsWith(github.event.head_commit.message, 'publish:')
+        run: |
+          sh ./get_theme.sh
+          mdbook build
+          git worktree add gh-pages gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cd gh-pages
+          git update-ref -d refs/heads/gh-pages
+          rm -rf *
+          mv ../book/* .
+          git add .
+          git commit -m "Automated Deploy triggered by $GITHUB_SHA"
+          git push --force
