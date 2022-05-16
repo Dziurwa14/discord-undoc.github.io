@@ -1,4 +1,4 @@
 # Summary
 
 - [Introduction](README.md)
-- [Endpoints List](endpoints_list.md)
+- [Endpoint & Routes List](endpoint_n_routes_list.md)
