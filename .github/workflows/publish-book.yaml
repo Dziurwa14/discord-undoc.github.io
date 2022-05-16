@@ -28,6 +28,7 @@ jobs:
       - name: Deploy GitHub Pages
         if: startsWith(github.event.head_commit.message, 'publish:')
         run: |
+          export TOKEN="{{ secrets.BOT_TOKEN }}"
           sh ./get_theme.sh
           mdbook build
           git worktree add gh-pages gh-pages
