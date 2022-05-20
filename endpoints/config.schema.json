@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/Config",
+    "type": "object",
+    "definitions": {
+        "Type": {
+            "type": "object",
+            "properties": {
+                "x-display-name": {
+                    "type": "string"
+                },
+                "x-description": {
+                    "type": "string"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Config": {
+            "patternProperties": {
+                "^.+$": {
+                    "$ref": "#/definitions/Type"
+                }
+            },
+            "minProperties": 1,
+            "additionalItems": false
+        }
+    }
+}

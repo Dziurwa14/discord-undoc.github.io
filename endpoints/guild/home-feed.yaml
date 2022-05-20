@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=../endpoints.schema.json
+
 x-display-name: Guild Home-Feed related endpoints
 x-description: >
   meow

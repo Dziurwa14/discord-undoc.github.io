@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=../endpoints.schema.json
+
 x-display-name: Guild Emoji related endpoints
 x-description: >
   meow

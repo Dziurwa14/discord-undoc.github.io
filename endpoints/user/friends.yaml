@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=../endpoints.schema.json
+
 x-display-name: Friend and *Relationship* endpoints
 x-description: >
   meow

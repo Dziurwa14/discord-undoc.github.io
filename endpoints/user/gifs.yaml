@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=../endpoints.schema.json
+
 x-display-name: Your "No One Asked" gif endpoints
 x-description: >
   meow

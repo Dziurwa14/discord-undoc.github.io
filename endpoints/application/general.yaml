@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=../endpoints.schema.json
+
 x-display-name: General application endpoints
 x-description: >
   meow

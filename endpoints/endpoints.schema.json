@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/Endpoints",
+    "type": "object",
+    "definitions": {
+        "Method": {
+            "type": "object",
+            "properties": {
+                "x-display-name": {
+                    "type": "string"
+                },
+                "x-description": {
+                    "type": "string"
+                },
+                "x-body": {
+                    "type": "string"
+                },
+                "x-response": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "x-display-name",
+                "x-description",
+                "x-body",
+                "x-response"
+            ]
+        },
+        "Endpoint": {
+            "type": "object",
+            "patternProperties": {
+                "method|get|head|post|put|delete|connect|options|trace|patch": {
+                    "$ref": "#/definitions/Method"
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        },
+        "Endpoints": {
+            "patternProperties": {
+                "x-display-name": {
+                    "type": "string"
+                },
+                "x-description": {
+                    "type": "string"
+                },
+                "^(?!x-display-name)(?!x-description).+$": {
+                    "$ref": "#/definitions/Endpoint"
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        }
+    }
+}
