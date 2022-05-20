@@ -1,0 +1,101 @@
+x-display-name: Guild Role related endpoints
+x-description: >
+  meow
+
+/guilds/{guild.id}/role-prompts:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-prompts/{prompt.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+? /guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}
+: method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-subscriptions/settings:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+? /guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial/{trial.id}/eligibility
+: method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-subscriptions/trials:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/role-subscriptions/trials/metrics-overview:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/roles:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/roles/member-counts:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/roles/{role.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/roles/{role.id}/member-ids:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/roles/{role.id}/members:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

@@ -1,0 +1,24 @@
+x-display-name: User Debug Log related CDN endpoints
+x-description: >
+  meow
+
+/debug-logs/multi/{unknown}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/debug-logs/{1||2||3||4}/{unknown}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/metrics:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

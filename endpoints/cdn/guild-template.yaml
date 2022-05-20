@@ -1,0 +1,10 @@
+x-display-name: Guild Template related CDN endpoints
+x-description: >
+  meow
+
+/templates/{template.id}/icons/{hash}.{unknown}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

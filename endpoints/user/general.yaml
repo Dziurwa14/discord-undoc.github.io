@@ -1,0 +1,24 @@
+x-display-name: General User endpoints
+x-description: >
+  meow
+
+/tutorial/indicators:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/tutorial/indicators/suppress:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/tutorial/indicators/{tutorial.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

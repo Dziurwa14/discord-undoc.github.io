@@ -1,0 +1,31 @@
+x-display-name: Guild Home-Feed related endpoints
+x-description: >
+  meow
+
+/guilds/{guild.id}/guild-feed:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/guild-feed/feature:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/guild-feed/mark-seen:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/guild-feed/preference:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

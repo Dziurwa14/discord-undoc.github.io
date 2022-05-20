@@ -1,0 +1,31 @@
+x-display-name: Discovery endpoints for Users
+x-description: >
+  meow
+
+/guild-recommendations:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/discoverable-guilds:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/discovery/categories:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/discovery/valid-term:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

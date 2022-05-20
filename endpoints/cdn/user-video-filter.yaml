@@ -1,0 +1,10 @@
+x-display-name: User Video Filter related CDN endpoint
+x-description: >
+  meow
+
+/users/{user.id}/video-filter-assets/{unknown}/{hash}.{PNG||JPEG||WebP||GIF}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

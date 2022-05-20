@@ -1,0 +1,87 @@
+x-display-name: Guild Voice Channel related endpoints
+x-description: >
+  meow
+
+/guilds/{guild.id}/voice-states/@me:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/voice-states/{user.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/soundboard-sounds:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/soundboard-sounds/{sound.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/applications/{application.id}/{guild.id}/{channel.id}/join-ticket:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/guilds/{guild.id}/config:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/guilds/{guild.id}/enable-wtp:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/guilds/{guild.id}/shelf:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/guilds/{guild.id}/{channel.id}/{application.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/activities/statistics/applications/{application.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/voice/regions:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

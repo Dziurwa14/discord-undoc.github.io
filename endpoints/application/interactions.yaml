@@ -1,0 +1,59 @@
+x-display-name: Interactions related endpoints
+x-description: >
+  meow
+
+/interactions:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/interactions/{interaction.id}/{interaction.token}/callback:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/applications/{application.id}/commands:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/applications/{application.id}/commands/{command.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/applications/{application.id}/guilds/{guild.id}/commands:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/applications/{application.id}/guilds/{guild.id}/commands/permissions:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/applications/{application.id}/guilds/{guild.id}/commands/{command.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+? /applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions
+: method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

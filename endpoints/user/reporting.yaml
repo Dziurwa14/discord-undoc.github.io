@@ -1,0 +1,45 @@
+x-display-name: Report related endpoints
+x-description: >
+  meow
+
+/report:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/report/options:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+? /reporting/menu/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}
+: method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+? /reporting/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}
+: method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/reports:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/reports/channels/{channel.id}/messages/{message.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

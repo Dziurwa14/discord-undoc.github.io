@@ -1,4 +1,4 @@
-name: Check and Deploy Docs
+name: Check and Deploy Documentation
 on:
   push:
     branches:
@@ -19,16 +19,8 @@ jobs:
           mkdir mdbook
           curl -sSL $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py) | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
-      - uses: actions/setup-python@v2
-        if: startsWith(github.event.head_commit.message, 'publish:')
-        with:
-          python-version: "3.x"
-          architecture: "x64"
-      - run: pip install mistletoe httpx orjson beautifulsoup4
       - name: Deploy GitHub Pages
         if: startsWith(github.event.head_commit.message, 'publish:')
-        env:
-          TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           sh ./get_theme.sh
           mdbook build

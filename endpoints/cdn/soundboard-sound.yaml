@@ -1,0 +1,10 @@
+x-display-name: Soundboard Sound related CDN endpoints
+x-description: >
+  meow
+
+/soundboard-sounds/{sound.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

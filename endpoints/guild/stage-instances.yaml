@@ -1,0 +1,24 @@
+x-display-name: Guild Stage Instance related endpoints
+x-description: >
+  meow
+
+/stage-instances:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/stage-instances/extra:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/stage-instances/{channel.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

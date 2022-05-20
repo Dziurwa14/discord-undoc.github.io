@@ -1,0 +1,17 @@
+x-display-name: Application related CDN endpoints
+x-description: >
+  meow
+
+/applications/{application.id}/app-icons/{hash}.png:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/store/applications/{application.id}/assets/{hash}.{WebP|PNG}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

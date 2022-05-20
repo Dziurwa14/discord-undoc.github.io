@@ -1,0 +1,73 @@
+x-display-name: Student Hub related endpoints
+x-description: >
+  meow
+
+/guilds/automations/email-domain-lookup:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/automations/email-domain-lookup/verify:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/automations/email-domain-lookup/verify-code:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/channels/{channel.id}/directory-entries:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/channels/{channel.id}/directory-entries/counts:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/channels/{channel.id}/directory-entries/list:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/channels/{channel.id}/directory-entries/search:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/channels/{channel.id}/directory-entry/{entity.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/directory-entries/broadcast:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/hub-waitlist/signup:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

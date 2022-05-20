@@ -1,0 +1,10 @@
+x-display-name: Guild Sticker related CDN endpoints
+x-description: >
+  meow
+
+/stickers/{hash}.{PNG||Lottie}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

@@ -1,0 +1,10 @@
+x-display-name: User Avatar Decoration related CDN endpoint
+x-description: >
+  meow
+
+/users/{user.id}/avatar-decorations/{hash}.{PNG||JPEG||WebP}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

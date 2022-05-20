@@ -1,0 +1,10 @@
+x-display-name: Guild Event Splash related CDN endpoints
+x-description: >
+  meow
+
+/guild-events/{event.id}/images/{hash}.{PNG||JPEG||WebP}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

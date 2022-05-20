@@ -1,0 +1,31 @@
+x-display-name: Application related endpoints for Users
+x-description: >
+  meow
+
+/users/@me/applications/{application.id}/achievements:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/users/@me/applications/{application.id}/entitlement-ticket:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/users/@me/applications/{application.id}/entitlements:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/users/@me/applications/{entitlement.id}/ticket:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

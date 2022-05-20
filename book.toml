@@ -6,9 +6,6 @@ src = "src"
 title = "Unofficial Discord Documentation"
 description = "Unofficial Discsord Documentation - Documenting the undocumented side of the Discord API"
 
-[preprocessor.discord-undoc]
-command = "python ./theme/discord_undoc.py"
-
 [output.html]
 default-theme = "dark"
 preferred-dark-theme = "dark"

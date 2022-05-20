@@ -1,0 +1,24 @@
+x-display-name: Guild Partnership related endpoints
+x-description: >
+  meow
+
+/partners/apply:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/partners/connections:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/partners/{guild.id}/requirements:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

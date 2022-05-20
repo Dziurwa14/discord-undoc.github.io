@@ -1,0 +1,82 @@
+cdn:
+  x-display-name: Content Delivery Network
+  x-description: >
+    meow
+  members:
+    - application
+    - guild-icon
+    - guild-banner
+    - guild-splash
+    - guild-discovery-splash
+    - guild-role
+    - guild-emoji
+    - guild-sticker
+    - guild-template
+    - guild-event
+    - guild-user-avatar
+    - guild-user-banner
+    - user-avatar
+    - user-avatar-decoration
+    - user-banner
+    - user-video-filter
+    - soundboard-sound
+
+guild:
+  x-display-name: Guilds
+  x-description: >
+    meow
+  members:
+    - general
+    - home-feed
+    - channels
+    - members
+    - moderation
+    - roles
+    - integrations
+    - invites
+    - membership-screening
+    - monetization
+    - premium-subscription
+    - scheduled-events
+    - stage-instances
+    - auto-moderation
+    - analytics
+    - discovery
+    - partner
+    - student-hubs
+    - emojis
+    - stickers
+    - voice
+    - widget
+    - webhooks
+
+user:
+  x-display-name: Users
+  x-description: >
+    meow
+  members:
+    - general
+    - "@me"
+    - user
+    - application
+    - reporting
+    - auth
+    - billing
+    - connections
+    - debug-logs
+    - discovery
+    - friends
+    - gifs
+    - promotions-and-gifts
+
+application:
+  x-display-name: Applications
+  x-description: >
+    meow
+  members:
+    - general
+    - interactions
+    - oauth
+    - app-directory
+    - sdk-and-dispatch
+    - store

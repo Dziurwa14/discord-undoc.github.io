@@ -1,0 +1,66 @@
+x-display-name: Guild/Channel Webhook related endpoints
+x-description: >
+  meow
+
+/guilds/{guild.id}/webhooks:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{application.id}/{interaction.token}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{application.id}/{interaction.token}/messages/@original:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{application.id}/{interaction.token}/messages/{message.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{webhook.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{webhook.id}/{webhook.token}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{webhook.id}/{webhook.token}/github:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/webhooks/{webhook.id}/{webhook.token}/slack:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

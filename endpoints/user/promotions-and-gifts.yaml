@@ -1,0 +1,45 @@
+x-display-name: Promotion and Gift endpoints for Users
+x-description: >
+  meow
+
+/entitlements/gift-codes/{gift.code}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/entitlements/gift-codes/{gift.code}/redeem:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/outbound-promotions:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/outbound-promotions/preview:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/outbound-promotions/{promotion.id}/claim:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/promotions/funimation:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

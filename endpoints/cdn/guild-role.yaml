@@ -1,0 +1,10 @@
+x-display-name: Guild Role Icon releated CDN endpoints
+x-description: >
+  meow
+
+/roles/{role.id}/icons/{hash}.{PNG||JPEG||WebP}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

@@ -1,0 +1,17 @@
+x-display-name: Guild Emoji related endpoints
+x-description: >
+  meow
+
+/guilds/{guild.id}/emojis:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guilds/{guild.id}/emojis/{emoji.id}:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
