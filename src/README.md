@@ -6,6 +6,10 @@ The purpose of this project is to cover all of it, from more in -- depth
 documentation to document entire new areas and endpoints, to make your
 understanding of the API and bot development better.
 
+Come join the *official* Unofficial Discord Documentation server:
+
+<server id="zVB5P96GE2"></server>
+
 <note>
 
 Read [navigation.md](https://discord-undoc.github.io/discord-undoc-theme/kbdcombo.html)
