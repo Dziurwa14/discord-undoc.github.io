@@ -5,7 +5,7 @@ x-description: >
   meow
 
 /stickers/{hash}.{PNG||Lottie}:
-  method:
+  get:
     x-display-name: ""
     x-description: ""
     x-body: ""

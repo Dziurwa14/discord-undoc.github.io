@@ -10,3 +10,10 @@ x-description: >
     x-description: ""
     x-body: ""
     x-response: ""
+
+/icons/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

@@ -102,13 +102,6 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/channels/{channel.id}/icons/{hash}.jpg:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
 /channels/{channel.id}/invites:
   method:
     x-display-name: ""
@@ -396,21 +389,21 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/streams/{stream-key}/notify:
+/streams/{stream.key}/notify:
   method:
     x-display-name: ""
     x-description: ""
     x-body: ""
     x-response: ""
 
-/streams/{stream-key}/preview:
+/streams/{stream.key}/preview:
   method:
     x-display-name: ""
     x-description: ""
     x-body: ""
     x-response: ""
 
-/streams/{stream-key}/stream:
+/streams/{stream.key}/stream:
   method:
     x-display-name: ""
     x-description: ""

@@ -5,14 +5,28 @@ x-description: >
   meow
 
 /applications/{application.id}/app-icons/{hash}.png:
-  method:
+  get:
     x-display-name: ""
     x-description: ""
     x-body: ""
     x-response: ""
 
-/store/applications/{application.id}/assets/{hash}.{WebP|PNG}:
-  method:
+/app-icons/{application.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/store/applications/{710982414301790216}/assets/{banner_asset.id}.{WebP|PNG}:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}:
+  get:
     x-display-name: ""
     x-description: ""
     x-body: ""

@@ -5,7 +5,14 @@ x-description: >
   meow
 
 /guild-events/{event.id}/images/{hash}.{PNG||JPEG||WebP}:
-  method:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/guild-events/{guild.id}/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-display-name: ""
     x-description: ""
     x-body: ""

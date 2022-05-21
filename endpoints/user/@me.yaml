@@ -109,7 +109,7 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/users/@me/entitlements/gift-codes/{gift-code}:
+/users/@me/entitlements/gift-codes/{gift.code}:
   method:
     x-display-name: ""
     x-description: ""

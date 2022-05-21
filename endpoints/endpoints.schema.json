@@ -49,7 +49,11 @@
                     "$ref": "#/definitions/Endpoint"
                 }
             },
-            "minProperties": 1,
+            "required": [
+                "x-display-name",
+                "x-description"
+            ],
+            "minProperties": 2,
             "additionalProperties": false
         }
     }

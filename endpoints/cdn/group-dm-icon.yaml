@@ -1,17 +1,17 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: Guild Template related CDN endpoints
+x-display-name: Group DM Icon related endpoints
 x-description: >
   meow
 
-/templates/{template.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}:
+/channels/{channel.id}/icons/{hash}.jpg:
   get:
     x-display-name: ""
     x-description: ""
     x-body: ""
     x-response: ""
 
-/guild-templates/{template.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+/channel-icons/{channel.id}/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
     x-display-name: ""
     x-description: ""

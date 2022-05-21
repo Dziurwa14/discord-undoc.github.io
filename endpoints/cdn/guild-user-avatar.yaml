@@ -5,7 +5,7 @@ x-description: >
   meow
 
 /guilds/{guild.id}/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}:
-  method:
+  get:
     x-display-name: ""
     x-description: ""
     x-body: ""
