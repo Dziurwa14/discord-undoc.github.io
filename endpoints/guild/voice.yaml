@@ -39,13 +39,6 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/activities/applications/{application.id}/{guild.id}/{channel.id}/join-ticket:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
 /activities/guilds/{guild.id}/config:
   method:
     x-display-name: ""
