@@ -57,7 +57,7 @@ provided here.
 
 <br>
 
-We explicitly do not endorse any voilation of Discord's TOS.
+We explicitly do not endorse any violation of Discord's TOS.
 
 <br>
 
