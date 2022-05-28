@@ -27,7 +27,7 @@ jobs:
               for asset in latest_release:
                   if "linux" in asset["name"]:
                       print(asset["browser_download_url"])
-                      break"
+                      break" > ./get_mdbook.py
 
           curl -sSL $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py) | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
