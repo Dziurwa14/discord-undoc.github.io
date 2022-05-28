@@ -11,13 +11,6 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/guilds/{guild.id}/top-read-channels:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
 /guilds/{guild.id}/channels:
   method:
     x-display-name: ""

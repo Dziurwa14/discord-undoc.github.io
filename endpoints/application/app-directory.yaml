@@ -38,3 +38,10 @@ x-description: >
     x-description: ""
     x-body: ""
     x-response: ""
+
+/application-directory/collections:
+  method:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""

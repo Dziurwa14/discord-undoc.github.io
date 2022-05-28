@@ -18,7 +18,7 @@ x-description: >
     x-body: ""
     x-response: ""
 
-/store/applications/{710982414301790216}/assets/{banner_asset.id}.{WebP|PNG}:
+/store/applications/710982414301790216/assets/{banner_asset.id}.{WebP|PNG}:
   get:
     x-display-name: ""
     x-description: ""
@@ -26,6 +26,20 @@ x-description: >
     x-response: ""
 
 /app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}:
+  get:
+    x-display-name: ""
+    x-description: ""
+    x-body: ""
+    x-response: ""
+
+/app-assets/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}:
   get:
     x-display-name: ""
     x-description: ""
