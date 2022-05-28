@@ -19,9 +19,10 @@ jobs:
           mkdir mdbook
 
           wget -O "get_mdbook.py" https://gist.githubusercontent.com/arHSM/d077150abcd38aafdd24dfd8bf0eb4aa/raw/add0be08bf75e7931f354941d75d48f0fae6b462/get_mdbook.py
+          wget -O "mdbook.tar.gz" $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py)
+          tar -xzf mdbook.tar.gz
 
-          curl -sSL $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/rust-lang/mdBook/releases | python ./get_mdbook.py) | tar -xz --directory=./mdbook
-          echo `pwd`/mdbook >> $GITHUB_PATH
+          echo `pwd` >> $GITHUB_PATH
       - name: Deploy GitHub Pages
         if: startsWith(github.event.head_commit.message, 'publish:')
         run: >
