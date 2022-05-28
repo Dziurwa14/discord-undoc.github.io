@@ -51,7 +51,6 @@ to get a basic understanding about how to navigate the docs.
 > The main team:
 >
 > <user id="841509053422632990"></user> (Owner/Maintainer)\
-> <user id="755792681313108018"></user>\
-> <user id="190160914765316096"></user>
+> <user id="755792681313108018"></user>
 >
 > We dont have fancy titles, we just contribute wherever we can.
