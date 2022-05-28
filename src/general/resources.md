@@ -79,6 +79,10 @@ These are some resources that might help you 😺
 > <br>
 >
 > **Link**: [Website](https://luna.gitlab.io/discord-unofficial-docs)
+>
+> <br>
+>
+> **Credits**: [Luna Mendes](https://l4.pm/)
 
 ## Discord Resources Wiki
 
