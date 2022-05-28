@@ -4,7 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Unofficial Discord Documentation"
-description = "Unofficial Discsord Documentation - Documenting the undocumented side of the Discord API"
+description = "Unofficial Discord Documentation - Documenting the undocumented side of the Discord API"
 
 [output.html]
 default-theme = "dark"
