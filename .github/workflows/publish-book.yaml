@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Install mdbook
         if: startsWith(github.event.head_commit.message, 'publish:')
-        run: >
+        run: |
           mkdir mdbook
 
           wget -O "get_mdbook.py" https://gist.githubusercontent.com/arHSM/d077150abcd38aafdd24dfd8bf0eb4aa/raw/add0be08bf75e7931f354941d75d48f0fae6b462/get_mdbook.py
@@ -25,7 +25,7 @@ jobs:
           echo `pwd` >> $GITHUB_PATH
       - name: Deploy GitHub Pages
         if: startsWith(github.event.head_commit.message, 'publish:')
-        run: >
+        run: |
           sh ./get_theme.sh
 
           mdbook build
