@@ -1,61 +1,80 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: User Connections related endpoints
-x-description: >
-  meow
-
-? /connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 ? /connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize?continuation=true
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+: get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 ? /connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/callback
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+: post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/connections:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 ? /users/@me/connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/{connection.id}
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+: put:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  patch:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  delete:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/connections/{twitch||youtube||spotify}/{connection.id}/access-token:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/connections/contacts/@me/external-friend-list-entries:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/connections/contacts/@me/external-friend-list-entries/settings:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

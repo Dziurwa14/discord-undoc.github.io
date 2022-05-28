@@ -1,30 +1,6 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-/guilds/automations/email-domain-lookup:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/guilds/automations/email-domain-lookup/verify:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/guilds/automations/email-domain-lookup/verify-code:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/channels/{channel.id}/directory-entries:
+/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -32,7 +8,7 @@
     x-body: null
     x-query: null
     x-response: null
-/channels/{channel.id}/directory-entries/counts:
+/avatars/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -40,7 +16,7 @@
     x-body: null
     x-query: null
     x-response: null
-/channels/{channel.id}/directory-entries/list:
+/users/{user.id}/avatar-decorations/{decoration}.{PNG||JPEG||WebP}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -48,7 +24,7 @@
     x-body: null
     x-query: null
     x-response: null
-/channels/{channel.id}/directory-entries/search:
+/avatar-decorations/{user.id}/{decoration}.{PNG||JPEG||WebP}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -56,29 +32,7 @@
     x-body: null
     x-query: null
     x-response: null
-/channels/{channel.id}/directory-entry/{entity.id}:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-  patch:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-  delete:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/guilds/{guild.id}/directory-entries/broadcast:
+/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -86,8 +40,40 @@
     x-body: null
     x-query: null
     x-response: null
-/hub-waitlist/signup:
-  post:
+/banners/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/users/{user.id}/video-filter-assets/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/video-filter-assets/{user.id}/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/channels/{channel.id}/icons/{hash}.jpg:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/channel-icons/{channel.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

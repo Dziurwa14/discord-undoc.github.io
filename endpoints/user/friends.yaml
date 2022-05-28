@@ -1,47 +1,78 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: Friend and *Relationship* endpoints
-x-description: >
-  meow
-
 /friend-suggestions:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /friend-suggestions/{user.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  delete:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/{user.id}/relationships:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/relationships/bulk:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/relationships/{user.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  put:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  patch:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  delete:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/relationships:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

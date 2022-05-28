@@ -1,32 +1,50 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$ref": "#/definitions/Config",
-    "type": "object",
-    "definitions": {
-        "Type": {
+    "title": "Endpoint list configuration schema",
+    "description": "A schema for the configuration file used to define endpoint file entries in discord-undoc",
+    "$ref": "#/$defs/Config",
+    "$defs": {
+        "ConfigEntry": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
             "type": "object",
             "properties": {
+                "x-section-name": {
+                    "type": "string",
+                    "title": "Section Name",
+                    "description": "Name of the folder for the section"
+                },
                 "x-display-name": {
-                    "type": "string"
+                    "type": "string",
+                    "title": "Display Name",
+                    "description": "Display name for the section"
                 },
                 "x-description": {
-                    "type": "string"
+                    "type": "string",
+                    "title": "Description",
+                    "description": "Description of the section"
                 },
                 "members": {
                     "type": "array",
                     "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "Config": {
-            "patternProperties": {
-                "^.+$": {
-                    "$ref": "#/definitions/Type"
+                        "type": "string",
+                        "title": "Member",
+                        "description": "Sub-file to add to the section"
+                    },
+                    "title": "Members",
+                    "description": "Sub-files present in the section",
+                    "minItems": 1
                 }
             },
-            "minProperties": 1,
+            "minProperties": 4,
+            "additionalProperties": false
+        },
+        "Config": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/ConfigEntry"
+            },
+            "minItems": 1,
             "additionalItems": false
         }
     }

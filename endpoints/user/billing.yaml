@@ -1,173 +1,215 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: Billing related endpoints
-x-description: >
-  meow
-
 /users/@me/billing/country-code:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payment-sources:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payment-sources/validate-billing-address:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payment-sources/{payment-source.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  patch:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  delete:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payments:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payments/{payment.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payments/{payment.id}/refund:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/payments/{payment.id}/void:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/paypal/billing-agreement-tokens:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/stripe/payment-intents/payments/{payment.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/stripe/setup-intents:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions/preview:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions/{subscription.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  patch:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  delete:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions/{subscription.id}/invoices:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions/{subscription.id}/invoices/{invoice.id}/pay:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/subscriptions/{subscription.id}/preview:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  patch:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/user-trial-offer:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/user-trial-offer/{user-trial-offer.id}/ack:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /billing/apple/apply-receipt:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /billing/popup-bridge/{1||2||3||4||5||6||7||8}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback/{unknown}/{unknown}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /billing/verify-purchase-request:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

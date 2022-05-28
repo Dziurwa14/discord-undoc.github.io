@@ -1,47 +1,50 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: App Directory related endpoints
-x-description: >
-  meow
-
 /application-directory/applications:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/applications/recommended:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/applications/{application.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/applications/{application.id}/similar:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/categories:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/collections:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  under development:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

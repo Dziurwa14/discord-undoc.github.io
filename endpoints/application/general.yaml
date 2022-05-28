@@ -1,75 +1,82 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: General application endpoints
-x-description: >
-  meow
-
 /applications:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/detectable:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/public:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/trending/global:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/{application.id}/external-assets:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/{application.id}/payment-payout-groups:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /applications/{application.id}/public:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /gateway:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /gateway/bot:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /teams:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

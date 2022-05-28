@@ -1,86 +1,6 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-/phone-verifications/resend:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/phone-verifications/validate-support-ticket:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/phone-verifications/verify:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/users/@me/remote-auth:
-  unknown:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/users/@me/remote-auth/cancel:
-  unknown:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/users/@me/remote-auth/finish:
-  unknown:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/auth/authorize-ip:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/auth/forgot:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/auth/handoff:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/auth/handoff/exchange:
-  post:
-    x-indicators: []
-    x-display-name: Place holder text, wow!
-    x-description: Place holder text, wow!
-    x-body: null
-    x-query: null
-    x-response: null
-/auth/location-metadata:
+/guilds/{guild.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -88,88 +8,144 @@
     x-body: null
     x-query: null
     x-response: null
-/auth/login:
-  post:
+/icons/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/logout:
-  post:
+/guilds/{guild.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/mfa/sms:
-  post:
+/banners/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/mfa/sms/send:
-  post:
+/guilds/{guild.id}/splashes/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/mfa/totp:
-  post:
+/splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/register:
-  post:
+/guilds/{guild.id}/discovery-splashes/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/register/phone:
-  post:
+/discovery-splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/reset:
-  post:
+/roles/{role.id}/icons/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/verify:
-  post:
+/role-icons/{role.id}/{hash}.{PNG||JPEG||WebP}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/verify/resend:
-  post:
+/emojis/{emoji.id}.{PNG||JPEG||WebP||GIF}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/auth/verify/view-backup-codes-challenge:
-  post:
+/stickers/{hash}.{PNG||Lottie}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/templates/{template.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/guild-templates/{template.id}/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/guild-events/{event.id}/images/{hash}.{PNG||JPEG||WebP}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/guild-events/{guild.id}/{hash}.{PNG||JPEG||WebP}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/guilds/{guild.id}/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/guilds/{guild.id}/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/soundboard-sounds/{sound.id}:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

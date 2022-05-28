@@ -1,47 +1,57 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: Report related endpoints
-x-description: >
-  meow
-
 /report:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /report/options:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 ? /reporting/menu/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
-? /reporting/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}
-: method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+: get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/reporting/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}:
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /reports:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /reports/channels/{channel.id}/messages/{message.id}:
-  method:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

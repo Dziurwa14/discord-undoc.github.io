@@ -1,47 +1,50 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-x-display-name: Application related CDN endpoints
-x-description: >
-  meow
-
 /applications/{application.id}/app-icons/{hash}.png:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /app-icons/{application.id}/{hash}.{PNG||JPEG||WebP||GIF}:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /store/applications/710982414301790216/assets/{banner_asset.id}.{WebP|PNG}:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
-
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /app-assets/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}:
   get:
-    x-display-name: ""
-    x-description: ""
-    x-body: ""
-    x-response: ""
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null

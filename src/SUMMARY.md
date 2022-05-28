@@ -24,10 +24,10 @@
 # Endpoints
 
 - [Endpoint & Routes List](endpoints/endpoint_n_routes_list.md)
-- [CDN]()
-- [Guilds]()
-- [Users]()
-- [Applications]()
+- [CDN](endpoints/cdn.md)
+- [Guilds](endpoints/guild.md)
+- [Users](endpoints/user.md)
+- [Applications](endpoints/application.md)
 
 # Miscellaneous
 

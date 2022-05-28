@@ -6,6 +6,9 @@
         "Method": {
             "type": "object",
             "properties": {
+                "x-indicators": {
+                    "type": "array"
+                },
                 "x-display-name": {
                     "type": "string"
                 },
@@ -13,16 +16,30 @@
                     "type": "string"
                 },
                 "x-body": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "x-query": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "x-response": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "additionalProperties": false,
             "required": [
+                "x-indicators",
                 "x-display-name",
                 "x-description",
+                "x-query",
                 "x-body",
                 "x-response"
             ]
@@ -30,7 +47,7 @@
         "Endpoint": {
             "type": "object",
             "patternProperties": {
-                "method|get|head|post|put|delete|connect|options|trace|patch": {
+                "unknown|under development|get|head|post|put|delete|connect|options|trace|patch": {
                     "$ref": "#/definitions/Method"
                 }
             },
@@ -39,21 +56,11 @@
         },
         "Endpoints": {
             "patternProperties": {
-                "x-display-name": {
-                    "type": "string"
-                },
-                "x-description": {
-                    "type": "string"
-                },
-                "^(?!x-display-name)(?!x-description).+$": {
+                "^.+$": {
                     "$ref": "#/definitions/Endpoint"
                 }
             },
-            "required": [
-                "x-display-name",
-                "x-description"
-            ],
-            "minProperties": 2,
+            "minProperties": 1,
             "additionalProperties": false
         }
     }

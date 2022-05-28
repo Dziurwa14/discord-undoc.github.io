@@ -1,33 +1,18 @@
 # yaml-language-server: $schema=config.schema.json
 
-cdn:
+- x-section-name: cdn
   x-display-name: Content Delivery Network
   x-description: >
-    meow
+    Placeholder text wow!
   members:
     - application
-    - guild-icon
-    - guild-banner
-    - guild-splash
-    - guild-discovery-splash
-    - guild-role
-    - guild-emoji
-    - guild-sticker
-    - guild-template
-    - guild-event
-    - guild-user-avatar
-    - guild-user-banner
-    - user-avatar
-    - user-avatar-decoration
-    - user-banner
-    - user-video-filter
-    - group-dm-icon
-    - soundboard-sound
+    - guild
+    - user
 
-guild:
+- x-section-name: guild
   x-display-name: Guilds
   x-description: >
-    meow
+    Placeholder text wow!
   members:
     - general
     - home-feed
@@ -53,10 +38,10 @@ guild:
     - widget
     - webhooks
 
-user:
+- x-section-name: user
   x-display-name: Users
   x-description: >
-    meow
+    Placeholder text wow!
   members:
     - general
     - "@me"
@@ -72,10 +57,10 @@ user:
     - gifs
     - promotions-and-gifts
 
-application:
+- x-section-name: application
   x-display-name: Applications
   x-description: >
-    meow
+    Placeholder text wow!
   members:
     - general
     - interactions

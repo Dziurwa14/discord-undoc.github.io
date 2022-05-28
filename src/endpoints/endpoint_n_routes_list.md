@@ -1,4 +1,4 @@
-# Endpoints & Routes
+# Endpoints List
 
 ## Base URLs
 
@@ -7,517 +7,443 @@
 
 ## Endpoints
 
-- `/activities`
-- `/activities/applications/{application.id}/{guild.id}/{channel.id}/join-ticket`
-- `/activities/guilds/{guild.id}/config`
-- `/activities/guilds/{guild.id}/enable-wtp`
-- `/activities/guilds/{guild.id}/shelf`
-- `/activities/guilds/{guild.id}/{channel.id}/{application.id}`
-- `/activities/statistics/applications/{application.id}`
-- `/application-directory/applications`
-- `/application-directory/applications/recommended`
-- `/application-directory/applications/{application.id}`
-- `/application-directory/applications/{application.id}/similar`
-- `/application-directory/categories`
-- `/applications`
-- `/applications/detectable`
-- `/applications/public`
-- `/applications/trending/global`
-- `/applications/{application.id}/achievements`
-- `/applications/{application.id}/achievements/{achievement.id}`
-- `/applications/{application.id}/app-icons/{hash}.png`
-- `/applications/{application.id}/branches`
-- `/applications/{application.id}/branches/{unknown}/builds/live`
-- `/applications/{application.id}/branches/{unknown}/builds/{unknown}/size`
-- `/applications/{application.id}/branches/{unknown}/storage`
-- `/applications/{application.id}/commands`
-- `/applications/{application.id}/commands/{command.id}`
-- `/applications/{application.id}/entitlements`
-- `/applications/{application.id}/entitlements/{entitlement.id}`
-- `/applications/{application.id}/entitlements/{entitlement.id}/consume`
-- `/applications/{application.id}/external-assets`
-- `/applications/{application.id}/guilds/{guild.id}/commands`
-- `/applications/{application.id}/guilds/{guild.id}/commands/permissions`
-- `/applications/{application.id}/guilds/{guild.id}/commands/{command.id}`
-- `/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions`
-- `/applications/{application.id}/payment-payout-groups`
-- `/applications/{application.id}/public`
-- `/applications/{application.id}/skus`
-- `/auth/authorize-ip`
-- `/auth/forgot`
-- `/auth/handoff`
-- `/auth/handoff/exchange`
-- `/auth/location-metadata`
-- `/auth/login`
-- `/auth/logout`
-- `/auth/mfa/sms`
-- `/auth/mfa/sms/send`
-- `/auth/mfa/totp`
-- `/auth/register`
-- `/auth/register/phone`
-- `/auth/reset`
-- `/auth/verify`
-- `/auth/verify/resend`
-- `/auth/verify/view-backup-codes-challenge`
-- `/billing/apple/apply-receipt`
-- `/billing/popup-bridge/{unknown}`
-- `/billing/popup-bridge/{unknown}/callback`
-- `/billing/popup-bridge/{unknown}/callback/{unknown}/{unknown}`
-- `/billing/verify-purchase-request`
-- `/branches`
-- `/channels`
-- `/channels/{channel.id}`
-- `/channels/{channel.id}/application-commands/search`
-- `/channels/{channel.id}/call`
-- `/channels/{channel.id}/call/ring`
-- `/channels/{channel.id}/call/stop-ringing`
-- `/channels/{channel.id}/convert`
-- `/channels/{channel.id}/directory-entries`
-- `/channels/{channel.id}/directory-entries/counts`
-- `/channels/{channel.id}/directory-entries/list`
-- `/channels/{channel.id}/directory-entries/search`
-- `/channels/{channel.id}/directory-entry/{unknown}`
-- `/channels/{channel.id}/follower-message-stats`
-- `/channels/{channel.id}/follower-stats`
-- `/channels/{channel.id}/followers`
-- `/channels/{channel.id}/greet`
-- `/channels/{channel.id}/icons/{hash}.jpg`
-- `/channels/{channel.id}/invites`
-- `/channels/{channel.id}/messages`
-- `/channels/{channel.id}/messages/ack`
-- `/channels/{channel.id}/messages/bulk-delete`
-- `/channels/{channel.id}/messages/search`
-- `/channels/{channel.id}/messages/{message.id}`
-- `/channels/{channel.id}/messages/{message.id}/crosspost`
-- `/channels/{channel.id}/messages/{message.id}/reactions`
-- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}`
-- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me`
-- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}`
-- `/channels/{channel.id}/messages/{message.id}/threads`
-- `/channels/{channel.id}/messages/{message.id}/ack`
-- `/channels/{channel.id}/messages/{message.id}/hide-guild-feed`
-- `/channels/{channel.id}/messages/{message.id}/interaction-data`
-- `/channels/{channel.id}/permissions`
-- `/channels/{channel.id}/permissions/{overwrite.id}`
-- `/channels/{channel.id}/pins`
-- `/channels/{channel.id}/pins/ack`
-- `/channels/{channel.id}/pins/{message.id}`
-- `/channels/{channel.id}/post-data`
-- `/channels/{channel.id}/recipients`
-- `/channels/{channel.id}/recipients/{user.id}`
-- `/channels/{channel.id}/store-listing`
-- `/channels/{channel.id}/store-listing/entitlement-grant`
-- `/channels/{channel.id}/store-listings/{unknown}`
-- `/channels/{channel.id}/tags`
-- `/channels/{channel.id}/tags/{unknown}`
-- `/channels/{channel.id}/thread-members`
-- `/channels/{channel.id}/thread-members/@me`
-- `/channels/{channel.id}/thread-members/@me/settings`
-- `/channels/{channel.id}/thread-members/{user.id}`
-- `/channels/{channel.id}/threads`
-- `/channels/{channel.id}/threads/active`
-- `/channels/{channel.id}/threads/archived/private`
-- `/channels/{channel.id}/threads/archived/public`
-- `/channels/{channel.id}/threads/archived/{unknown}`
-- `/channels/{channel.id}/threads/search`
-- `/channels/{channel.id}/typing`
-- `/channels/{channel.id}/users/@me/threads/archived/private`
-- `/channels/{channel.id}/webhooks`
-- `/connections/{unknown}/authorize`
-- `/connections/{unknown}/authorize?continuation=true`
-- `/connections/{unknown}/callback`
-- `/connections/{unknown}/callback-continuation/{unknown}`
-- `/debug-logs/multi/{unknown}`
-- `/debug-logs/{unknown}/{unknown}`
-- `/discoverable-guilds`
-- `/discovery/categories`
-- `/discovery/valid-term`
-- `/discovery/{unknown}`
-- `/emojis/{unknown}.{unknown}`
-- `/emojis/{unknown}/guild`
-- `/entitlements/gift-codes/{unknown}`
-- `/entitlements/gift-codes/{unknown}/redeem`
-- `/experiments`
-- `/friend-suggestions`
-- `/friend-suggestions/{unknown}`
-- `/gateway`
-- `/gateway/bot`
-- `/gifs/search`
-- `/gifs/select`
-- `/gifs/suggest`
-- `/gifs/trending`
-- `/gifs/trending-gifs`
-- `/gifs/trending-search`
-- `/google-play/downgrade-subscription`
-- `/google-play/verify-purchase-token`
-- `/guild-events`
-- `/guild-events/{unknown}/images/{unknown}.{unknown}`
-- `/guild-recommendations`
-- `/guilds`
-- `/guilds/automations/email-domain-lookup`
-- `/guilds/automations/email-domain-lookup/verify`
-- `/guilds/automations/email-domain-lookup/verify-code`
-- `/guilds/templates/{template.code}`
-- `/guilds/{guild.id}`
-- `/guilds/{guild.id}/ack/{unknown}/{unknown}`
-- `/guilds/{guild.id}/active-channels`
-- `/guilds/{guild.id}/analytics/engagement/overview`
-- `/guilds/{guild.id}/analytics/growth-activation/overview`
-- `/guilds/{guild.id}/analytics/growth-activation/retention`
-- `/guilds/{guild.id}/analytics/member-insights`
-- `/guilds/{guild.id}/analytics/overview`
-- `/guilds/{guild.id}/application-commands/{unknown}`
-- `/guilds/{guild.id}/applications`
-- `/guilds/{guild.id}/audit-logs`
-- `/guilds/{guild.id}/auto-moderation/rules`
-- `/guilds/{guild.id}/auto-moderation/rules/{unknown}`
-- `/guilds/{guild.id}/banners/{unknown}.{unknown}`
-- `/guilds/{guild.id}/bans`
-- `/guilds/{guild.id}/bans/{user.id}`
-- `/guilds/{guild.id}/channels`
-- `/guilds/{guild.id}/creator-monetization/enable-requests`
-- `/guilds/{guild.id}/creator-monetization/enable-requests/{unknown}/accept-terms`
-- `/guilds/{guild.id}/creator-monetization/requirements`
-- `/guilds/{guild.id}/delete`
-- `/guilds/{guild.id}/directory-entries/broadcast`
-- `/guilds/{guild.id}/discovery-categories/{unknown}`
-- `/guilds/{guild.id}/discovery-checklist`
-- `/guilds/{guild.id}/discovery-metadata`
-- `/guilds/{guild.id}/discovery-requirements`
-- `/guilds/{guild.id}/discovery-splashes/{unknown}.jpg`
-- `/guilds/{guild.id}/emojis`
-- `/guilds/{guild.id}/emojis/{emoji.id}`
-- `/guilds/{guild.id}/guild-feed`
-- `/guilds/{guild.id}/guild-feed/feature`
-- `/guilds/{guild.id}/guild-feed/mark-seen`
-- `/guilds/{guild.id}/guild-feed/preference`
-- `/guilds/{guild.id}/icons/{unknown}.{unknown}`
-- `/guilds/{guild.id}/integrations`
-- `/guilds/{guild.id}/integrations/{integration.id}`
-- `/guilds/{guild.id}/integrations/{unknown}/sync`
-- `/guilds/{guild.id}/invites`
-- `/guilds/{guild.id}/member-verification`
-- `/guilds/{guild.id}/members`
-- `/guilds/{guild.id}/members/@me`
-- `/guilds/{guild.id}/members/@me/nick`
-- `/guilds/{guild.id}/members/search`
-- `/guilds/{guild.id}/members/{unknown}/nick`
-- `/guilds/{guild.id}/members/{user.id}`
-- `/guilds/{guild.id}/members/{user.id}/roles/{role.id}`
-- `/guilds/{guild.id}/messages/search`
-- `/guilds/{guild.id}/mfa`
-- `/guilds/{guild.id}/premium/subscriptions`
-- `/guilds/{guild.id}/premium/subscriptions/{unknown}`
-- `/guilds/{guild.id}/preview`
-- `/guilds/{guild.id}/prune`
-- `/guilds/{guild.id}/regions`
-- `/guilds/{guild.id}/requests`
-- `/guilds/{guild.id}/requests/@me`
-- `/guilds/{guild.id}/requests/{unknown}`
-- `/guilds/{guild.id}/requests/{unknown}/ack`
-- `/guilds/{guild.id}/role-prompts`
-- `/guilds/{guild.id}/role-prompts/{unknown}`
-- `/guilds/{guild.id}/role-subscriptions/group-listings/{unknown}`
-- `/guilds/{guild.id}/role-subscriptions/group-listings/{unknown}/subscription-listings/{unknown}`
-- `/guilds/{guild.id}/role-subscriptions/settings`
-- `/guilds/{guild.id}/role-subscriptions/subscription-listings/{unknown}/trial`
-- `/guilds/{guild.id}/role-subscriptions/subscription-listings/{unknown}/trial/{unknown}/eligibility`
-- `/guilds/{guild.id}/role-subscriptions/trials`
-- `/guilds/{guild.id}/role-subscriptions/trials/metrics-overview`
-- `/guilds/{guild.id}/roles`
-- `/guilds/{guild.id}/roles/member-counts`
-- `/guilds/{guild.id}/roles/{role.id}`
-- `/guilds/{guild.id}/roles/{unknown}/member-ids`
-- `/guilds/{guild.id}/roles/{unknown}/members`
-- `/guilds/{guild.id}/scheduled-events`
-- `/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}`
-- `/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users`
-- `/guilds/{guild.id}/scheduled-events/{unknown}/users/@me`
-- `/guilds/{guild.id}/soundboard-sounds`
-- `/guilds/{guild.id}/soundboard-sounds/{unknown}`
-- `/guilds/{guild.id}/splashes/{unknown}.jpg`
-- `/guilds/{guild.id}/stickers`
-- `/guilds/{guild.id}/stickers/{sticker.id}`
-- `/guilds/{guild.id}/templates`
-- `/guilds/{guild.id}/templates/{template.code}`
-- `/guilds/{guild.id}/threads/active`
-- `/guilds/{guild.id}/top-read-channels`
-- `/guilds/{guild.id}/users/{unknown}/avatars/{unknown}.{unknown}`
-- `/guilds/{guild.id}/users/{unknown}/banners/{unknown}.{unknown}`
-- `/guilds/{guild.id}/vanity-url`
-- `/guilds/{guild.id}/voice-states/@me`
-- `/guilds/{guild.id}/voice-states/{user.id}`
-- `/guilds/{guild.id}/webhooks`
-- `/guilds/{guild.id}/welcome-screen`
-- `/guilds/{guild.id}/widget`
-- `/guilds/{guild.id}/widget.json`
-- `/guilds/{guild.id}/widget.png`
-- `/hub-waitlist/signup`
-- `/hypesquad/online`
-- `/integrations`
-- `/integrations/{unknown}/join`
-- `/integrations/{unknown}/search`
-- `/interactions`
-- `/interactions/{interaction.id}/{interaction.token}/callback`
-- `/invites/{invite.code}`
-- `/lobbies`
-- `/lobbies/search`
-- `/lobbies/{lobby.id}`
-- `/lobbies/{lobby.id}/members/{user.id}`
-- `/lobbies/{lobby.id}/send`
-- `/metrics`
-- `/networking/token`
-- `/oauth2/@me`
-- `/oauth2/allowlist/accept`
-- `/oauth2/applications/@me`
-- `/oauth2/applications/{unknown}/assets`
-- `/oauth2/applications/{unknown}/rpc`
-- `/oauth2/authorize`
-- `/oauth2/authorize/webhook-channels`
-- `/oauth2/tokens`
-- `/oauth2/tokens/{unknown}`
-- `/outbound-promotions`
-- `/outbound-promotions/preview`
-- `/outbound-promotions/{unknown}/claim`
-- `/partners/apply`
-- `/partners/connections`
-- `/partners/{unknown}/requirements`
-- `/phone-verifications/resend`
-- `/phone-verifications/validate-support-ticket`
-- `/phone-verifications/verify`
-- `/private/bug-reports`
-- `/promotions/funimation`
-- `/read-states/ack-bulk`
-- `/report`
-- `/report/options`
-- `/reporting/menu/{unknown}`
-- `/reporting/{unknown}`
-- `/reports`
-- `/reports/channels/{unknown}/messages/{unknown}`
-- `/roles/{unknown}/icons/{unknown}.png`
-- `/science`
-- `/soundboard-sounds/{unknown}`
-- `/sso`
-- `/stage-instances`
-- `/stage-instances/extra`
-- `/stage-instances/{channel.id}`
-- `/sticker-packs`
-- `/sticker-packs/directory-v2/{unknown}`
-- `/sticker-packs/{unknown}`
-- `/stickers/{sticker.id}`
-- `/stickers/{unknown}.{unknown}`
-- `/stickers/{unknown}/guild`
-- `/store/applications/{unknown}/assets/{unknown}.{unknown}`
-- `/store/directory-layouts/{unknown}`
-- `/store/directory/{unknown}`
-- `/store/eulas/{unknown}`
-- `/store/listings/{unknown}`
-- `/store/price-tiers`
-- `/store/published-listings/applications`
-- `/store/published-listings/applications/{unknown}`
-- `/store/published-listings/skus`
-- `/store/published-listings/skus/{unknown}`
-- `/store/published-listings/skus/{unknown}/guild/join`
-- `/store/published-listings/skus/{unknown}/subscription-plans`
-- `/store/skus/{sku.id}/discounts/{user.id}`
-- `/store/skus/{unknown}`
-- `/store/skus/{unknown}/listings`
-- `/store/skus/{unknown}/purchase`
-- `/streams/{unknown}/notify`
-- `/streams/{unknown}/preview`
-- `/streams/{unknown}/stream`
-- `/subscription-plans/{unknown}/guild-role-subscription-group-listing`
-- `/teams`
-- `/templates/{unknown}/icons/{unknown}.{unknown}`
-- `/tenor`
-- `/tutorial/indicators`
-- `/tutorial/indicators/suppress`
-- `/tutorial/indicators/{unknown}`
-- `/unverified-applications`
-- `/unverified-applications/icons`
-- `/users`
-- `/users/@me`
-- `/users/@me/activities/statistics/applications`
-- `/users/@me/affinities/guilds`
-- `/users/@me/affinities/users`
-- `/users/@me/agreements`
-- `/users/@me/applications/{application.id}/achievements`
-- `/users/@me/applications/{unknown}/entitlement-ticket`
-- `/users/@me/applications/{unknown}/entitlements`
-- `/users/@me/applications/{unknown}/ticket`
-- `/users/@me/billing/country-code`
-- `/users/@me/billing/payment-sources`
-- `/users/@me/billing/payment-sources/validate-billing-address`
-- `/users/@me/billing/payment-sources/{unknown}`
-- `/users/@me/billing/payments`
-- `/users/@me/billing/payments/{unknown}`
-- `/users/@me/billing/payments/{unknown}/refund`
-- `/users/@me/billing/payments/{unknown}/void`
-- `/users/@me/billing/paypal/billing-agreement-tokens`
-- `/users/@me/billing/stripe/payment-intents/payments/{unknown}`
-- `/users/@me/billing/stripe/payment-intents/{unknown}`
-- `/users/@me/billing/stripe/setup-intents`
-- `/users/@me/billing/subscriptions`
-- `/users/@me/billing/subscriptions/preview`
-- `/users/@me/billing/subscriptions/{unknown}`
-- `/users/@me/billing/subscriptions/{unknown}/invoices`
-- `/users/@me/billing/subscriptions/{unknown}/invoices/{unknown}/pay`
-- `/users/@me/billing/subscriptions/{unknown}/preview`
-- `/users/@me/billing/user-trial-offer`
-- `/users/@me/billing/user-trial-offer/{unknown}/ack`
-- `/users/@me/captcha/verify`
-- `/users/@me/channels`
-- `/users/@me/connections`
-- `/users/@me/connections/contacts/@me/external-friend-list-entries`
-- `/users/@me/connections/contacts/@me/external-friend-list-entries/settings`
-- `/users/@me/connections/{unknown}/{unknown}`
-- `/users/@me/connections/{unknown}/{unknown}/access-token`
-- `/users/@me/consent`
-- `/users/@me/delete`
-- `/users/@me/devices`
-- `/users/@me/disable`
-- `/users/@me/email`
-- `/users/@me/email-settings`
-- `/users/@me/email/verify-code`
-- `/users/@me/entitlements/gift-codes`
-- `/users/@me/entitlements/gift-codes/{unknown}`
-- `/users/@me/entitlements/gifts`
-- `/users/@me/guilds`
-- `/users/@me/guilds/premium/subscription-slots`
-- `/users/@me/guilds/premium/subscription-slots/{unknown}/cancel`
-- `/users/@me/guilds/premium/subscription-slots/{unknown}/uncancel`
-- `/users/@me/guilds/premium/subscriptions`
-- `/users/@me/guilds/premium/subscriptions/cooldown`
-- `/users/@me/guilds/{guild.id}`
-- `/users/@me/guilds/{guild.id}/member`
-- `/users/@me/guilds/{unknown}/settings`
-- `/users/@me/harvest`
-- `/users/@me/invites`
-- `/users/@me/join-request-guilds`
-- `/users/@me/library`
-- `/users/@me/library/{unknown}`
-- `/users/@me/library/{unknown}/{unknown}`
-- `/users/@me/library/{unknown}/{unknown}/installed`
-- `/users/@me/mentions`
-- `/users/@me/mentions/{unknown}`
-- `/users/@me/mfa/codes-verification`
-- `/users/@me/mfa/sms/disable`
-- `/users/@me/mfa/sms/enable`
-- `/users/@me/mfa/totp/disable`
-- `/users/@me/mfa/totp/enable`
-- `/users/@me/notes`
-- `/users/@me/notes/{unknown}`
-- `/users/@me/outbound-promotions/codes`
-- `/users/@me/phone`
-- `/users/@me/phone/verify`
-- `/users/@me/premium-usage`
-- `/users/@me/relationships/bulk`
-- `/users/@me/relationships/{unknown}`
-- `/users/@me/remote-auth`
-- `/users/@me/remote-auth/cancel`
-- `/users/@me/remote-auth/finish`
-- `/users/@me/scheduled-events`
-- `/users/@me/settings`
-- `/users/@me/settings-proto/{unknown}`
-- `/users/@me/settings/game-notifications`
-- `/users/@me/settings/game-notifications/overrides`
-- `/users/@me/sticker-packs`
-- `/users/@me/survey`
-- `/users/@me/video-filters/assets`
-- `/users/@me/video-filters/assets/{unknown}`
-- `/users/@me/video-filters/assets/{unknown}/last-used`
-- `/users/disable-email-notifications`
-- `/users/{user.id}`
-- `/users/{user.id}/applications/{unknown}/achievements/{unknown}`
-- `/users/{user.id}/avatar-decorations/{unknown}.{unknown}`
-- `/users/{user.id}/avatars/{unknown}.{unknown}`
-- `/users/{user.id}/banners/{unknown}.{unknown}`
-- `/users/{user.id}/profile`
-- `/users/{user.id}/relationships`
-- `/users/{user.id}/sessions/{unknown}/activities/{unknown}/1`
-- `/users/{user.id}/sessions/{unknown}/activities/{unknown}/metadata`
-- `/users/{user.id}/video-filter-assets/{unknown}/{unknown}.{unknown}`
-- `/voice/regions`
-- `/webhooks/{application.id}/{interaction.token}`
-- `/webhooks/{application.id}/{interaction.token}/messages/@original`
-- `/webhooks/{application.id}/{interaction.token}/messages/{message.id}`
-- `/webhooks/{webhook.id}`
-- `/webhooks/{webhook.id}/{webhook.token}`
-- `/webhooks/{webhook.id}/{webhook.token}/github`
-- `/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}`
-- `/webhooks/{webhook.id}/{webhook.token}/slack`
-
-## Routes
-
-- `/activity`
-- `/app`
-- `/application-directory/{unknown}`
-- `/apps`
-- `/authorize-ip`
-- `/authorize-payment`
-- `/billing`
-- `/billing/guild-subscriptions/purchase`
-- `/billing/login/handoff`
-- `/billing/payment-sources/create`
-- `/billing/payments`
-- `/billing/popup-bridge/callback`
-- `/billing/premium/manage`
-- `/billing/premium/subscribe`
-- `/billing/premium/switch-plan`
-- `/billing/promotions/{unknown}`
-- `/channels/@me`
-- `/channels/{unknown}/{unknown}/{unknown}`
-- `/connect/authorize`
-- `/connections/xbox/intro`
-- `/connections/xbox/pin`
-- `/connections/{unknown}`
-- `/disable-email-notifications`
-- `/domain-migration`
-- `/download-qr-code`
-- `/events/{unknown}/{unknown}`
-- `/feature/{unknown}`
-- `/gifts/{unknown}`
-- `/gifts/{unknown}/login`
-- `/guild-discovery`
-- `/guild-stages/{unknown}/{unknown}`
-- `/guilds/create`
-- `/guilds/{unknown}/premium-guild-subscriptions`
-- `/guilds/{unknown}/requests/{unknown}`
-- `/handoff`
-- `/invite-proxy/{unknown}`
-- `/invite/{unknown}`
-- `/invite/{unknown}/login`
-- `/invite/{unknown}/register`
-- `/library`
-- `/library/inventory`
-- `/library/settings`
-- `/library/{unknown}/{unknown}`
-- `/login`
-- `/login/handoff`
-- `/member-verification-for-hub/{unknown}/{unknown}`
-- `/member-verification/{unknown}/{unknown}`
-- `/mweb-handoff`
-- `/oauth2/allowlist/accept`
-- `/oauth2/authorize`
-- `/oauth2/authorized`
-- `/oauth2/error`
-- `/open-app-from-email`
-- `/popout`
-- `/register`
-- `/reset`
-- `/settings/changelogs/{unknown}`
-- `/settings/{unknown}/{unknown}`
-- `/store`
-- `/store/applications/{unknown}/{unknown}`
-- `/store/skus/{unknown}/{unknown}`
-- `/template/{unknown}`
-- `/template/{unknown}/login`
-- `/users/{unknown}`
-- `/verify`
-- `/verify-hub-email`
-- `/verify-request`
-- `/voice/{unknown}/{unknown}/{unknown}`
-- `/welcome/{unknown}/{unknown}`
+- `/activities/guilds/{guild.id}/enable-wtp` - `POST`
+- `/activities/guilds/{guild.id}/shelf` - `GET`
+- `/activities/guilds/{guild.id}/{channel.id}/{application.id}` - `POST`
+- `/activities/statistics/applications/{application.id}` - `UNKNOWN`
+- `/activities` - `POST`
+- `/app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}` - `GET`
+- `/app-assets/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}` - `GET`
+- `/app-icons/{application.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/application-directory/applications/recommended` - `UNDER DEVELOPMENT`
+- `/application-directory/applications/{application.id}/similar` - `UNDER DEVELOPMENT`
+- `/application-directory/applications/{application.id}` - `UNDER DEVELOPMENT`
+- `/application-directory/applications` - `UNDER DEVELOPMENT`
+- `/application-directory/categories` - `UNDER DEVELOPMENT`
+- `/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}` - `GET`
+- `/application-directory/collections` - `UNDER DEVELOPMENT`
+- `/applications/detectable` - `GET`
+- `/applications/public` - `GET`
+- `/applications/trending/global` - `UNKNOWN`
+- `/applications/{application.id}/achievements/{achievement.id}` - `GET, PATCH, PUT, DELETE`
+- `/applications/{application.id}/achievements` - `GET, POST`
+- `/applications/{application.id}/app-icons/{hash}.png` - `GET`
+- `/applications/{application.id}/branches/{branch.id}/builds/live` - `GET`
+- `/applications/{application.id}/branches/{branch.id}/builds/{build.id}/size` - `POST`
+- `/applications/{application.id}/branches/{branch.id}/storage` - `UNKNOWN`
+- `/applications/{application.id}/branches` - `GET`
+- `/applications/{application.id}/commands/{command.id}` - `GET, PATCH, DELETE`
+- `/applications/{application.id}/commands` - `GET, POST, PUT`
+- `/applications/{application.id}/entitlements/{entitlement.id}/consume` - `POST`
+- `/applications/{application.id}/entitlements/{entitlement.id}` - `GET, DELETE`
+- `/applications/{application.id}/entitlements` - `GET`
+- `/applications/{application.id}/external-assets` - `POST`
+- `/applications/{application.id}/guilds/{guild.id}/commands/permissions` - `GET, PUT`
+- `/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions` - `GET, PUT`
+- `/applications/{application.id}/guilds/{guild.id}/commands/{command.id}` - `DELETE, GET, PATCH`
+- `/applications/{application.id}/guilds/{guild.id}/commands` - `GET, POST, PUT`
+- `/applications/{application.id}/payment-payout-groups` - `GET`
+- `/applications/{application.id}/public` - `GET`
+- `/applications/{application.id}/skus` - `GET`
+- `/applications` - `POST`
+- `/auth/authorize-ip` - `POST`
+- `/auth/forgot` - `POST`
+- `/auth/handoff/exchange` - `POST`
+- `/auth/handoff` - `POST`
+- `/auth/location-metadata` - `GET`
+- `/auth/login` - `POST`
+- `/auth/logout` - `POST`
+- `/auth/mfa/sms/send` - `POST`
+- `/auth/mfa/sms` - `POST`
+- `/auth/mfa/totp` - `POST`
+- `/auth/register/phone` - `POST`
+- `/auth/register` - `POST`
+- `/auth/reset` - `POST`
+- `/auth/verify/resend` - `POST`
+- `/auth/verify/view-backup-codes-challenge` - `POST`
+- `/auth/verify` - `POST`
+- `/avatar-decorations/{user.id}/{decoration}.{PNG||JPEG||WebP}` - `GET`
+- `/avatars/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/banners/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/banners/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/billing/apple/apply-receipt` - `UNKNOWN`
+- `/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback/{unknown}/{unknown}` - `UNKNOWN`
+- `/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback` - `POST`
+- `/billing/popup-bridge/{1||2||3||4||5||6||7||8}` - `POST`
+- `/billing/verify-purchase-request` - `POST`
+- `/branches` - `POST`
+- `/channel-icons/{channel.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/channels/{channel.id}/application-commands/search` - `GET`
+- `/channels/{channel.id}/call/ring` - `POST`
+- `/channels/{channel.id}/call/stop-ringing` - `POST`
+- `/channels/{channel.id}/call` - `GET, PATCH`
+- `/channels/{channel.id}/convert` - `POST`
+- `/channels/{channel.id}/directory-entries/counts` - `GET`
+- `/channels/{channel.id}/directory-entries/list` - `GET`
+- `/channels/{channel.id}/directory-entries/search` - `GET`
+- `/channels/{channel.id}/directory-entries` - `GET`
+- `/channels/{channel.id}/directory-entry/{entity.id}` - `POST, PATCH, DELETE`
+- `/channels/{channel.id}/follower-message-stats` - `UNKNOWN`
+- `/channels/{channel.id}/follower-stats` - `GET`
+- `/channels/{channel.id}/followers` - `POST`
+- `/channels/{channel.id}/greet` - `POST`
+- `/channels/{channel.id}/icons/{hash}.jpg` - `GET`
+- `/channels/{channel.id}/invites` - `GET, POST`
+- `/channels/{channel.id}/messages/ack` - `DELETE`
+- `/channels/{channel.id}/messages/bulk-delete` - `POST`
+- `/channels/{channel.id}/messages/search` - `GET`
+- `/channels/{channel.id}/messages/{message.id}/ack` - `POST`
+- `/channels/{channel.id}/messages/{message.id}/crosspost` - `POST`
+- `/channels/{channel.id}/messages/{message.id}/hide-guild-feed` - `POST`
+- `/channels/{channel.id}/messages/{message.id}/interaction-data` - `GET`
+- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me` - `PUT, DELETE`
+- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}` - `DELETE`
+- `/channels/{channel.id}/messages/{message.id}/reactions/{emoji}` - `GET, DELETE`
+- `/channels/{channel.id}/messages/{message.id}/reactions` - `DELETE`
+- `/channels/{channel.id}/messages/{message.id}/threads` - `POST`
+- `/channels/{channel.id}/messages/{message.id}` - `GET, PATCH, DELETE`
+- `/channels/{channel.id}/messages` - `GET, POST`
+- `/channels/{channel.id}/permissions/{overwrite.id}` - `PUT, DELETE`
+- `/channels/{channel.id}/permissions` - `UNKNOWN`
+- `/channels/{channel.id}/pins/ack` - `POST`
+- `/channels/{channel.id}/pins/{message.id}` - `PUT, DELETE`
+- `/channels/{channel.id}/pins` - `GET`
+- `/channels/{channel.id}/post-data` - `POST`
+- `/channels/{channel.id}/recipients/{user.id}` - `PUT, DELETE`
+- `/channels/{channel.id}/recipients` - `UNKNOWN`
+- `/channels/{channel.id}/store-listing/entitlement-grant` - `POST`
+- `/channels/{channel.id}/store-listing` - `GET`
+- `/channels/{channel.id}/store-listings/{sku.id}` - `GET`
+- `/channels/{channel.id}/tags/{tag.id}` - `PUT, DELETE`
+- `/channels/{channel.id}/tags` - `POST`
+- `/channels/{channel.id}/thread-members/@me/settings` - `PATCH`
+- `/channels/{channel.id}/thread-members/@me` - `PUT, DELETE`
+- `/channels/{channel.id}/thread-members/{user.id}` - `GET, PUT, DELETE`
+- `/channels/{channel.id}/thread-members` - `GET`
+- `/channels/{channel.id}/threads/active` - `GET`
+- `/channels/{channel.id}/threads/archived/private` - `GET`
+- `/channels/{channel.id}/threads/archived/public` - `GET`
+- `/channels/{channel.id}/threads/search` - `GET`
+- `/channels/{channel.id}/threads` - `POST`
+- `/channels/{channel.id}/typing` - `POST`
+- `/channels/{channel.id}/users/@me/threads/archived/private` - `GET`
+- `/channels/{channel.id}/webhooks` - `GET, POST`
+- `/channels/{channel.id}` - `GET, PATCH, DELETE`
+- `/connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/callback` - `POST`
+- `/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize?continuation=true` - `GET`
+- `/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize` - `GET`
+- `/debug-logs/multi/{unknown}` - `POST`
+- `/debug-logs/{1||2||3||4}/{unknown}` - `UNKNOWN`
+- `/discoverable-guilds` - `GET`
+- `/discovery-splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/discovery/categories` - `GET`
+- `/discovery/valid-term` - `GET`
+- `/discovery/{unknown}` - `GET`
+- `/emojis/{emoji.id}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/emojis/{emoji.id}/guild` - `GET`
+- `/entitlements/gift-codes/{gift.code}/redeem` - `POST`
+- `/entitlements/gift-codes/{gift.code}` - `GET`
+- `/experiments` - `GET`
+- `/friend-suggestions/{user.id}` - `DELETE`
+- `/friend-suggestions` - `GET`
+- `/gateway/bot` - `GET`
+- `/gateway` - `GET`
+- `/gifs/search` - `GET`
+- `/gifs/select` - `POST`
+- `/gifs/suggest` - `GET`
+- `/gifs/trending-gifs` - `GET`
+- `/gifs/trending-search` - `GET`
+- `/gifs/trending` - `GET`
+- `/guild-events/{event.id}/images/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/guild-events/{guild.id}/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/guild-recommendations` - `GET`
+- `/guild-templates/{template.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/guilds/automations/email-domain-lookup/verify-code` - `POST`
+- `/guilds/automations/email-domain-lookup/verify` - `POST`
+- `/guilds/automations/email-domain-lookup` - `POST`
+- `/guilds/templates/{template.code}` - `GET, POST`
+- `/guilds/{guild.id}/active-channels` - `GET`
+- `/guilds/{guild.id}/analytics/engagement/overview` - `GET`
+- `/guilds/{guild.id}/analytics/growth-activation/overview` - `GET`
+- `/guilds/{guild.id}/analytics/growth-activation/retention` - `GET`
+- `/guilds/{guild.id}/analytics/member-insights` - `GET`
+- `/guilds/{guild.id}/analytics/overview` - `UNKNOWN`
+- `/guilds/{guild.id}/application-commands/{application.id}` - `GET`
+- `/guilds/{guild.id}/applications` - `GET`
+- `/guilds/{guild.id}/audit-logs` - `GET`
+- `/guilds/{guild.id}/auto-moderation/rules/{rule.id}` - `PATCH, DELETE`
+- `/guilds/{guild.id}/auto-moderation/rules` - `GET`
+- `/guilds/{guild.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/guilds/{guild.id}/bans/{user.id}` - `GET, PUT, DELETE`
+- `/guilds/{guild.id}/bans` - `GET`
+- `/guilds/{guild.id}/channels` - `GET, PATCH, POST`
+- `/guilds/{guild.id}/creator-monetization/enable-requests/{request.id}/accept-terms` - `POST`
+- `/guilds/{guild.id}/creator-monetization/enable-requests` - `POST`
+- `/guilds/{guild.id}/creator-monetization/requirements` - `GET`
+- `/guilds/{guild.id}/delete` - `POST`
+- `/guilds/{guild.id}/directory-entries/broadcast` - `GET`
+- `/guilds/{guild.id}/discovery-categories/{discoverable-server-category.id}` - `PUT, DELETE`
+- `/guilds/{guild.id}/discovery-checklist` - `UNKNOWN`
+- `/guilds/{guild.id}/discovery-metadata` - `GET, PATCH`
+- `/guilds/{guild.id}/discovery-requirements` - `GET`
+- `/guilds/{guild.id}/discovery-splashes/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/guilds/{guild.id}/emojis/{emoji.id}` - `GET, PATCH, DELETE`
+- `/guilds/{guild.id}/emojis` - `GET, POST`
+- `/guilds/{guild.id}/guild-feed/feature` - `PUT, DELETE`
+- `/guilds/{guild.id}/guild-feed/mark-seen` - `POST`
+- `/guilds/{guild.id}/guild-feed/preference` - `PUT, DELETE`
+- `/guilds/{guild.id}/guild-feed` - `GET`
+- `/guilds/{guild.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/guilds/{guild.id}/integrations/{integration.id}/sync` - `POST`
+- `/guilds/{guild.id}/integrations/{integration.id}` - `DELETE`
+- `/guilds/{guild.id}/integrations` - `GET`
+- `/guilds/{guild.id}/invites` - `GET`
+- `/guilds/{guild.id}/member-verification` - `GET, PATCH`
+- `/guilds/{guild.id}/members/@me/nick` - `PATCH`
+- `/guilds/{guild.id}/members/@me` - `PATCH`
+- `/guilds/{guild.id}/members/search` - `GET`
+- `/guilds/{guild.id}/members/{user.id}/nick` - `PATCH`
+- `/guilds/{guild.id}/members/{user.id}/roles/{role.id}` - `PUT, DELETE`
+- `/guilds/{guild.id}/members/{user.id}` - `GET, PATCH, PUT, DELETE`
+- `/guilds/{guild.id}/members` - `GET`
+- `/guilds/{guild.id}/messages/search` - `GET`
+- `/guilds/{guild.id}/mfa` - `POST`
+- `/guilds/{guild.id}/premium/subscriptions/{subscription.id}` - `DELETE`
+- `/guilds/{guild.id}/premium/subscriptions` - `GET, PUT`
+- `/guilds/{guild.id}/preview` - `GET`
+- `/guilds/{guild.id}/prune` - `GET, POST`
+- `/guilds/{guild.id}/regions` - `GET`
+- `/guilds/{guild.id}/requests/@me` - `PUT, DELETE`
+- `/guilds/{guild.id}/requests/{user.id}/ack` - `POST`
+- `/guilds/{guild.id}/requests/{user.id}` - `PATCH`
+- `/guilds/{guild.id}/requests` - `GET, PATCH`
+- `/guilds/{guild.id}/role-prompts/{prompt.id}` - `DELETE`
+- `/guilds/{guild.id}/role-prompts` - `GET, PUT, POST`
+- `/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}` - `POST, PATCH, DELETE`
+- `/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}` - `GET, PATCH, POST, DELETE`
+- `/guilds/{guild.id}/role-subscriptions/settings` - `GET, PATCH`
+- `/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial/{trial.id}/eligibility` - `GET`
+- `/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial` - `PATCH`
+- `/guilds/{guild.id}/role-subscriptions/trials/metrics-overview` - `GET`
+- `/guilds/{guild.id}/role-subscriptions/trials` - `GET`
+- `/guilds/{guild.id}/roles/member-counts` - `GET`
+- `/guilds/{guild.id}/roles/{role.id}/member-ids` - `GET`
+- `/guilds/{guild.id}/roles/{role.id}/members` - `PATCH`
+- `/guilds/{guild.id}/roles/{role.id}` - `PATCH, DELETE`
+- `/guilds/{guild.id}/roles` - `GET, PATCH, POST`
+- `/guilds/{guild.id}/scheduled-events/{event.id}/users/@me` - `PUT, DELETE`
+- `/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users` - `GET`
+- `/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}` - `GET, PATCH, DELETE`
+- `/guilds/{guild.id}/scheduled-events` - `GET, POST`
+- `/guilds/{guild.id}/soundboard-sounds/{sound.id}` - `PATCH, DELETE`
+- `/guilds/{guild.id}/soundboard-sounds` - `GET, POST`
+- `/guilds/{guild.id}/splashes/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/guilds/{guild.id}/stickers/{sticker.id}` - `GET, PATCH, DELETE`
+- `/guilds/{guild.id}/stickers` - `GET, POST`
+- `/guilds/{guild.id}/templates/{template.code}` - `PUT, PATCH, DELETE`
+- `/guilds/{guild.id}/templates` - `GET, POST`
+- `/guilds/{guild.id}/threads/active` - `GET`
+- `/guilds/{guild.id}/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/guilds/{guild.id}/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/guilds/{guild.id}/vanity-url` - `GET`
+- `/guilds/{guild.id}/voice-states/@me` - `PATCH`
+- `/guilds/{guild.id}/voice-states/{user.id}` - `PATCH`
+- `/guilds/{guild.id}/webhooks` - `GET`
+- `/guilds/{guild.id}/welcome-screen` - `GET, PATCH`
+- `/guilds/{guild.id}/widget.json` - `GET`
+- `/guilds/{guild.id}/widget.png` - `GET`
+- `/guilds/{guild.id}/widget` - `GET, PATCH`
+- `/guilds/{guild.id}` - `GET, PATCH, DELETE`
+- `/guilds` - `POST`
+- `/hub-waitlist/signup` - `POST`
+- `/hypesquad/online` - `POST, DELETE`
+- `/icons/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/integrations/{integration.id}/join` - `POST`
+- `/integrations/{integration.id}/search` - `GET`
+- `/interactions/{interaction.id}/{interaction.token}/callback` - `POST`
+- `/interactions` - `POST`
+- `/invites/{invite.code}` - `GET, DELETE`
+- `/lobbies/search` - `POST`
+- `/lobbies/{lobby.id}/members/{user.id}` - `PATCH`
+- `/lobbies/{lobby.id}/send` - `POST`
+- `/lobbies/{lobby.id}` - `PATCH, DELETE`
+- `/lobbies` - `POST`
+- `/metrics` - `POST`
+- `/oauth2/@me` - `GET`
+- `/oauth2/allowlist/accept` - `POST`
+- `/oauth2/applications/@me` - `GET`
+- `/oauth2/applications/{application.id}/assets` - `GET`
+- `/oauth2/applications/{application.id}/rpc` - `GET`
+- `/oauth2/authorize/webhook-channels` - `GET`
+- `/oauth2/authorize` - `GET, POST`
+- `/oauth2/tokens/{token.id}` - `DELETE`
+- `/oauth2/tokens` - `GET`
+- `/outbound-promotions/preview` - `GET`
+- `/outbound-promotions/{promotion.id}/claim` - `POST`
+- `/outbound-promotions` - `GET`
+- `/partners/apply` - `POST`
+- `/partners/connections` - `UNKNOWN`
+- `/partners/{guild.id}/requirements` - `GET`
+- `/phone-verifications/resend` - `POST`
+- `/phone-verifications/validate-support-ticket` - `POST`
+- `/phone-verifications/verify` - `POST`
+- `/private/bug-reports` - `GET, POST`
+- `/promotions/funimation` - `UNKNOWN`
+- `/read-states/ack-bulk` - `POST`
+- `/report/options` - `GET`
+- `/report` - `GET, POST`
+- `/reporting/menu/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}` - `GET`
+- `/reporting/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}` - `POST`
+- `/reports/channels/{channel.id}/messages/{message.id}` - `POST`
+- `/reports` - `POST`
+- `/role-icons/{role.id}/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/roles/{role.id}/icons/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/science` - `POST`
+- `/soundboard-sounds/{sound.id}` - `GET`
+- `/splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}` - `GET`
+- `/stage-instances/extra` - `UNKNOWN`
+- `/stage-instances/{channel.id}` - `GET, PATCH, DELETE`
+- `/stage-instances` - `POST`
+- `/sticker-packs/{pack.id}` - `GET`
+- `/sticker-packs` - `GET`
+- `/stickers/{hash}.{PNG||Lottie}` - `GET`
+- `/stickers/{sticker.id}/guild` - `GET`
+- `/stickers/{sticker.id}` - `GET`
+- `/store/applications/710982414301790216/assets/{banner_asset.id}.{WebP|PNG}` - `GET`
+- `/store/directory-layouts/{directory-layout.id}` - `UNKNOWN`
+- `/store/directory/{directory-layout.id}` - `UNKNOWN`
+- `/store/eulas/{eula.id}` - `GET`
+- `/store/listings/{listing.id}` - `GET`
+- `/store/price-tiers` - `GET`
+- `/store/published-listings/applications/{application.id}` - `GET`
+- `/store/published-listings/applications` - `GET`
+- `/store/published-listings/skus/{sku.id}/subscription-plans` - `GET`
+- `/store/published-listings/skus/{sku.id}` - `GET`
+- `/store/published-listings/skus` - `GET`
+- `/store/skus/{sku.id}/discounts/{user.id}` - `PUT, DELETE`
+- `/store/skus/{sku.id}/listings` - `GET`
+- `/store/skus/{sku.id}/purchase` - `GET, POST`
+- `/store/skus/{sku.id}` - `GET`
+- `/streams/{stream.key}/notify` - `POST`
+- `/streams/{stream.key}/preview` - `GET, POST`
+- `/streams/{stream.key}/stream` - `PATCH`
+- `/subscription-plans/{subscription-plan.id}/guild-role-subscription-group-listing` - `GET`
+- `/teams` - `GET`
+- `/templates/{template.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/tutorial/indicators/suppress` - `POST`
+- `/tutorial/indicators/{tutorial.id}` - `PUT`
+- `/tutorial/indicators` - `UNKNOWN`
+- `/users/@me/activities/statistics/applications` - `GET`
+- `/users/@me/affinities/guilds` - `GET`
+- `/users/@me/affinities/users` - `GET`
+- `/users/@me/agreements` - `PATCH`
+- `/users/@me/applications/{application.id}/achievements` - `GET`
+- `/users/@me/applications/{application.id}/entitlement-ticket` - `POST`
+- `/users/@me/applications/{application.id}/entitlements` - `GET`
+- `/users/@me/applications/{entitlement.id}/ticket` - `POST`
+- `/users/@me/billing/country-code` - `GET`
+- `/users/@me/billing/payment-sources/validate-billing-address` - `POST`
+- `/users/@me/billing/payment-sources/{payment-source.id}` - `PATCH, DELETE`
+- `/users/@me/billing/payment-sources` - `GET, POST`
+- `/users/@me/billing/payments/{payment.id}/refund` - `POST`
+- `/users/@me/billing/payments/{payment.id}/void` - `POST`
+- `/users/@me/billing/payments/{payment.id}` - `GET`
+- `/users/@me/billing/payments` - `GET`
+- `/users/@me/billing/paypal/billing-agreement-tokens` - `POST`
+- `/users/@me/billing/stripe/payment-intents/payments/{payment.id}` - `UNKNOWN`
+- `/users/@me/billing/stripe/setup-intents` - `POST`
+- `/users/@me/billing/subscriptions/preview` - `POST`
+- `/users/@me/billing/subscriptions/{subscription.id}/invoices/{invoice.id}/pay` - `POST`
+- `/users/@me/billing/subscriptions/{subscription.id}/invoices` - `GET`
+- `/users/@me/billing/subscriptions/{subscription.id}/preview` - `PATCH`
+- `/users/@me/billing/subscriptions/{subscription.id}` - `PATCH, DELETE`
+- `/users/@me/billing/subscriptions` - `GET`
+- `/users/@me/billing/user-trial-offer/{user-trial-offer.id}/ack` - `POST`
+- `/users/@me/billing/user-trial-offer` - `GET`
+- `/users/@me/captcha/verify` - `POST`
+- `/users/@me/channels` - `POST`
+- `/users/@me/connections/contacts/@me/external-friend-list-entries/settings` - `UNKNOWN`
+- `/users/@me/connections/contacts/@me/external-friend-list-entries` - `UNKNOWN`
+- `/users/@me/connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/{connection.id}` - `PUT, PATCH, DELETE`
+- `/users/@me/connections/{twitch||youtube||spotify}/{connection.id}/access-token` - `GET`
+- `/users/@me/connections` - `GET`
+- `/users/@me/consent` - `GET, POST`
+- `/users/@me/delete` - `POST`
+- `/users/@me/devices` - `POST`
+- `/users/@me/disable` - `POST`
+- `/users/@me/email-settings` - `GET, PATCH`
+- `/users/@me/email/verify-code` - `POST`
+- `/users/@me/email` - `PUT`
+- `/users/@me/entitlements/gift-codes/{gift.code}` - `DELETE`
+- `/users/@me/entitlements/gift-codes` - `POST`
+- `/users/@me/entitlements/gifts` - `GET`
+- `/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/cancel` - `POST`
+- `/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/uncancel` - `POST`
+- `/users/@me/guilds/premium/subscription-slots` - `GET`
+- `/users/@me/guilds/premium/subscriptions/cooldown` - `GET`
+- `/users/@me/guilds/premium/subscriptions` - `GET`
+- `/users/@me/guilds/{guild.id}/member` - `GET`
+- `/users/@me/guilds/{guild.id}/settings` - `PATCH`
+- `/users/@me/guilds/{guild.id}` - `DELETE`
+- `/users/@me/guilds` - `GET`
+- `/users/@me/harvest` - `GET, POST`
+- `/users/@me/invites` - `GET, POST, DELETE`
+- `/users/@me/join-request-guilds` - `GET`
+- `/users/@me/library/{application.id}/{branch.id}/installed` - `POST`
+- `/users/@me/library/{application.id}/{branch.id}` - `PATCH`
+- `/users/@me/library` - `GET`
+- `/users/@me/mentions/{user.id}` - `GET`
+- `/users/@me/mentions` - `GET`
+- `/users/@me/mfa/codes-verification` - `POST`
+- `/users/@me/mfa/sms/disable` - `POST`
+- `/users/@me/mfa/sms/enable` - `POST`
+- `/users/@me/mfa/totp/disable` - `POST`
+- `/users/@me/mfa/totp/enable` - `POST`
+- `/users/@me/notes/{user.id}` - `GET, PUT`
+- `/users/@me/notes` - `UNKNOWN`
+- `/users/@me/outbound-promotions/codes` - `GET`
+- `/users/@me/phone/verify` - `POST`
+- `/users/@me/phone` - `POST, DELETE`
+- `/users/@me/premium-usage` - `UNKNOWN`
+- `/users/@me/relationships/bulk` - `UNKNOWN`
+- `/users/@me/relationships/{user.id}` - `PUT, PATCH, DELETE`
+- `/users/@me/relationships` - `GET, POST`
+- `/users/@me/remote-auth/cancel` - `UNKNOWN`
+- `/users/@me/remote-auth/finish` - `UNKNOWN`
+- `/users/@me/remote-auth` - `UNKNOWN`
+- `/users/@me/scheduled-events` - `GET`
+- `/users/@me/settings-proto/{1||2||3}` - `GET, PATCH`
+- `/users/@me/settings/game-notifications/overrides` - `UNKNOWN`
+- `/users/@me/settings/game-notifications` - `UNKNOWN`
+- `/users/@me/settings` - `PATCH`
+- `/users/@me/sticker-packs` - `UNKNOWN`
+- `/users/@me/survey` - `GET`
+- `/users/@me/video-filters/assets/{video-filter-asset.id}/last-used` - `POST`
+- `/users/@me/video-filters/assets/{video-filter-asset.id}` - `DELETE`
+- `/users/@me/video-filters/assets` - `GET, POST`
+- `/users/@me` - `GET, PATCH`
+- `/users/disable-email-notifications` - `POST`
+- `/users/{user.id}/applications/{application.id}/achievements/{achievement.id}` - `PUT`
+- `/users/{user.id}/avatar-decorations/{decoration}.{PNG||JPEG||WebP}` - `GET`
+- `/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/users/{user.id}/profile` - `GET`
+- `/users/{user.id}/relationships` - `GET, POST`
+- `/users/{user.id}/sessions/{session.id}/activities/{application.id}/1` - `GET`
+- `/users/{user.id}/sessions/{session.id}/activities/{application.id}/metadata` - `GET`
+- `/users/{user.id}/video-filter-assets/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/users/{user.id}` - `GET`
+- `/users` - `UNKNOWN`
+- `/video-filter-assets/{user.id}/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/voice/regions` - `GET`
+- `/webhooks/{application.id}/{interaction.token}/messages/@original` - `GET, PATCH, DELETE`
+- `/webhooks/{application.id}/{interaction.token}/messages/{message.id}` - `GET, PATCH, DELETE`
+- `/webhooks/{application.id}/{interaction.token}` - `POST`
+- `/webhooks/{webhook.id}/{webhook.token}/github` - `POST`
+- `/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}` - `GET, PATCH, DELETE`
+- `/webhooks/{webhook.id}/{webhook.token}/slack` - `POST`
+- `/webhooks/{webhook.id}/{webhook.token}` - `GET, POST, PATCH, DELETE`
+- `/webhooks/{webhook.id}` - `PATCH, DELETE`
 
 ## Status API
 
