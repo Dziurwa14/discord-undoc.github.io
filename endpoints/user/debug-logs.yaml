@@ -9,7 +9,7 @@
     x-query: null
     x-response: null
 /debug-logs/{1||2||3||4}/{unknown}:
-  unknown:
+  post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

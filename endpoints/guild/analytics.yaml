@@ -33,7 +33,7 @@
     x-query: null
     x-response: null
 /guilds/{guild.id}/analytics/overview:
-  unknown:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

@@ -32,7 +32,7 @@
     x-query: null
     x-response: null
 /users/@me/relationships/bulk:
-  unknown:
+  post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

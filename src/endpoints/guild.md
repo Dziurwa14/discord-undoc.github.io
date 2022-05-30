@@ -1265,6 +1265,40 @@ None
 
 ## Place holder text, wow!
 
+<get>/channels/{channel.id}/follower-message-stats</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <get>/channels/{channel.id}/follower-stats</get>
 
 <br>
@@ -5923,6 +5957,40 @@ None
 
 ## Place holder text, wow!
 
+<get>/stage-instances/extra</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <get>/stage-instances/{channel.id}</get>
 
 <br>
@@ -6263,6 +6331,40 @@ None
 
 ## Place holder text, wow!
 
+<get>/guilds/{guild.id}/analytics/overview</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <put>/guilds/{guild.id}/discovery-categories/{discoverable-server-category.id}</put>
 
 <br>
@@ -6468,6 +6570,40 @@ None
 ## Place holder text, wow!
 
 <post>/partners/apply</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<get>/partners/connections</get>
 
 <br>
 
@@ -7590,6 +7726,40 @@ None
 ## Place holder text, wow!
 
 <post>/activities/guilds/{guild.id}/{channel.id}/{application.id}</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<get>/activities/statistics/applications/{application.id}</get>
 
 <br>
 

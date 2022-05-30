@@ -173,16 +173,16 @@
     x-body: null
     x-query: null
     x-response: null
-/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/cancel:
-  post:
+? /users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/cancel
+: post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
     x-body: null
     x-query: null
     x-response: null
-/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/uncancel:
-  post:
+? /users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/uncancel
+: post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
@@ -355,7 +355,7 @@
     x-query: null
     x-response: null
 /users/@me/notes:
-  unknown:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
@@ -409,7 +409,7 @@
     x-query: null
     x-response: null
 /users/@me/premium-usage:
-  unknown:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

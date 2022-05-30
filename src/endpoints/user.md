@@ -1605,6 +1605,40 @@ None
 
 ## Place holder text, wow!
 
+<get>/users/@me/notes</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <get>/users/@me/notes/{user.id}</get>
 
 <br>
@@ -1776,6 +1810,40 @@ None
 ## Place holder text, wow!
 
 <post>/users/@me/phone/verify</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<get>/users/@me/premium-usage</get>
 
 <br>
 
@@ -3203,6 +3271,108 @@ None
 
 ## Place holder text, wow!
 
+<post>/users/@me/remote-auth</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<post>/users/@me/remote-auth/cancel</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<post>/users/@me/remote-auth/finish</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <post>/auth/authorize-ip</post>
 
 <br>
@@ -4121,6 +4291,40 @@ None
 
 ## Place holder text, wow!
 
+<get>/users/@me/billing/stripe/payment-intents/payments/{payment.id}</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <post>/users/@me/billing/stripe/setup-intents</post>
 
 <br>
@@ -4461,6 +4665,40 @@ None
 
 ## Place holder text, wow!
 
+<post>/billing/apple/apply-receipt</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <post>/billing/popup-bridge/{1||2||3||4||5||6||7||8}</post>
 
 <br>
@@ -4496,6 +4734,40 @@ None
 ## Place holder text, wow!
 
 <post>/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<get>/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback/{unknown}/{unknown}</get>
 
 <br>
 
@@ -4835,7 +5107,109 @@ None
 
 ## Place holder text, wow!
 
+<get>/users/@me/connections/contacts/@me/external-friend-list-entries/settings</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<put>/users/@me/connections/contacts/@me/external-friend-list-entries/settings</put>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <post>/debug-logs/multi/{unknown}</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<post>/debug-logs/{1||2||3||4}/{unknown}</post>
 
 <br>
 
@@ -5142,6 +5516,40 @@ None
 ## Place holder text, wow!
 
 <post>/users/{user.id}/relationships</post>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<post>/users/@me/relationships/bulk</post>
 
 <br>
 

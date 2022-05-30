@@ -301,7 +301,7 @@
 - `/science` - `POST`
 - `/soundboard-sounds/{sound.id}` - `GET`
 - `/splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}` - `GET`
-- `/stage-instances/extra` - `GET, PATCH, DELETE`
+- `/stage-instances/extra` - `GET`
 - `/stage-instances/{channel.id}` - `GET, PATCH, DELETE`
 - `/stage-instances` - `POST`
 - `/sticker-packs/{pack.id}` - `GET`
@@ -405,7 +405,7 @@
 - `/users/@me/phone/verify` - `POST`
 - `/users/@me/phone` - `POST, DELETE`
 - `/users/@me/premium-usage` - `GET`
-- `/users/@me/relationships/bulk` - `PATCH, POST, PUT, DELETE`
+- `/users/@me/relationships/bulk` - `POST`
 - `/users/@me/relationships/{user.id}` - `PUT, PATCH, DELETE`
 - `/users/@me/relationships` - `GET, POST`
 - `/users/@me/remote-auth/cancel` - `POST`

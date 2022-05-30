@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize:
-  get:
+? /connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize
+: get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
@@ -71,7 +71,14 @@
     x-query: null
     x-response: null
 /users/@me/connections/contacts/@me/external-friend-list-entries/settings:
-  unknown:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+  put:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

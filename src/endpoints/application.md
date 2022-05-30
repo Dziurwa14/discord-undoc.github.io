@@ -1979,6 +1979,74 @@ None
 
 ## Place holder text, wow!
 
+<get>/store/directory-layouts/{directory-layout.id}</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
+<get>/store/directory/{directory-layout.id}</get>
+
+<br>
+
+**Description**
+
+Place holder text, wow!
+
+<br>
+
+**Body**
+
+<br>
+
+None
+
+<br>
+
+**Queries**
+
+<br>
+
+None
+
+<br>
+
+**Response**
+
+<br>
+
+None
+
+## Place holder text, wow!
+
 <get>/store/eulas/{eula.id}</get>
 
 <br>

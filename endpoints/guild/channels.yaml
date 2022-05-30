@@ -100,7 +100,7 @@
     x-query: null
     x-response: null
 /channels/{channel.id}/follower-message-stats:
-  unknown:
+  get:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!

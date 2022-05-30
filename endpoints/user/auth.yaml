@@ -25,7 +25,7 @@
     x-query: null
     x-response: null
 /users/@me/remote-auth:
-  unknown:
+  post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
@@ -33,7 +33,7 @@
     x-query: null
     x-response: null
 /users/@me/remote-auth/cancel:
-  unknown:
+  post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
@@ -41,7 +41,7 @@
     x-query: null
     x-response: null
 /users/@me/remote-auth/finish:
-  unknown:
+  post:
     x-indicators: []
     x-display-name: Place holder text, wow!
     x-description: Place holder text, wow!
