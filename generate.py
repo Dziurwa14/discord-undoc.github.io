@@ -70,7 +70,7 @@ def render(
 
             data += f"""## {meth_conf['x-display-name']}
 
-<description>
+<details>
 
 <summary>
 
@@ -108,7 +108,7 @@ def render(
 
 {meth_conf['x-response']}
 
-</description>
+</details>
 
 """
 
