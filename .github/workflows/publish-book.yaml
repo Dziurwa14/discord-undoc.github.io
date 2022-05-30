@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: "3.x"
           architecture: "x64"
+        name: Install PyYaml
+        run: pip install pyyaml
       - name: Install mdbook
         if: startsWith(github.event.head_commit.message, 'publish:')
         run: |

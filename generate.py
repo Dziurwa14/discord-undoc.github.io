@@ -70,7 +70,13 @@ def render(
 
             data += f"""## {meth_conf['x-display-name']}
 
+<description>
+
+<summary>
+
 <{method}>{endpoint}</{method}>
+
+</summary>
 {"" if len(meth_conf["x-indicators"]) == 0 else  NEW_LINE + " ".join(map(lambda x: f"<{x}></{x}>", meth_conf["x-indicators"])) + NEW_LINE}
 <br>
 
@@ -102,8 +108,7 @@ def render(
 
 {meth_conf['x-response']}
 
-<br>
-<br>
+</description>
 
 """
 
