@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.x"
           architecture: "x64"
-        run: pip install pyyaml
+      - run: pip install pyyaml
       - name: Install mdbook
         if: startsWith(github.event.head_commit.message, 'publish:')
         run: |
