@@ -28,6 +28,7 @@ jobs:
         run: |
           sh ./get_theme.sh
 
+          python ./generate.py
           mdbook build
 
           git worktree add gh-pages gh-pages

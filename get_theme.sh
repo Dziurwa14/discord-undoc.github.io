@@ -21,6 +21,7 @@ wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-th
 wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/highlight.js > /dev/null 2>&1
 wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/highlight.css > /dev/null 2>&1
 wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/index.hbs > /dev/null 2>&1
+wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/redirect.hbs > /dev/null 2>&1
 wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/favicon.png > /dev/null 2>&1
 wget --no-cache https://raw.githubusercontent.com/discord-undoc/discord-undoc-theme/master/theme/favicon.svg > /dev/null 2>&1
 mkdir ./css

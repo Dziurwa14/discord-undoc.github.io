@@ -97,31 +97,4 @@ def generate_list():
 
 
 if __name__ == "__main__":
-    print(
-        r"""# Endpoints List
-
-## Base URLs
-
-**Base API URL** - `https://canary.discord.com/api/v9/`\
-**Base Status API URL** - `https://discordstatus.com/api/v2/` or `https://discordstatus.com/`
-
-## Endpoints
-"""
-    )
     print("-", "\n- ".join(generate_list()))
-    print(
-        """
-## Status API
-
-- `components.json`
-- `incidents.json`
-- `incidents/unresolved.json`
-- `metrics-display/5k2rt9f7pmny/day.json`
-- `metrics-display/5k2rt9f7pmny/month.json`
-- `metrics-display/5k2rt9f7pmny/week.json`
-- `scheduled-maintenances.json`
-- `scheduled-maintenances/active.json`
-- `scheduled-maintenances/upcoming.json`
-- `status.json`
-- `summary.json`"""
-    )

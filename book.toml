@@ -22,3 +22,9 @@ enable = false
 [output.html.playground]
 copyable = false
 copy-js = false
+
+[output.html.redirect]
+"/server.html" = "https://discord.gg/zVB5P96GE2"
+"/github.html" = "https://github.com/discord-undoc"
+"/github/theme.html" = "https://github.com/discord-undoc/discord-undoc-theme"
+"/github/types.html" = "https://github.com/discord-undoc/discord-undoc-types"

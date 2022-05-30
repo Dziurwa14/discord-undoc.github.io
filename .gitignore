@@ -2,3 +2,7 @@ book
 theme
 .vscode
 *.lock
+src/endpoints/cdn.md
+src/endpoints/guild.md
+src/endpoints/users.md
+src/endpoints/applications.md

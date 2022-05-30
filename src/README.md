@@ -14,7 +14,7 @@ Come join the *official* Unofficial Discord Documentation server
 
 <note>
 
-Read [navigation.md](https://discord-undoc.github.io/discord-undoc-theme/kbdcombo.html)
+Read [navigation.md](https://discord-undoc.github.io/discord-undoc-theme/kbdcombo)
 to get a basic understanding about how to navigate the docs.
 
 </note>

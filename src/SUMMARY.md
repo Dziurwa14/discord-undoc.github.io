@@ -17,13 +17,13 @@
 - [Discord's Infrastructure]()
 - [Lazy Loading]()
 - [Gateway]()
-- [Voice]()
+- [Voice & Video]()
 - [RPC & IPC]()
 - [Interactions]()
 
 # Endpoints
 
-- [Endpoint & Routes List](endpoints/endpoint_n_routes_list.md)
+- [Endpoints List](endpoints/endpoints_list.md)
 - [CDN](endpoints/cdn.md)
 - [Guilds](endpoints/guild.md)
 - [Users](endpoints/user.md)

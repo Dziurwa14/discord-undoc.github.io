@@ -7,4 +7,4 @@ The website can be found at <https://discord-undoc.github.io>
 
 ## How do I contribute?
 
-Guidelines are at <https://discord-undoc.github.io/general/contribution.html>
+Guidelines are at <https://discord-undoc.github.io/general/contribution>

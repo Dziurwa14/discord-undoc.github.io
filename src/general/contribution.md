@@ -1,6 +1,6 @@
 # Contribution
 
-Other than the main team mentioned in the [FAQ](index.html#who-are-we)
+Other than the main team mentioned in the [FAQ](/#who-are-we)
 the documentation is a community effort. Which means there are certain
 rules, points, and notes that you need to follow before contributing.
 
@@ -25,13 +25,15 @@ rules, points, and notes that you need to follow before contributing.
 - Install mdbook via `cargo install mdbook`.
 - Install & Setup python (used for utilities).
 
+<br>
+
 Clone this (discord-undoc.github.io) repository and then run `sh ./get_theme.sh`
 to download the theme.
 
 <info>
 
 `get_theme.sh` as you might have guessed is a shell script and is probably
-incompatible windows, so you might have to use something like `gitbash`.
+incompatible with windows, so you might have to use something like `gitbash`.
 
 On a completely different note, only run the `get_theme.sh` script when
 updating your outdated version of the theme or downloading it for the
@@ -48,7 +50,7 @@ The `-p` flag is optional, the default is `3000`.
 As you might have noticed we use markdown, pure markdown, not even mdx\
 OFC we have some helper thingies with some code magic to make writing
 documentation easier.\
-But this also means, you must folloow some rules and note down some points.
+But this also means, you must follow some rules and note down some points.
 
 ### Markdown Rules
 
@@ -70,6 +72,8 @@ But this also means, you must folloow some rules and note down some points.
 
 If you have any queries or clarifications to be made, join the
 *official* Unofficial Discord Documentation server!
+
+<br>
 
 <server id="zVB5P96GE2"></server>
 
