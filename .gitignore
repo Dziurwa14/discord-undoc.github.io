@@ -4,5 +4,5 @@ theme
 *.lock
 src/endpoints/cdn.md
 src/endpoints/guild.md
-src/endpoints/users.md
-src/endpoints/applications.md
+src/endpoints/user.md
+src/endpoints/application.md
