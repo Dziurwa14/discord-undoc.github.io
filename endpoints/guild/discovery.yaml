@@ -46,7 +46,7 @@
     x-body: null
     x-query: null
     x-response: null
-/discovery/{unknown}:
+/discovery/{guild.id}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
