@@ -16,7 +16,7 @@
     x-body: null
     x-query: null
     x-response: null
-/store/applications/710982414301790216/assets/{banner_asset.id}.{WebP|PNG}:
+/store/applications/{application.id}/assets/{banner_asset.id}.{WebP|PNG}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -24,7 +24,7 @@
     x-body: null
     x-query: null
     x-response: null
-/app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}:
+/app-assets/{application.id}/store/{banner_asset.id}.{WebP|PNG}:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!

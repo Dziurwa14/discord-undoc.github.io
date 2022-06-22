@@ -12,7 +12,7 @@
 - `/activities/guilds/{guild.id}/{channel.id}/{application.id}` - `POST`
 - `/activities/statistics/applications/{application.id}` - `GET`
 - `/activities` - `POST`
-- `/app-assets/710982414301790216/store/{banner_asset.id}.{WebP|PNG}` - `GET`
+- `/app-assets/{application.id}/store/{banner_asset.id}.{WebP|PNG}` - `GET`
 - `/app-assets/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}` - `GET`
 - `/app-icons/{application.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
 - `/application-directory/applications/recommended` - `UNDER DEVELOPMENT`
@@ -388,6 +388,9 @@
 - `/users/@me/guilds` - `GET`
 - `/users/@me/harvest` - `GET, POST`
 - `/users/@me/invites` - `GET, POST, DELETE`
+- `/users/@me/notification-center/items` - `GET, DELETE`
+- `/users/@me/notification-center/items/{item.id}` - `DELETE`
+- `/users/@me/notification-center/items/ack` - `POST, DELETE`
 - `/users/@me/join-request-guilds` - `GET`
 - `/users/@me/library/{application.id}/{branch.id}/installed` - `POST`
 - `/users/@me/library/{application.id}/{branch.id}` - `PATCH`
