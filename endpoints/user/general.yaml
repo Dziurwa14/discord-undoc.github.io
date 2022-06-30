@@ -1,5 +1,13 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
+/drops/eligibility:
+  unknown:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /tutorial/indicators:
   unknown:
     x-indicators: []

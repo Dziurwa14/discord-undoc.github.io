@@ -59,6 +59,8 @@
 - `/auth/register/phone` - `POST`
 - `/auth/register` - `POST`
 - `/auth/reset` - `POST`
+- `/auth/sessions` -  `GET`
+- `/auth/sessions/logout` - `POST`
 - `/auth/verify/resend` - `POST`
 - `/auth/verify/view-backup-codes-challenge` - `POST`
 - `/auth/verify` - `POST`
@@ -111,6 +113,7 @@
 - `/channels/{channel.id}/post-data` - `POST`
 - `/channels/{channel.id}/recipients/{user.id}` - `PUT, DELETE`
 - `/channels/{channel.id}/recipients` - `UNKNOWN`
+- `/channels/{channel.id}/recipients/@me` `PUT, DELETE`
 - `/channels/{channel.id}/store-listing/entitlement-grant` - `POST`
 - `/channels/{channel.id}/store-listing` - `GET`
 - `/channels/{channel.id}/store-listings/{sku.id}` - `GET`
@@ -139,6 +142,7 @@
 - `/discovery/categories` - `GET`
 - `/discovery/valid-term` - `GET`
 - `/discovery/{guild.id}` - `GET`
+- `/drops/eligibility` - `GET`
 - `/emojis/{emoji.id}.{PNG||JPEG||WebP||GIF}` - `GET`
 - `/emojis/{emoji.id}/guild` - `GET`
 - `/entitlements/gift-codes/{gift.code}/redeem` - `POST`
@@ -163,6 +167,7 @@
 - `/guilds/automations/email-domain-lookup` - `POST`
 - `/guilds/templates/{template.code}` - `GET, POST`
 - `/guilds/{guild.id}/active-channels` - `GET`
+- `/guilds/{guild.id}/admin-server-eligibility` - `GET`
 - `/guilds/{guild.id}/analytics/engagement/overview` - `GET`
 - `/guilds/{guild.id}/analytics/growth-activation/overview` - `GET`
 - `/guilds/{guild.id}/analytics/growth-activation/retention` - `GET`
@@ -198,6 +203,7 @@
 - `/guilds/{guild.id}/integrations/{integration.id}` - `DELETE`
 - `/guilds/{guild.id}/integrations` - `GET`
 - `/guilds/{guild.id}/invites` - `GET`
+- `/guilds/{guild.id}/join-admin-server` `POST`
 - `/guilds/{guild.id}/member-verification` - `GET, PATCH`
 - `/guilds/{guild.id}/members/@me/nick` - `PATCH`
 - `/guilds/{guild.id}/members/@me` - `PATCH`
@@ -243,6 +249,7 @@
 - `/guilds/{guild.id}/templates/{template.code}` - `PUT, PATCH, DELETE`
 - `/guilds/{guild.id}/templates` - `GET, POST`
 - `/guilds/{guild.id}/threads/active` - `GET`
+- `/guilds/{guild.id}/text-in-voice/community-opt-in` - `POST`
 - `/guilds/{guild.id}/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
 - `/guilds/{guild.id}/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
 - `/guilds/{guild.id}/vanity-url` - `GET`
@@ -268,6 +275,7 @@
 - `/lobbies/{lobby.id}/send` - `POST`
 - `/lobbies/{lobby.id}` - `PATCH, DELETE`
 - `/lobbies` - `POST`
+- `/message-requests` - `GET`
 - `/metrics` - `POST`
 - `/oauth2/@me` - `GET`
 - `/oauth2/allowlist/accept` - `POST`
@@ -341,6 +349,7 @@
 - `/users/@me/applications/{application.id}/entitlement-ticket` - `POST`
 - `/users/@me/applications/{application.id}/entitlements` - `GET`
 - `/users/@me/applications/{entitlement.id}/ticket` - `POST`
+- `/users/@me/billing/localized-pricing-promo` - `GET`
 - `/users/@me/billing/country-code` - `GET`
 - `/users/@me/billing/payment-sources/validate-billing-address` - `POST`
 - `/users/@me/billing/payment-sources/{payment-source.id}` - `PATCH, DELETE`

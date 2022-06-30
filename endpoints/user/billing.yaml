@@ -1,5 +1,13 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
+/users/@me/billing/localized-pricing-promo:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /users/@me/billing/country-code:
   get:
     x-indicators: []

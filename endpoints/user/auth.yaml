@@ -152,6 +152,22 @@
     x-body: null
     x-query: null
     x-response: null
+/auth/sessions:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
+/auth/sessions/logout:
+  post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /auth/verify:
   post:
     x-indicators: []
