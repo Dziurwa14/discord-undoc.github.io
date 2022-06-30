@@ -1,0 +1,268 @@
+<!--
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API">
+
+    <meta property="og:title" content="Unofficial Discord Documentation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://discord-undoc.github.io" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/discord-undoc/.github/master/assets/UNDocNoBG.png" />
+    <meta property="og:description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API" />
+    <meta name="theme-color" content="#FD745E">
+
+    <title>Unofficial Discord Documentation</title>
+
+    <link rel="prerender" href="index.html">
+    <link rel="prerender" href="general/api_wrappers.html">
+    <link rel="preload" href="../css/variables.css" as="style">
+    <link rel="preload" href="../css/general.css" as="style">
+    <link rel="preload" href="../css/chrome.css" as="style">
+    <link rel="preload" href="../elasticlunr.min.js" as="script">
+    <link rel="preload" href="../mark.min.js" as="script">
+    <link rel="preload" href="../searcher.js" as="script">
+    <link rel="preload" href="../highlight.js" as="script">
+    <link rel="preload" href="../book.js" as="script">
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+
+    <link rel="stylesheet" href="../highlight.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const base_url = "";
+        const path_to_root = "../";
+        const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "dark";
+
+        try {
+            let theme = localStorage.getItem('theme');
+            let sidebar = localStorage.getItem('sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+
+        const theme = localStorage.getItem('theme') || default_theme;
+        let sidebar_state = 'hidden';
+        const html = document.querySelector('html');
+
+        html.classList.remove("dark");
+        html.classList.add(theme);
+
+        if (document.body.clientWidth > 800) {
+            sidebar_state = localStorage.getItem('sidebar') || 'visible'
+        }
+
+        html.classList.remove("sidebar-visible");
+        html.classList.add(`sidebar-${sidebar_state}`);
+    </script>
+    <main class="page">
+        <div class="sidebar noselect">
+            <div class="sb_header">
+                <a href="">
+                    <img src="../favicon.png" alt="" srcset="" width="50px" height="50px">
+                    <span>Unofficial Discord Documentation</span>
+                    </img>
+                </a>
+                <script>
+                    document.querySelector('.sb_header a').href = window.location.origin;
+                </script>
+            </div>
+            <div class="search">
+                <button id="search-toggle" style="display: none;"></button>
+                <form id="searchbar-outer" class="searchbar-outer" autocomplete="off" spellcheck="false">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search the docs..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="search-wrapper" style="display: inherit !important;">
+                    <div id="searchresults-outer" class="searchresults-outer hidden noscrollbar">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults" class="noscrollbar">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toctree noscrollbar">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">General</li><li class="chapter-item expanded "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../general/resources.html" class="active">Resources</a></li><li class="chapter-item expanded "><a href="../general/api_wrappers.html">API Wrappers</a></li><li class="chapter-item expanded "><a href="../general/contribution.html">Contribution</a></li><li class="chapter-item expanded "><a href="../general/legal.html">Legal</a></li><li class="chapter-item expanded affix "><li class="part-title">Topics</li><li class="chapter-item expanded "><div>Experiments</div></li><li class="chapter-item expanded "><div>__development</div></li><li class="chapter-item expanded "><div>Analytics</div></li><li class="chapter-item expanded "><div>The Client</div></li><li class="chapter-item expanded "><div>Discord's Infrastructure</div></li><li class="chapter-item expanded "><div>Lazy Loading</div></li><li class="chapter-item expanded "><div>Gateway</div></li><li class="chapter-item expanded "><div>Voice & Video</div></li><li class="chapter-item expanded "><div>RPC & IPC</div></li><li class="chapter-item expanded "><div>Interactions</div></li><li class="chapter-item expanded affix "><li class="part-title">Endpoints</li><li class="chapter-item expanded "><a href="../endpoints/endpoints_list.html">Endpoints List</a></li><li class="chapter-item expanded "><a href="../endpoints/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../endpoints/guild.html">Guilds</a></li><li class="chapter-item expanded "><a href="../endpoints/user.html">Users</a></li><li class="chapter-item expanded "><a href="../endpoints/application.html">Applications</a></li><li class="chapter-item expanded affix "><li class="part-title">Miscellaneous</li><li class="chapter-item expanded "><div>Glossary</div></li></ol>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="sidebartoggle noselect">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill-rule="evenodd"
+                        d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z">
+                    </path>
+                </svg>
+            </div>
+            <div class="settings noselect">
+                <div class="themetoggle">
+                    <span class="material-icons round">format_paint</span>
+                </div>
+                <a class="gitedit" href="https://github.com/discord-undoc/discord-undoc.github.io/edit/master/src/general/resources.md" target="_blank">
+                    <span class="material-icons round">edit</span>
+                </a>
+                <a class="giturl" href="https://github.com/discord-undoc/discord-undoc.github.io" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="chapter-contents">
+                <h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<p>These are some resources that might help you 😺</p>
+<h2 id="discord-developers"><a class="header" href="#discord-developers">Discord Developers</a></h2>
+<blockquote>
+<p><strong>Description</strong>: Discord Developers is the official server powered by
+the community dedicated to helping you with Discord’s API.
+Developers support each other and commute with Discord staff who work
+on the Bots &amp; API Team.</p>
+<br>
+<p><strong>Links</strong>:<br />
+<a href="https://discord.gg/discord-developers">Documentation</a><br />
+<a href="https://dis.gd/docs">Documentation (dis.gd)</a><br />
+<a href="https://discord.dev">Documentation (unofficial url)</a><br />
+<a href="https://discordapi.com">Documentation (unofficial url)</a><br />
+<a href="https://discord.gg/discord-developers">Official Server</a></p>
+<br>
+<p><strong>Credits</strong>: <user id="github:discord"></user></p>
+<br>
+<p><server id="discord-developers"></server></p>
+</blockquote>
+<h2 id="discord-api"><a class="header" href="#discord-api">Discord API</a></h2>
+<blockquote>
+<p><strong>Description</strong>: Discord API is <em>officially</em> an unofficial server for
+discussing all facets of Discord’s API, including bot creation, OAuth2,
+rich presence, and others.<br />
+There are also channels for most libraries that currently provide an
+interface for the API, allowing for discussion of those libraries.</p>
+<br>
+<p><strong>Link</strong>: <a href="https://discord.gg/discord-api">Server</a></p>
+<br>
+<p><strong>Credits</strong>: Discord API team (owned by <user id="80088516616269824"></user>)</p>
+<br>
+<p><server id="discord-api"></server></p>
+</blockquote>
+<h2 id="ddocsio"><a class="header" href="#ddocsio">ddocs.io</a></h2>
+<blockquote>
+<p><strong>Description</strong>: ddocs.io is a collaborative effort between numerous library
+and large bot developers to collect, maintain and organise the summaries
+written on Discord Developers stage events as well as track upcoming
+API feature status! Many of us have found that writing GitHub Gists
+has been somewhat problematic in keeping up with each Q&amp;A summary or
+feature, so instead of going through chain linking or the hell of
+searching where summaries are or what the status of a feature is,
+we’ll be posting all of this onto a centralized website instead.</p>
+<br>
+<p><strong>Links</strong>:<br />
+<a href="https://ddocs.io">Website</a><br />
+<a href="https://discord.gg/HzJfeuUM5h">Server</a></p>
+<br>
+<p><strong>Credits</strong>: <user id="github:discord-docs"></user></p>
+<br>
+<p><server id="HzJfeuUM5h"></server></p>
+</blockquote>
+<h2 id="unofficial-discord-api-docs"><a class="header" href="#unofficial-discord-api-docs">Unofficial Discord API Docs</a></h2>
+<blockquote>
+<p><strong>Description</strong>: Unofficial documentation for Undocumented Discord APIs.
+Also contains an outline of Discord’s infrastructure.</p>
+<br>
+<p><strong>Link</strong>: <a href="https://luna.gitlab.io/discord-unofficial-docs">Website</a></p>
+<br>
+<p><strong>Credits</strong>: <a href="https://l4.pm/">Luna Mendes</a></p>
+</blockquote>
+<h2 id="discord-resources-wiki"><a class="header" href="#discord-resources-wiki">Discord Resources Wiki</a></h2>
+<blockquote>
+<p><strong>Description</strong>: Discord Resources is a community ran project which is a
+curated list of awesome resources for your Discord community!</p>
+<br>
+<p><strong>Links</strong>:<br />
+<a href="https://discordresources.com">Website</a><br />
+<a href="https://discord.gg/AJX6cVWeJg">Server</a></p>
+<br>
+<p><strong>Credits</strong>: <a href="https://discordresources.com/contribution#contributors">Contibutors</a> (owned by <user id="755792681313108018"></user>)</p>
+<br>
+<p><server id="AJX6cVWeJg"></server></p>
+</blockquote>
+
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav prev">
+                    <div class="nav-button prev">
+                        <span class="material-icons round">arrow_back_ios_new</span>
+                    </div>
+                    <span class="nav-title">Introduction</span>
+                </a>
+                <a href="general/api_wrappers.html" class="nav next">
+                    <span class="nav-title">API Wrappers</span>
+                    <div class="nav-button next">
+                        <span class="material-icons round">arrow_forward_ios</span>
+                    </div>
+                </a>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        twemoji.parse(document.body);
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return undefined;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        let hlword = getParameterByName('highlight');
+
+        typeof hlword !== "undefined" ? (new Mark(".chapter-contents")).mark(hlword, { className: "highlight-search", exclude: ["h1", "h2", "h3", "h4", "h5", "h6", ".spoiler"] }) : null;
+    </script>
+</body>
+
+</html>

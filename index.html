@@ -1,0 +1,231 @@
+<!--
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API">
+
+    <meta property="og:title" content="Unofficial Discord Documentation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://discord-undoc.github.io" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/discord-undoc/.github/master/assets/UNDocNoBG.png" />
+    <meta property="og:description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API" />
+    <meta name="theme-color" content="#FD745E">
+
+    <title>Unofficial Discord Documentation</title>
+
+    <link rel="prerender" href="general/resources.html">
+    <link rel="preload" href="css/variables.css" as="style">
+    <link rel="preload" href="css/general.css" as="style">
+    <link rel="preload" href="css/chrome.css" as="style">
+    <link rel="preload" href="elasticlunr.min.js" as="script">
+    <link rel="preload" href="mark.min.js" as="script">
+    <link rel="preload" href="searcher.js" as="script">
+    <link rel="preload" href="highlight.js" as="script">
+    <link rel="preload" href="book.js" as="script">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+
+    <link rel="stylesheet" href="highlight.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const base_url = "";
+        const path_to_root = "";
+        const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "dark";
+
+        try {
+            let theme = localStorage.getItem('theme');
+            let sidebar = localStorage.getItem('sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+
+        const theme = localStorage.getItem('theme') || default_theme;
+        let sidebar_state = 'hidden';
+        const html = document.querySelector('html');
+
+        html.classList.remove("dark");
+        html.classList.add(theme);
+
+        if (document.body.clientWidth > 800) {
+            sidebar_state = localStorage.getItem('sidebar') || 'visible'
+        }
+
+        html.classList.remove("sidebar-visible");
+        html.classList.add(`sidebar-${sidebar_state}`);
+    </script>
+    <main class="page">
+        <div class="sidebar noselect">
+            <div class="sb_header">
+                <a href="">
+                    <img src="favicon.png" alt="" srcset="" width="50px" height="50px">
+                    <span>Unofficial Discord Documentation</span>
+                    </img>
+                </a>
+                <script>
+                    document.querySelector('.sb_header a').href = window.location.origin;
+                </script>
+            </div>
+            <div class="search">
+                <button id="search-toggle" style="display: none;"></button>
+                <form id="searchbar-outer" class="searchbar-outer" autocomplete="off" spellcheck="false">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search the docs..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="search-wrapper" style="display: inherit !important;">
+                    <div id="searchresults-outer" class="searchresults-outer hidden noscrollbar">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults" class="noscrollbar">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toctree noscrollbar">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">General</li><li class="chapter-item expanded "><a href="index.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="general/resources.html">Resources</a></li><li class="chapter-item expanded "><a href="general/api_wrappers.html">API Wrappers</a></li><li class="chapter-item expanded "><a href="general/contribution.html">Contribution</a></li><li class="chapter-item expanded "><a href="general/legal.html">Legal</a></li><li class="chapter-item expanded affix "><li class="part-title">Topics</li><li class="chapter-item expanded "><div>Experiments</div></li><li class="chapter-item expanded "><div>__development</div></li><li class="chapter-item expanded "><div>Analytics</div></li><li class="chapter-item expanded "><div>The Client</div></li><li class="chapter-item expanded "><div>Discord's Infrastructure</div></li><li class="chapter-item expanded "><div>Lazy Loading</div></li><li class="chapter-item expanded "><div>Gateway</div></li><li class="chapter-item expanded "><div>Voice & Video</div></li><li class="chapter-item expanded "><div>RPC & IPC</div></li><li class="chapter-item expanded "><div>Interactions</div></li><li class="chapter-item expanded affix "><li class="part-title">Endpoints</li><li class="chapter-item expanded "><a href="endpoints/endpoints_list.html">Endpoints List</a></li><li class="chapter-item expanded "><a href="endpoints/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="endpoints/guild.html">Guilds</a></li><li class="chapter-item expanded "><a href="endpoints/user.html">Users</a></li><li class="chapter-item expanded "><a href="endpoints/application.html">Applications</a></li><li class="chapter-item expanded affix "><li class="part-title">Miscellaneous</li><li class="chapter-item expanded "><div>Glossary</div></li></ol>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="sidebartoggle noselect">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill-rule="evenodd"
+                        d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z">
+                    </path>
+                </svg>
+            </div>
+            <div class="settings noselect">
+                <div class="themetoggle">
+                    <span class="material-icons round">format_paint</span>
+                </div>
+                <a class="gitedit" href="https://github.com/discord-undoc/discord-undoc.github.io/edit/master/src/README.md" target="_blank">
+                    <span class="material-icons round">edit</span>
+                </a>
+                <a class="giturl" href="https://github.com/discord-undoc/discord-undoc.github.io" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="chapter-contents">
+                <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The Discord API is big.<br />
+Bigger than what you see in the official API docs, at least.<br />
+The purpose of this project is to cover all of it, from more in – depth
+documentation to document entire new areas and endpoints, to make your
+understanding of the API and bot development better.</p>
+<br>
+<p>Come join the <em>official</em> Unofficial Discord Documentation server</p>
+<p><server id="zVB5P96GE2"></server></p>
+<note>
+<p>Read <a href="https://discord-undoc.github.io/discord-undoc-theme/kbdcombo">navigation.md</a>
+to get a basic understanding about how to navigate the docs.</p>
+</note>
+<h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
+<h3 id="is-this-official"><a class="header" href="#is-this-official">Is this official?</a></h3>
+<blockquote>
+<p>No. We are not affiliated with Discord in any sort or form.</p>
+</blockquote>
+<h3 id="what-is-the-purpose-of-this-project"><a class="header" href="#what-is-the-purpose-of-this-project">What is the purpose of this project?</a></h3>
+<blockquote>
+<p>As stated in the <a href="#introduction">introduction</a>, this project is to make your
+understanding of the API and bot development better and also to document
+most if not all the things that the Discord API has to offer.</p>
+</blockquote>
+<h3 id="why-this-when-we-already-have-the-official-api-docs"><a class="header" href="#why-this-when-we-already-have-the-official-api-docs">Why this when we already have the official API docs?</a></h3>
+<blockquote>
+<p>The official docs are great and have a big community behind them.
+But there are certain things that are not covered in the official docs.
+Either they are not usable by bots, or Discord just doesn’t want you to know about them.</p>
+</blockquote>
+<h3 id="can-i-parse-the-api-types"><a class="header" href="#can-i-parse-the-api-types">Can I parse the API Types?</a></h3>
+<blockquote>
+<p>Yes. <em>Work In Progress</em></p>
+</blockquote>
+<h3 id="who-are-we"><a class="header" href="#who-are-we">Who are we?</a></h3>
+<blockquote>
+<p>We are a bunch of people interested in the Discord API in one way or the
+other. I <user id="841509053422632990"></user> got bored of the
+inconstencies and the mess of the official documentation, so I decided,
+“Meh, imma just make my own docs, how hard could that be” and here we are.</p>
+<p>The main team:</p>
+<p><user id="841509053422632990"></user> (Owner/Maintainer)<br />
+<user id="755792681313108018"></user></p>
+<p>We dont have fancy titles, we just contribute wherever we can.</p>
+</blockquote>
+
+            </div>
+            <div class="navigation">
+                <a href="general/resources.html" class="nav next">
+                    <span class="nav-title">Resources</span>
+                    <div class="nav-button next">
+                        <span class="material-icons round">arrow_forward_ios</span>
+                    </div>
+                </a>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        twemoji.parse(document.body);
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return undefined;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        let hlword = getParameterByName('highlight');
+
+        typeof hlword !== "undefined" ? (new Mark(".chapter-contents")).mark(hlword, { className: "highlight-search", exclude: ["h1", "h2", "h3", "h4", "h5", "h6", ".spoiler"] }) : null;
+    </script>
+</body>
+
+</html>

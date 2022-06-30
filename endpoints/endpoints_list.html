@@ -1,0 +1,663 @@
+<!--
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API">
+
+    <meta property="og:title" content="Unofficial Discord Documentation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://discord-undoc.github.io" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/discord-undoc/.github/master/assets/UNDocNoBG.png" />
+    <meta property="og:description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API" />
+    <meta name="theme-color" content="#FD745E">
+
+    <title>Unofficial Discord Documentation</title>
+
+    <link rel="prerender" href="general/legal.html">
+    <link rel="prerender" href="endpoints/cdn.html">
+    <link rel="preload" href="../css/variables.css" as="style">
+    <link rel="preload" href="../css/general.css" as="style">
+    <link rel="preload" href="../css/chrome.css" as="style">
+    <link rel="preload" href="../elasticlunr.min.js" as="script">
+    <link rel="preload" href="../mark.min.js" as="script">
+    <link rel="preload" href="../searcher.js" as="script">
+    <link rel="preload" href="../highlight.js" as="script">
+    <link rel="preload" href="../book.js" as="script">
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+
+    <link rel="stylesheet" href="../highlight.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const base_url = "";
+        const path_to_root = "../";
+        const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "dark";
+
+        try {
+            let theme = localStorage.getItem('theme');
+            let sidebar = localStorage.getItem('sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+
+        const theme = localStorage.getItem('theme') || default_theme;
+        let sidebar_state = 'hidden';
+        const html = document.querySelector('html');
+
+        html.classList.remove("dark");
+        html.classList.add(theme);
+
+        if (document.body.clientWidth > 800) {
+            sidebar_state = localStorage.getItem('sidebar') || 'visible'
+        }
+
+        html.classList.remove("sidebar-visible");
+        html.classList.add(`sidebar-${sidebar_state}`);
+    </script>
+    <main class="page">
+        <div class="sidebar noselect">
+            <div class="sb_header">
+                <a href="">
+                    <img src="../favicon.png" alt="" srcset="" width="50px" height="50px">
+                    <span>Unofficial Discord Documentation</span>
+                    </img>
+                </a>
+                <script>
+                    document.querySelector('.sb_header a').href = window.location.origin;
+                </script>
+            </div>
+            <div class="search">
+                <button id="search-toggle" style="display: none;"></button>
+                <form id="searchbar-outer" class="searchbar-outer" autocomplete="off" spellcheck="false">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search the docs..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="search-wrapper" style="display: inherit !important;">
+                    <div id="searchresults-outer" class="searchresults-outer hidden noscrollbar">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults" class="noscrollbar">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toctree noscrollbar">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">General</li><li class="chapter-item expanded "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../general/resources.html">Resources</a></li><li class="chapter-item expanded "><a href="../general/api_wrappers.html">API Wrappers</a></li><li class="chapter-item expanded "><a href="../general/contribution.html">Contribution</a></li><li class="chapter-item expanded "><a href="../general/legal.html">Legal</a></li><li class="chapter-item expanded affix "><li class="part-title">Topics</li><li class="chapter-item expanded "><div>Experiments</div></li><li class="chapter-item expanded "><div>__development</div></li><li class="chapter-item expanded "><div>Analytics</div></li><li class="chapter-item expanded "><div>The Client</div></li><li class="chapter-item expanded "><div>Discord's Infrastructure</div></li><li class="chapter-item expanded "><div>Lazy Loading</div></li><li class="chapter-item expanded "><div>Gateway</div></li><li class="chapter-item expanded "><div>Voice & Video</div></li><li class="chapter-item expanded "><div>RPC & IPC</div></li><li class="chapter-item expanded "><div>Interactions</div></li><li class="chapter-item expanded affix "><li class="part-title">Endpoints</li><li class="chapter-item expanded "><a href="../endpoints/endpoints_list.html" class="active">Endpoints List</a></li><li class="chapter-item expanded "><a href="../endpoints/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../endpoints/guild.html">Guilds</a></li><li class="chapter-item expanded "><a href="../endpoints/user.html">Users</a></li><li class="chapter-item expanded "><a href="../endpoints/application.html">Applications</a></li><li class="chapter-item expanded affix "><li class="part-title">Miscellaneous</li><li class="chapter-item expanded "><div>Glossary</div></li></ol>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="sidebartoggle noselect">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill-rule="evenodd"
+                        d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z">
+                    </path>
+                </svg>
+            </div>
+            <div class="settings noselect">
+                <div class="themetoggle">
+                    <span class="material-icons round">format_paint</span>
+                </div>
+                <a class="gitedit" href="https://github.com/discord-undoc/discord-undoc.github.io/edit/master/src/endpoints/endpoints_list.md" target="_blank">
+                    <span class="material-icons round">edit</span>
+                </a>
+                <a class="giturl" href="https://github.com/discord-undoc/discord-undoc.github.io" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="chapter-contents">
+                <h1 id="endpoints-list"><a class="header" href="#endpoints-list">Endpoints List</a></h1>
+<h2 id="base-urls"><a class="header" href="#base-urls">Base URLs</a></h2>
+<p><strong>Base API URL</strong> - <code>https://canary.discord.com/api/v9/</code><br />
+<strong>Base Status API URL</strong> - <code>https://discordstatus.com/api/v2/</code> or <code>https://discordstatus.com/</code></p>
+<h2 id="endpoints"><a class="header" href="#endpoints">Endpoints</a></h2>
+<ul>
+<li><code>/activities/guilds/{guild.id}/enable-wtp</code> - <code>POST</code></li>
+<li><code>/activities/guilds/{guild.id}/shelf</code> - <code>GET</code></li>
+<li><code>/activities/guilds/{guild.id}/{channel.id}/{application.id}</code> - <code>POST</code></li>
+<li><code>/activities/statistics/applications/{application.id}</code> - <code>GET</code></li>
+<li><code>/activities</code> - <code>POST</code></li>
+<li><code>/app-assets/{application.id}/store/{banner_asset.id}.{WebP|PNG}</code> - <code>GET</code></li>
+<li><code>/app-assets/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}</code> - <code>GET</code></li>
+<li><code>/app-icons/{application.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/application-directory/applications/recommended</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/application-directory/applications/{application.id}/similar</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/application-directory/applications/{application.id}</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/application-directory/applications</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/application-directory/categories</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/application-directory/collection-items/{item.id}/{hash}.{PNG||WebP}</code> - <code>GET</code></li>
+<li><code>/application-directory/collections</code> - <code>UNDER DEVELOPMENT</code></li>
+<li><code>/applications/detectable</code> - <code>GET</code></li>
+<li><code>/applications/public</code> - <code>GET</code></li>
+<li><code>/applications/trending/global</code> - <code>UNKNOWN</code></li>
+<li><code>/applications/{application.id}/achievements/{achievement.id}</code> - <code>GET, PATCH, PUT, DELETE</code></li>
+<li><code>/applications/{application.id}/achievements</code> - <code>GET, POST</code></li>
+<li><code>/applications/{application.id}/app-icons/{hash}.png</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/branches/{branch.id}/builds/live</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/branches/{branch.id}/builds/{build.id}/size</code> - <code>POST</code></li>
+<li><code>/applications/{application.id}/branches/{branch.id}/storage</code> - <code>UNKNOWN</code></li>
+<li><code>/applications/{application.id}/branches</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/commands/{command.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/applications/{application.id}/commands</code> - <code>GET, POST, PUT</code></li>
+<li><code>/applications/{application.id}/entitlements/{entitlement.id}/consume</code> - <code>POST</code></li>
+<li><code>/applications/{application.id}/entitlements/{entitlement.id}</code> - <code>GET, DELETE</code></li>
+<li><code>/applications/{application.id}/entitlements</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/external-assets</code> - <code>POST</code></li>
+<li><code>/applications/{application.id}/guilds/{guild.id}/commands/permissions</code> - <code>GET, PUT</code></li>
+<li><code>/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions</code> - <code>GET, PUT</code></li>
+<li><code>/applications/{application.id}/guilds/{guild.id}/commands/{command.id}</code> - <code>DELETE, GET, PATCH</code></li>
+<li><code>/applications/{application.id}/guilds/{guild.id}/commands</code> - <code>GET, POST, PUT</code></li>
+<li><code>/applications/{application.id}/payment-payout-groups</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/public</code> - <code>GET</code></li>
+<li><code>/applications/{application.id}/skus</code> - <code>GET</code></li>
+<li><code>/applications</code> - <code>POST</code></li>
+<li><code>/auth/authorize-ip</code> - <code>POST</code></li>
+<li><code>/auth/forgot</code> - <code>POST</code></li>
+<li><code>/auth/handoff/exchange</code> - <code>POST</code></li>
+<li><code>/auth/handoff</code> - <code>POST</code></li>
+<li><code>/auth/location-metadata</code> - <code>GET</code></li>
+<li><code>/auth/login</code> - <code>POST</code></li>
+<li><code>/auth/logout</code> - <code>POST</code></li>
+<li><code>/auth/mfa/sms/send</code> - <code>POST</code></li>
+<li><code>/auth/mfa/sms</code> - <code>POST</code></li>
+<li><code>/auth/mfa/totp</code> - <code>POST</code></li>
+<li><code>/auth/register/phone</code> - <code>POST</code></li>
+<li><code>/auth/register</code> - <code>POST</code></li>
+<li><code>/auth/reset</code> - <code>POST</code></li>
+<li><code>/auth/sessions</code> -  <code>GET</code></li>
+<li><code>/auth/sessions/logout</code> - <code>POST</code></li>
+<li><code>/auth/verify/resend</code> - <code>POST</code></li>
+<li><code>/auth/verify/view-backup-codes-challenge</code> - <code>POST</code></li>
+<li><code>/auth/verify</code> - <code>POST</code></li>
+<li><code>/avatar-decorations/{user.id}/{decoration}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/avatars/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/banners/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/banners/{user.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/billing/apple/apply-receipt</code> - <code>POST</code></li>
+<li><code>/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback/{unknown}/{unknown}</code> - <code>GET</code></li>
+<li><code>/billing/popup-bridge/{1||2||3||4||5||6||7||8}/callback</code> - <code>POST</code></li>
+<li><code>/billing/popup-bridge/{1||2||3||4||5||6||7||8}</code> - <code>POST</code></li>
+<li><code>/billing/verify-purchase-request</code> - <code>POST</code></li>
+<li><code>/branches</code> - <code>POST</code></li>
+<li><code>/channel-icons/{channel.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/application-commands/search</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/call/ring</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/call/stop-ringing</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/call</code> - <code>GET, PATCH</code></li>
+<li><code>/channels/{channel.id}/convert</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/directory-entries/counts</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/directory-entries/list</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/directory-entries/search</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/directory-entries</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/directory-entry/{entity.id}</code> - <code>POST, PATCH, DELETE</code></li>
+<li><code>/channels/{channel.id}/follower-message-stats</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/follower-stats</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/followers</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/greet</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/icons/{hash}.jpg</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/invites</code> - <code>GET, POST</code></li>
+<li><code>/channels/{channel.id}/messages/ack</code> - <code>DELETE</code></li>
+<li><code>/channels/{channel.id}/messages/bulk-delete</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/messages/search</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/ack</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/crosspost</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/hide-guild-feed</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/interaction-data</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}</code> - <code>DELETE</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}</code> - <code>GET, DELETE</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/reactions</code> - <code>DELETE</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}/threads</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/messages/{message.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/channels/{channel.id}/messages</code> - <code>GET, POST</code></li>
+<li><code>/channels/{channel.id}/permissions/{overwrite.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/permissions</code> - <code>UNKNOWN</code></li>
+<li><code>/channels/{channel.id}/pins/ack</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/pins/{message.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/pins</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/post-data</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/recipients/{user.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/recipients</code> - <code>UNKNOWN</code></li>
+<li><code>/channels/{channel.id}/recipients/@me</code> <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/store-listing/entitlement-grant</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/store-listing</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/store-listings/{sku.id}</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/tags/{tag.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/tags</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/thread-members/@me/settings</code> - <code>PATCH</code></li>
+<li><code>/channels/{channel.id}/thread-members/@me</code> - <code>PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/thread-members/{user.id}</code> - <code>GET, PUT, DELETE</code></li>
+<li><code>/channels/{channel.id}/thread-members</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/threads/active</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/threads/archived/private</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/threads/archived/public</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/threads/search</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/threads</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/typing</code> - <code>POST</code></li>
+<li><code>/channels/{channel.id}/users/@me/threads/archived/private</code> - <code>GET</code></li>
+<li><code>/channels/{channel.id}/webhooks</code> - <code>GET, POST</code></li>
+<li><code>/channels/{channel.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/callback</code> - <code>POST</code></li>
+<li><code>/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize?continuation=true</code> - <code>GET</code></li>
+<li><code>/connections/{twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/authorize</code> - <code>GET</code></li>
+<li><code>/debug-logs/multi/{unknown}</code> - <code>POST</code></li>
+<li><code>/debug-logs/{1||2||3||4}/{unknown}</code> - <code>POST</code></li>
+<li><code>/discoverable-guilds</code> - <code>GET</code></li>
+<li><code>/discovery-splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/discovery/categories</code> - <code>GET</code></li>
+<li><code>/discovery/valid-term</code> - <code>GET</code></li>
+<li><code>/discovery/{guild.id}</code> - <code>GET</code></li>
+<li><code>/drops/eligibility</code> - <code>GET</code></li>
+<li><code>/emojis/{emoji.id}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/emojis/{emoji.id}/guild</code> - <code>GET</code></li>
+<li><code>/entitlements/gift-codes/{gift.code}/redeem</code> - <code>POST</code></li>
+<li><code>/entitlements/gift-codes/{gift.code}</code> - <code>GET</code></li>
+<li><code>/experiments</code> - <code>GET</code></li>
+<li><code>/friend-suggestions/{user.id}</code> - <code>DELETE</code></li>
+<li><code>/friend-suggestions</code> - <code>GET</code></li>
+<li><code>/gateway/bot</code> - <code>GET</code></li>
+<li><code>/gateway</code> - <code>GET</code></li>
+<li><code>/gifs/search</code> - <code>GET</code></li>
+<li><code>/gifs/select</code> - <code>POST</code></li>
+<li><code>/gifs/suggest</code> - <code>GET</code></li>
+<li><code>/gifs/trending-gifs</code> - <code>GET</code></li>
+<li><code>/gifs/trending-search</code> - <code>GET</code></li>
+<li><code>/gifs/trending</code> - <code>GET</code></li>
+<li><code>/guild-events/{event.id}/images/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/guild-events/{guild.id}/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/guild-recommendations</code> - <code>GET</code></li>
+<li><code>/guild-templates/{template.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/guilds/automations/email-domain-lookup/verify-code</code> - <code>POST</code></li>
+<li><code>/guilds/automations/email-domain-lookup/verify</code> - <code>POST</code></li>
+<li><code>/guilds/automations/email-domain-lookup</code> - <code>POST</code></li>
+<li><code>/guilds/templates/{template.code}</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/active-channels</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/admin-server-eligibility</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/analytics/engagement/overview</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/analytics/growth-activation/overview</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/analytics/growth-activation/retention</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/analytics/member-insights</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/analytics/overview</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/application-commands/{application.id}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/applications</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/audit-logs</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/auto-moderation/rules/{rule.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/auto-moderation/rules</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/bans/{user.id}</code> - <code>GET, PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/bans</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/channels</code> - <code>GET, PATCH, POST</code></li>
+<li><code>/guilds/{guild.id}/creator-monetization/enable-requests/{request.id}/accept-terms</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/creator-monetization/enable-requests</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/creator-monetization/requirements</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/delete</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/directory-entries/broadcast</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/discovery-categories/{discoverable-server-category.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/discovery-checklist</code> - <code>UNKNOWN</code></li>
+<li><code>/guilds/{guild.id}/discovery-metadata</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}/discovery-requirements</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/discovery-splashes/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/emojis/{emoji.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/emojis</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/guild-feed/feature</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/guild-feed/mark-seen</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/guild-feed/preference</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/guild-feed</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/integrations/{integration.id}/sync</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/integrations/{integration.id}</code> - <code>DELETE</code></li>
+<li><code>/guilds/{guild.id}/integrations</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/invites</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/join-admin-server</code> <code>POST</code></li>
+<li><code>/guilds/{guild.id}/member-verification</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}/members/@me/nick</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/members/@me</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/members/search</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/members/{user.id}/nick</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/members/{user.id}/roles/{role.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/members/{user.id}</code> - <code>GET, PATCH, PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/members</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/messages/search</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/mfa</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/premium/subscriptions/{subscription.id}</code> - <code>DELETE</code></li>
+<li><code>/guilds/{guild.id}/premium/subscriptions</code> - <code>GET, PUT</code></li>
+<li><code>/guilds/{guild.id}/preview</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/prune</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/regions</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/requests/@me</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/requests/{user.id}/ack</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/requests/{user.id}</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/requests</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}/role-prompts/{prompt.id}</code> - <code>DELETE</code></li>
+<li><code>/guilds/{guild.id}/role-prompts</code> - <code>GET, PUT, POST</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}</code> - <code>POST, PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}</code> - <code>GET, PATCH, POST, DELETE</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/settings</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial/{trial.id}/eligibility</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/trials/metrics-overview</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/role-subscriptions/trials</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/roles/member-counts</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/roles/{role.id}/member-ids</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/roles/{role.id}/members</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/roles/{role.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/roles</code> - <code>GET, PATCH, POST</code></li>
+<li><code>/guilds/{guild.id}/scheduled-events/{event.id}/users/@me</code> - <code>PUT, DELETE</code></li>
+<li><code>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/scheduled-events</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/soundboard-sounds/{sound.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/soundboard-sounds</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/splashes/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/stickers/{sticker.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/stickers</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/templates/{template.code}</code> - <code>PUT, PATCH, DELETE</code></li>
+<li><code>/guilds/{guild.id}/templates</code> - <code>GET, POST</code></li>
+<li><code>/guilds/{guild.id}/threads/active</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/text-in-voice/community-opt-in</code> - <code>POST</code></li>
+<li><code>/guilds/{guild.id}/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/vanity-url</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/voice-states/@me</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/voice-states/{user.id}</code> - <code>PATCH</code></li>
+<li><code>/guilds/{guild.id}/webhooks</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/welcome-screen</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}/widget.json</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/widget.png</code> - <code>GET</code></li>
+<li><code>/guilds/{guild.id}/widget</code> - <code>GET, PATCH</code></li>
+<li><code>/guilds/{guild.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/guilds</code> - <code>POST</code></li>
+<li><code>/hub-waitlist/signup</code> - <code>POST</code></li>
+<li><code>/hypesquad/online</code> - <code>POST, DELETE</code></li>
+<li><code>/icons/{guild.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/integrations/{integration.id}/join</code> - <code>POST</code></li>
+<li><code>/integrations/{integration.id}/search</code> - <code>GET</code></li>
+<li><code>/interactions/{interaction.id}/{interaction.token}/callback</code> - <code>POST</code></li>
+<li><code>/interactions</code> - <code>POST</code></li>
+<li><code>/invites/{invite.code}</code> - <code>GET, DELETE</code></li>
+<li><code>/lobbies/search</code> - <code>POST</code></li>
+<li><code>/lobbies/{lobby.id}/members/{user.id}</code> - <code>PATCH</code></li>
+<li><code>/lobbies/{lobby.id}/send</code> - <code>POST</code></li>
+<li><code>/lobbies/{lobby.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/lobbies</code> - <code>POST</code></li>
+<li><code>/message-requests</code> - <code>GET</code></li>
+<li><code>/metrics</code> - <code>POST</code></li>
+<li><code>/oauth2/@me</code> - <code>GET</code></li>
+<li><code>/oauth2/allowlist/accept</code> - <code>POST</code></li>
+<li><code>/oauth2/applications/@me</code> - <code>GET</code></li>
+<li><code>/oauth2/applications/{application.id}/assets</code> - <code>GET</code></li>
+<li><code>/oauth2/applications/{application.id}/rpc</code> - <code>GET</code></li>
+<li><code>/oauth2/authorize/webhook-channels</code> - <code>GET</code></li>
+<li><code>/oauth2/authorize</code> - <code>GET, POST</code></li>
+<li><code>/oauth2/tokens/{token.id}</code> - <code>DELETE</code></li>
+<li><code>/oauth2/tokens</code> - <code>GET</code></li>
+<li><code>/outbound-promotions/preview</code> - <code>GET</code></li>
+<li><code>/outbound-promotions/{promotion.id}/claim</code> - <code>POST</code></li>
+<li><code>/outbound-promotions</code> - <code>GET</code></li>
+<li><code>/partners/apply</code> - <code>POST</code></li>
+<li><code>/partners/connections</code> - <code>GET</code></li>
+<li><code>/partners/{guild.id}/requirements</code> - <code>GET</code></li>
+<li><code>/phone-verifications/resend</code> - <code>POST</code></li>
+<li><code>/phone-verifications/validate-support-ticket</code> - <code>POST</code></li>
+<li><code>/phone-verifications/verify</code> - <code>POST</code></li>
+<li><code>/private/bug-reports</code> - <code>GET, POST</code></li>
+<li><code>/promotions/funimation</code> - <code>UNKNOWN</code></li>
+<li><code>/read-states/ack-bulk</code> - <code>POST</code></li>
+<li><code>/report/options</code> - <code>GET</code></li>
+<li><code>/report</code> - <code>GET, POST</code></li>
+<li><code>/reporting/menu/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}</code> - <code>GET</code></li>
+<li><code>/reporting/{stage_channel||user||message||guild_discovery||guild_scheduled_event||first_dm||guild||guild_directory_entry}</code> - <code>POST</code></li>
+<li><code>/reports/channels/{channel.id}/messages/{message.id}</code> - <code>POST</code></li>
+<li><code>/reports</code> - <code>POST</code></li>
+<li><code>/role-icons/{role.id}/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/roles/{role.id}/icons/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/science</code> - <code>POST</code></li>
+<li><code>/soundboard-sounds/{sound.id}</code> - <code>GET</code></li>
+<li><code>/splashes/{guild.id}/{hash}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/stage-instances/extra</code> - <code>GET</code></li>
+<li><code>/stage-instances/{channel.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/stage-instances</code> - <code>POST</code></li>
+<li><code>/sticker-packs/{pack.id}</code> - <code>GET</code></li>
+<li><code>/sticker-packs</code> - <code>GET</code></li>
+<li><code>/stickers/{hash}.{PNG||Lottie}</code> - <code>GET</code></li>
+<li><code>/stickers/{sticker.id}/guild</code> - <code>GET</code></li>
+<li><code>/stickers/{sticker.id}</code> - <code>GET</code></li>
+<li><code>/store/applications/710982414301790216/assets/{banner_asset.id}.{WebP|PNG}</code> - <code>GET</code></li>
+<li><code>/store/directory-layouts/{directory-layout.id}</code> - <code>GET</code></li>
+<li><code>/store/directory/{directory-layout.id}</code> - <code>GET</code></li>
+<li><code>/store/eulas/{eula.id}</code> - <code>GET</code></li>
+<li><code>/store/listings/{listing.id}</code> - <code>GET</code></li>
+<li><code>/store/price-tiers</code> - <code>GET</code></li>
+<li><code>/store/published-listings/applications/{application.id}</code> - <code>GET</code></li>
+<li><code>/store/published-listings/applications</code> - <code>GET</code></li>
+<li><code>/store/published-listings/skus/{sku.id}/subscription-plans</code> - <code>GET</code></li>
+<li><code>/store/published-listings/skus/{sku.id}</code> - <code>GET</code></li>
+<li><code>/store/published-listings/skus</code> - <code>GET</code></li>
+<li><code>/store/skus/{sku.id}/discounts/{user.id}</code> - <code>PUT, DELETE</code></li>
+<li><code>/store/skus/{sku.id}/listings</code> - <code>GET</code></li>
+<li><code>/store/skus/{sku.id}/purchase</code> - <code>GET, POST</code></li>
+<li><code>/store/skus/{sku.id}</code> - <code>GET</code></li>
+<li><code>/streams/{stream.key}/notify</code> - <code>POST</code></li>
+<li><code>/streams/{stream.key}/preview</code> - <code>GET, POST</code></li>
+<li><code>/streams/{stream.key}/stream</code> - <code>PATCH</code></li>
+<li><code>/subscription-plans/{subscription-plan.id}/guild-role-subscription-group-listing</code> - <code>GET</code></li>
+<li><code>/teams</code> - <code>GET</code></li>
+<li><code>/templates/{template.id}/icons/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/tutorial/indicators/suppress</code> - <code>POST</code></li>
+<li><code>/tutorial/indicators/{tutorial.id}</code> - <code>PUT</code></li>
+<li><code>/tutorial/indicators</code> - <code>UNKNOWN</code></li>
+<li><code>/users/@me/activities/statistics/applications</code> - <code>GET</code></li>
+<li><code>/users/@me/affinities/guilds</code> - <code>GET</code></li>
+<li><code>/users/@me/affinities/users</code> - <code>GET</code></li>
+<li><code>/users/@me/agreements</code> - <code>PATCH</code></li>
+<li><code>/users/@me/applications/{application.id}/achievements</code> - <code>GET</code></li>
+<li><code>/users/@me/applications/{application.id}/entitlement-ticket</code> - <code>POST</code></li>
+<li><code>/users/@me/applications/{application.id}/entitlements</code> - <code>GET</code></li>
+<li><code>/users/@me/applications/{entitlement.id}/ticket</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/localized-pricing-promo</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/country-code</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/payment-sources/validate-billing-address</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/payment-sources/{payment-source.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/users/@me/billing/payment-sources</code> - <code>GET, POST</code></li>
+<li><code>/users/@me/billing/payments/{payment.id}/refund</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/payments/{payment.id}/void</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/payments/{payment.id}</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/payments</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/paypal/billing-agreement-tokens</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/stripe/payment-intents/payments/{payment.id}</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/stripe/setup-intents</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/subscriptions/preview</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/subscriptions/{subscription.id}/invoices/{invoice.id}/pay</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/subscriptions/{subscription.id}/invoices</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/subscriptions/{subscription.id}/preview</code> - <code>PATCH</code></li>
+<li><code>/users/@me/billing/subscriptions/{subscription.id}</code> - <code>PATCH, DELETE</code></li>
+<li><code>/users/@me/billing/subscriptions</code> - <code>GET</code></li>
+<li><code>/users/@me/billing/user-trial-offer/{user-trial-offer.id}/ack</code> - <code>POST</code></li>
+<li><code>/users/@me/billing/user-trial-offer</code> - <code>GET</code></li>
+<li><code>/users/@me/captcha/verify</code> - <code>POST</code></li>
+<li><code>/users/@me/channels</code> - <code>POST</code></li>
+<li><code>/users/@me/connections/contacts/@me/external-friend-list-entries/settings</code> - <code>GET, PUT</code></li>
+<li><code>/users/@me/connections/contacts/@me/external-friend-list-entries</code> - <code>PUT</code></li>
+<li><code>/users/@me/connections/{contacts||twitter||facebook||playstation||battlenet||twitch||github||xbox||steam||youtube||reddit||spotify}/{connection.id}</code> - <code>PUT, PATCH, DELETE</code></li>
+<li><code>/users/@me/connections/{twitch||youtube||spotify}/{connection.id}/access-token</code> - <code>GET</code></li>
+<li><code>/users/@me/connections</code> - <code>GET</code></li>
+<li><code>/users/@me/consent</code> - <code>GET, POST</code></li>
+<li><code>/users/@me/delete</code> - <code>POST</code></li>
+<li><code>/users/@me/devices</code> - <code>POST</code></li>
+<li><code>/users/@me/disable</code> - <code>POST</code></li>
+<li><code>/users/@me/email-settings</code> - <code>GET, PATCH</code></li>
+<li><code>/users/@me/email/verify-code</code> - <code>POST</code></li>
+<li><code>/users/@me/email</code> - <code>PUT</code></li>
+<li><code>/users/@me/entitlements/gift-codes/{gift.code}</code> - <code>DELETE</code></li>
+<li><code>/users/@me/entitlements/gift-codes</code> - <code>POST</code></li>
+<li><code>/users/@me/entitlements/gifts</code> - <code>GET</code></li>
+<li><code>/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/cancel</code> - <code>POST</code></li>
+<li><code>/users/@me/guilds/premium/subscription-slots/{guild-subscription-slot.id}/uncancel</code> - <code>POST</code></li>
+<li><code>/users/@me/guilds/premium/subscription-slots</code> - <code>GET</code></li>
+<li><code>/users/@me/guilds/premium/subscriptions/cooldown</code> - <code>GET</code></li>
+<li><code>/users/@me/guilds/premium/subscriptions</code> - <code>GET</code></li>
+<li><code>/users/@me/guilds/{guild.id}/member</code> - <code>GET</code></li>
+<li><code>/users/@me/guilds/{guild.id}/settings</code> - <code>PATCH</code></li>
+<li><code>/users/@me/guilds/{guild.id}</code> - <code>DELETE</code></li>
+<li><code>/users/@me/guilds</code> - <code>GET</code></li>
+<li><code>/users/@me/harvest</code> - <code>GET, POST</code></li>
+<li><code>/users/@me/invites</code> - <code>GET, POST, DELETE</code></li>
+<li><code>/users/@me/notification-center/items</code> - <code>GET, DELETE</code></li>
+<li><code>/users/@me/notification-center/items/{item.id}</code> - <code>DELETE</code></li>
+<li><code>/users/@me/notification-center/items/ack</code> - <code>POST, DELETE</code></li>
+<li><code>/users/@me/join-request-guilds</code> - <code>GET</code></li>
+<li><code>/users/@me/library/{application.id}/{branch.id}/installed</code> - <code>POST</code></li>
+<li><code>/users/@me/library/{application.id}/{branch.id}</code> - <code>PATCH</code></li>
+<li><code>/users/@me/library</code> - <code>GET</code></li>
+<li><code>/users/@me/mentions/{user.id}</code> - <code>GET</code></li>
+<li><code>/users/@me/mentions</code> - <code>GET</code></li>
+<li><code>/users/@me/mfa/codes-verification</code> - <code>POST</code></li>
+<li><code>/users/@me/mfa/sms/disable</code> - <code>POST</code></li>
+<li><code>/users/@me/mfa/sms/enable</code> - <code>POST</code></li>
+<li><code>/users/@me/mfa/totp/disable</code> - <code>POST</code></li>
+<li><code>/users/@me/mfa/totp/enable</code> - <code>POST</code></li>
+<li><code>/users/@me/notes/{user.id}</code> - <code>GET, PUT</code></li>
+<li><code>/users/@me/notes</code> - <code>GET</code></li>
+<li><code>/users/@me/outbound-promotions/codes</code> - <code>GET</code></li>
+<li><code>/users/@me/phone/verify</code> - <code>POST</code></li>
+<li><code>/users/@me/phone</code> - <code>POST, DELETE</code></li>
+<li><code>/users/@me/premium-usage</code> - <code>GET</code></li>
+<li><code>/users/@me/relationships/bulk</code> - <code>POST</code></li>
+<li><code>/users/@me/relationships/{user.id}</code> - <code>PUT, PATCH, DELETE</code></li>
+<li><code>/users/@me/relationships</code> - <code>GET, POST</code></li>
+<li><code>/users/@me/remote-auth/cancel</code> - <code>POST</code></li>
+<li><code>/users/@me/remote-auth/finish</code> - <code>POST</code></li>
+<li><code>/users/@me/remote-auth</code> - <code>POST</code></li>
+<li><code>/users/@me/scheduled-events</code> - <code>GET</code></li>
+<li><code>/users/@me/settings-proto/{1||2||3}</code> - <code>GET, PATCH</code></li>
+<li><code>/users/@me/settings/game-notifications/overrides</code> - <code>UNKNOWN</code></li>
+<li><code>/users/@me/settings/game-notifications</code> - <code>UNKNOWN</code></li>
+<li><code>/users/@me/settings</code> - <code>PATCH</code></li>
+<li><code>/users/@me/sticker-packs</code> - <code>UNKNOWN</code></li>
+<li><code>/users/@me/survey</code> - <code>GET</code></li>
+<li><code>/users/@me/video-filters/assets/{video-filter-asset.id}/last-used</code> - <code>POST</code></li>
+<li><code>/users/@me/video-filters/assets/{video-filter-asset.id}</code> - <code>DELETE</code></li>
+<li><code>/users/@me/video-filters/assets</code> - <code>GET, POST</code></li>
+<li><code>/users/@me</code> - <code>GET, PATCH</code></li>
+<li><code>/users/disable-email-notifications</code> - <code>POST</code></li>
+<li><code>/users/{user.id}/applications/{application.id}/achievements/{achievement.id}</code> - <code>PUT</code></li>
+<li><code>/users/{user.id}/avatar-decorations/{decoration}.{PNG||JPEG||WebP}</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/avatars/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/banners/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/profile</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/relationships</code> - <code>GET, POST</code></li>
+<li><code>/users/{user.id}/sessions/{session.id}/activities/{application.id}/1</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/sessions/{session.id}/activities/{application.id}/metadata</code> - <code>GET</code></li>
+<li><code>/users/{user.id}/video-filter-assets/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/users/{user.id}</code> - <code>GET</code></li>
+<li><code>/users</code> - <code>UNKNOWN</code></li>
+<li><code>/video-filter-assets/{user.id}/{asset.id}/{hash}.{PNG||JPEG||WebP||GIF}</code> - <code>GET</code></li>
+<li><code>/voice/regions</code> - <code>GET</code></li>
+<li><code>/webhooks/{application.id}/{interaction.token}/messages/@original</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/webhooks/{application.id}/{interaction.token}/messages/{message.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/webhooks/{application.id}/{interaction.token}</code> - <code>POST</code></li>
+<li><code>/webhooks/{webhook.id}/{webhook.token}/github</code> - <code>POST</code></li>
+<li><code>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</code> - <code>GET, PATCH, DELETE</code></li>
+<li><code>/webhooks/{webhook.id}/{webhook.token}/slack</code> - <code>POST</code></li>
+<li><code>/webhooks/{webhook.id}/{webhook.token}</code> - <code>GET, POST, PATCH, DELETE</code></li>
+<li><code>/webhooks/{webhook.id}</code> - <code>PATCH, DELETE</code></li>
+</ul>
+<h2 id="status-api"><a class="header" href="#status-api">Status API</a></h2>
+<ul>
+<li><code>components.json</code></li>
+<li><code>incidents.json</code></li>
+<li><code>incidents/unresolved.json</code></li>
+<li><code>metrics-display/5k2rt9f7pmny/day.json</code></li>
+<li><code>metrics-display/5k2rt9f7pmny/month.json</code></li>
+<li><code>metrics-display/5k2rt9f7pmny/week.json</code></li>
+<li><code>scheduled-maintenances.json</code></li>
+<li><code>scheduled-maintenances/active.json</code></li>
+<li><code>scheduled-maintenances/upcoming.json</code></li>
+<li><code>status.json</code></li>
+<li><code>summary.json</code></li>
+</ul>
+
+            </div>
+            <div class="navigation">
+                <a href="general/legal.html" class="nav prev">
+                    <div class="nav-button prev">
+                        <span class="material-icons round">arrow_back_ios_new</span>
+                    </div>
+                    <span class="nav-title">Legal</span>
+                </a>
+                <a href="endpoints/cdn.html" class="nav next">
+                    <span class="nav-title">CDN</span>
+                    <div class="nav-button next">
+                        <span class="material-icons round">arrow_forward_ios</span>
+                    </div>
+                </a>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        twemoji.parse(document.body);
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return undefined;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        let hlword = getParameterByName('highlight');
+
+        typeof hlword !== "undefined" ? (new Mark(".chapter-contents")).mark(hlword, { className: "highlight-search", exclude: ["h1", "h2", "h3", "h4", "h5", "h6", ".spoiler"] }) : null;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,5041 @@
+<!--
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API">
+
+    <meta property="og:title" content="Unofficial Discord Documentation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://discord-undoc.github.io" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/discord-undoc/.github/master/assets/UNDocNoBG.png" />
+    <meta property="og:description" content="Unofficial Discord Documentation - Documenting the undocumented side of the Discord API" />
+    <meta name="theme-color" content="#FD745E">
+
+    <title>Unofficial Discord Documentation</title>
+
+    <link rel="prerender" href="endpoints/cdn.html">
+    <link rel="prerender" href="endpoints/user.html">
+    <link rel="preload" href="../css/variables.css" as="style">
+    <link rel="preload" href="../css/general.css" as="style">
+    <link rel="preload" href="../css/chrome.css" as="style">
+    <link rel="preload" href="../elasticlunr.min.js" as="script">
+    <link rel="preload" href="../mark.min.js" as="script">
+    <link rel="preload" href="../searcher.js" as="script">
+    <link rel="preload" href="../highlight.js" as="script">
+    <link rel="preload" href="../book.js" as="script">
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+
+    <link rel="stylesheet" href="../highlight.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const base_url = "";
+        const path_to_root = "../";
+        const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "dark";
+
+        try {
+            let theme = localStorage.getItem('theme');
+            let sidebar = localStorage.getItem('sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+
+        const theme = localStorage.getItem('theme') || default_theme;
+        let sidebar_state = 'hidden';
+        const html = document.querySelector('html');
+
+        html.classList.remove("dark");
+        html.classList.add(theme);
+
+        if (document.body.clientWidth > 800) {
+            sidebar_state = localStorage.getItem('sidebar') || 'visible'
+        }
+
+        html.classList.remove("sidebar-visible");
+        html.classList.add(`sidebar-${sidebar_state}`);
+    </script>
+    <main class="page">
+        <div class="sidebar noselect">
+            <div class="sb_header">
+                <a href="">
+                    <img src="../favicon.png" alt="" srcset="" width="50px" height="50px">
+                    <span>Unofficial Discord Documentation</span>
+                    </img>
+                </a>
+                <script>
+                    document.querySelector('.sb_header a').href = window.location.origin;
+                </script>
+            </div>
+            <div class="search">
+                <button id="search-toggle" style="display: none;"></button>
+                <form id="searchbar-outer" class="searchbar-outer" autocomplete="off" spellcheck="false">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search the docs..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="search-wrapper" style="display: inherit !important;">
+                    <div id="searchresults-outer" class="searchresults-outer hidden noscrollbar">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults" class="noscrollbar">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toctree noscrollbar">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">General</li><li class="chapter-item expanded "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../general/resources.html">Resources</a></li><li class="chapter-item expanded "><a href="../general/api_wrappers.html">API Wrappers</a></li><li class="chapter-item expanded "><a href="../general/contribution.html">Contribution</a></li><li class="chapter-item expanded "><a href="../general/legal.html">Legal</a></li><li class="chapter-item expanded affix "><li class="part-title">Topics</li><li class="chapter-item expanded "><div>Experiments</div></li><li class="chapter-item expanded "><div>__development</div></li><li class="chapter-item expanded "><div>Analytics</div></li><li class="chapter-item expanded "><div>The Client</div></li><li class="chapter-item expanded "><div>Discord's Infrastructure</div></li><li class="chapter-item expanded "><div>Lazy Loading</div></li><li class="chapter-item expanded "><div>Gateway</div></li><li class="chapter-item expanded "><div>Voice & Video</div></li><li class="chapter-item expanded "><div>RPC & IPC</div></li><li class="chapter-item expanded "><div>Interactions</div></li><li class="chapter-item expanded affix "><li class="part-title">Endpoints</li><li class="chapter-item expanded "><a href="../endpoints/endpoints_list.html">Endpoints List</a></li><li class="chapter-item expanded "><a href="../endpoints/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../endpoints/guild.html" class="active">Guilds</a></li><li class="chapter-item expanded "><a href="../endpoints/user.html">Users</a></li><li class="chapter-item expanded "><a href="../endpoints/application.html">Applications</a></li><li class="chapter-item expanded affix "><li class="part-title">Miscellaneous</li><li class="chapter-item expanded "><div>Glossary</div></li></ol>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="sidebartoggle noselect">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill-rule="evenodd"
+                        d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z">
+                    </path>
+                </svg>
+            </div>
+            <div class="settings noselect">
+                <div class="themetoggle">
+                    <span class="material-icons round">format_paint</span>
+                </div>
+                <a class="gitedit" href="https://github.com/discord-undoc/discord-undoc.github.io/edit/master/src/endpoints/guild.md" target="_blank">
+                    <span class="material-icons round">edit</span>
+                </a>
+                <a class="giturl" href="https://github.com/discord-undoc/discord-undoc.github.io" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="chapter-contents">
+                <h1 id="guilds"><a class="header" href="#guilds">Guilds</a></h1>
+<p>Placeholder text wow!</p>
+<br>
+<h2 id="place-holder-text-wow"><a class="header" href="#place-holder-text-wow">Place holder text, wow!</a></h2>
+<p><post>/guilds</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-1"><a class="header" href="#place-holder-text-wow-1">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-2"><a class="header" href="#place-holder-text-wow-2">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-3"><a class="header" href="#place-holder-text-wow-3">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-4"><a class="header" href="#place-holder-text-wow-4">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/vanity-url</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-5"><a class="header" href="#place-holder-text-wow-5">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/welcome-screen</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-6"><a class="header" href="#place-holder-text-wow-6">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/welcome-screen</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-7"><a class="header" href="#place-holder-text-wow-7">Place holder text, wow!</a></h2>
+<p><get>/guilds/templates/{template.code}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-8"><a class="header" href="#place-holder-text-wow-8">Place holder text, wow!</a></h2>
+<p><post>/guilds/templates/{template.code}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-9"><a class="header" href="#place-holder-text-wow-9">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/delete</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-10"><a class="header" href="#place-holder-text-wow-10">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/preview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-11"><a class="header" href="#place-holder-text-wow-11">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/regions</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-12"><a class="header" href="#place-holder-text-wow-12">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/templates</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-13"><a class="header" href="#place-holder-text-wow-13">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/templates</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-14"><a class="header" href="#place-holder-text-wow-14">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/templates/{template.code}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-15"><a class="header" href="#place-holder-text-wow-15">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/templates/{template.code}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-16"><a class="header" href="#place-holder-text-wow-16">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/templates/{template.code}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-17"><a class="header" href="#place-holder-text-wow-17">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/messages/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-18"><a class="header" href="#place-holder-text-wow-18">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/join-admin-server</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-19"><a class="header" href="#place-holder-text-wow-19">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/admin-server-eligibility</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-20"><a class="header" href="#place-holder-text-wow-20">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/guild-feed</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-21"><a class="header" href="#place-holder-text-wow-21">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/guild-feed/feature</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-22"><a class="header" href="#place-holder-text-wow-22">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/guild-feed/feature</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-23"><a class="header" href="#place-holder-text-wow-23">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/guild-feed/mark-seen</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-24"><a class="header" href="#place-holder-text-wow-24">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/guild-feed/preference</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-25"><a class="header" href="#place-holder-text-wow-25">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/guild-feed/preference</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-26"><a class="header" href="#place-holder-text-wow-26">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/active-channels</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-27"><a class="header" href="#place-holder-text-wow-27">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/channels</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-28"><a class="header" href="#place-holder-text-wow-28">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/channels</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-29"><a class="header" href="#place-holder-text-wow-29">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/channels</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-30"><a class="header" href="#place-holder-text-wow-30">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-31"><a class="header" href="#place-holder-text-wow-31">Place holder text, wow!</a></h2>
+<p><patch>/channels/{channel.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-32"><a class="header" href="#place-holder-text-wow-32">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-33"><a class="header" href="#place-holder-text-wow-33">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/application-commands/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-34"><a class="header" href="#place-holder-text-wow-34">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/call</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-35"><a class="header" href="#place-holder-text-wow-35">Place holder text, wow!</a></h2>
+<p><patch>/channels/{channel.id}/call</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-36"><a class="header" href="#place-holder-text-wow-36">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/call/ring</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-37"><a class="header" href="#place-holder-text-wow-37">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/call/stop-ringing</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-38"><a class="header" href="#place-holder-text-wow-38">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/convert</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-39"><a class="header" href="#place-holder-text-wow-39">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/follower-message-stats</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-40"><a class="header" href="#place-holder-text-wow-40">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/follower-stats</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-41"><a class="header" href="#place-holder-text-wow-41">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/followers</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-42"><a class="header" href="#place-holder-text-wow-42">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/greet</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-43"><a class="header" href="#place-holder-text-wow-43">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/invites</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-44"><a class="header" href="#place-holder-text-wow-44">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/invites</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-45"><a class="header" href="#place-holder-text-wow-45">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/messages</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-46"><a class="header" href="#place-holder-text-wow-46">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-47"><a class="header" href="#place-holder-text-wow-47">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/ack</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-48"><a class="header" href="#place-holder-text-wow-48">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages/bulk-delete</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-49"><a class="header" href="#place-holder-text-wow-49">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/messages/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-50"><a class="header" href="#place-holder-text-wow-50">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/messages/{message.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-51"><a class="header" href="#place-holder-text-wow-51">Place holder text, wow!</a></h2>
+<p><patch>/channels/{channel.id}/messages/{message.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-52"><a class="header" href="#place-holder-text-wow-52">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/{message.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-53"><a class="header" href="#place-holder-text-wow-53">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages/{message.id}/crosspost</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-54"><a class="header" href="#place-holder-text-wow-54">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/{message.id}/reactions</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-55"><a class="header" href="#place-holder-text-wow-55">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-56"><a class="header" href="#place-holder-text-wow-56">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-57"><a class="header" href="#place-holder-text-wow-57">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-58"><a class="header" href="#place-holder-text-wow-58">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-59"><a class="header" href="#place-holder-text-wow-59">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-60"><a class="header" href="#place-holder-text-wow-60">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages/{message.id}/threads</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-61"><a class="header" href="#place-holder-text-wow-61">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages/{message.id}/ack</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-62"><a class="header" href="#place-holder-text-wow-62">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/messages/{message.id}/hide-guild-feed</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-63"><a class="header" href="#place-holder-text-wow-63">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/messages/{message.id}/interaction-data</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-64"><a class="header" href="#place-holder-text-wow-64">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/permissions/{overwrite.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-65"><a class="header" href="#place-holder-text-wow-65">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/permissions/{overwrite.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-66"><a class="header" href="#place-holder-text-wow-66">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/pins</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-67"><a class="header" href="#place-holder-text-wow-67">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/pins/ack</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-68"><a class="header" href="#place-holder-text-wow-68">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/pins/{message.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-69"><a class="header" href="#place-holder-text-wow-69">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/pins/{message.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-70"><a class="header" href="#place-holder-text-wow-70">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/post-data</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-71"><a class="header" href="#place-holder-text-wow-71">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/recipients/{user.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-72"><a class="header" href="#place-holder-text-wow-72">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/recipients/{user.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-73"><a class="header" href="#place-holder-text-wow-73">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/store-listing</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-74"><a class="header" href="#place-holder-text-wow-74">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/store-listing/entitlement-grant</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-75"><a class="header" href="#place-holder-text-wow-75">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/store-listings/{sku.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-76"><a class="header" href="#place-holder-text-wow-76">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/tags</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-77"><a class="header" href="#place-holder-text-wow-77">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/tags/{tag.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-78"><a class="header" href="#place-holder-text-wow-78">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/tags/{tag.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-79"><a class="header" href="#place-holder-text-wow-79">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/thread-members</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-80"><a class="header" href="#place-holder-text-wow-80">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/thread-members/@me</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-81"><a class="header" href="#place-holder-text-wow-81">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/thread-members/@me</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-82"><a class="header" href="#place-holder-text-wow-82">Place holder text, wow!</a></h2>
+<p><patch>/channels/{channel.id}/thread-members/@me/settings</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-83"><a class="header" href="#place-holder-text-wow-83">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/thread-members/{user.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-84"><a class="header" href="#place-holder-text-wow-84">Place holder text, wow!</a></h2>
+<p><put>/channels/{channel.id}/thread-members/{user.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-85"><a class="header" href="#place-holder-text-wow-85">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/thread-members/{user.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-86"><a class="header" href="#place-holder-text-wow-86">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/threads</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-87"><a class="header" href="#place-holder-text-wow-87">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/threads/active</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-88"><a class="header" href="#place-holder-text-wow-88">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/threads/archived/private</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-89"><a class="header" href="#place-holder-text-wow-89">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/threads/archived/public</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-90"><a class="header" href="#place-holder-text-wow-90">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/threads/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-91"><a class="header" href="#place-holder-text-wow-91">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/typing</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-92"><a class="header" href="#place-holder-text-wow-92">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/users/@me/threads/archived/private</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-93"><a class="header" href="#place-holder-text-wow-93">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/webhooks</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-94"><a class="header" href="#place-holder-text-wow-94">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/webhooks</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-95"><a class="header" href="#place-holder-text-wow-95">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/threads/active</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-96"><a class="header" href="#place-holder-text-wow-96">Place holder text, wow!</a></h2>
+<p><post>/streams/{stream.key}/notify</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-97"><a class="header" href="#place-holder-text-wow-97">Place holder text, wow!</a></h2>
+<p><get>/streams/{stream.key}/preview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-98"><a class="header" href="#place-holder-text-wow-98">Place holder text, wow!</a></h2>
+<p><post>/streams/{stream.key}/preview</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-99"><a class="header" href="#place-holder-text-wow-99">Place holder text, wow!</a></h2>
+<p><patch>/streams/{stream.key}/stream</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-100"><a class="header" href="#place-holder-text-wow-100">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/member-verification</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-101"><a class="header" href="#place-holder-text-wow-101">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/member-verification</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-102"><a class="header" href="#place-holder-text-wow-102">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/members</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-103"><a class="header" href="#place-holder-text-wow-103">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/members/@me</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-104"><a class="header" href="#place-holder-text-wow-104">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/members/@me/nick</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-105"><a class="header" href="#place-holder-text-wow-105">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/members/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-106"><a class="header" href="#place-holder-text-wow-106">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/members/{user.id}/nick</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-107"><a class="header" href="#place-holder-text-wow-107">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/members/{user.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-108"><a class="header" href="#place-holder-text-wow-108">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/members/{user.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-109"><a class="header" href="#place-holder-text-wow-109">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/members/{user.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-110"><a class="header" href="#place-holder-text-wow-110">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/members/{user.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-111"><a class="header" href="#place-holder-text-wow-111">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/members/{user.id}/roles/{role.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-112"><a class="header" href="#place-holder-text-wow-112">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/members/{user.id}/roles/{role.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-113"><a class="header" href="#place-holder-text-wow-113">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/audit-logs</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-114"><a class="header" href="#place-holder-text-wow-114">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/prune</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-115"><a class="header" href="#place-holder-text-wow-115">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/prune</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-116"><a class="header" href="#place-holder-text-wow-116">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/bans</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-117"><a class="header" href="#place-holder-text-wow-117">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/bans/{user.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-118"><a class="header" href="#place-holder-text-wow-118">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/bans/{user.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-119"><a class="header" href="#place-holder-text-wow-119">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/bans/{user.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-120"><a class="header" href="#place-holder-text-wow-120">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/mfa</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-121"><a class="header" href="#place-holder-text-wow-121">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-prompts</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-122"><a class="header" href="#place-holder-text-wow-122">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/role-prompts</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-123"><a class="header" href="#place-holder-text-wow-123">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/role-prompts</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-124"><a class="header" href="#place-holder-text-wow-124">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/role-prompts/{prompt.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-125"><a class="header" href="#place-holder-text-wow-125">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-126"><a class="header" href="#place-holder-text-wow-126">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-127"><a class="header" href="#place-holder-text-wow-127">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-128"><a class="header" href="#place-holder-text-wow-128">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-129"><a class="header" href="#place-holder-text-wow-129">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-130"><a class="header" href="#place-holder-text-wow-130">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-131"><a class="header" href="#place-holder-text-wow-131">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-132"><a class="header" href="#place-holder-text-wow-132">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-subscriptions/settings</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-133"><a class="header" href="#place-holder-text-wow-133">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/role-subscriptions/settings</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-134"><a class="header" href="#place-holder-text-wow-134">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-135"><a class="header" href="#place-holder-text-wow-135">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-subscriptions/subscription-listings/{listing.id}/trial/{trial.id}/eligibility</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-136"><a class="header" href="#place-holder-text-wow-136">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-subscriptions/trials</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-137"><a class="header" href="#place-holder-text-wow-137">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/role-subscriptions/trials/metrics-overview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-138"><a class="header" href="#place-holder-text-wow-138">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/roles</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-139"><a class="header" href="#place-holder-text-wow-139">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/roles</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-140"><a class="header" href="#place-holder-text-wow-140">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/roles</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-141"><a class="header" href="#place-holder-text-wow-141">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/roles/member-counts</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-142"><a class="header" href="#place-holder-text-wow-142">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/roles/{role.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-143"><a class="header" href="#place-holder-text-wow-143">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/roles/{role.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-144"><a class="header" href="#place-holder-text-wow-144">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/roles/{role.id}/member-ids</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-145"><a class="header" href="#place-holder-text-wow-145">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/roles/{role.id}/members</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-146"><a class="header" href="#place-holder-text-wow-146">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/application-commands/{application.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-147"><a class="header" href="#place-holder-text-wow-147">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/applications</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-148"><a class="header" href="#place-holder-text-wow-148">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/integrations</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-149"><a class="header" href="#place-holder-text-wow-149">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/integrations/{integration.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-150"><a class="header" href="#place-holder-text-wow-150">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/integrations/{integration.id}/sync</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-151"><a class="header" href="#place-holder-text-wow-151">Place holder text, wow!</a></h2>
+<p><post>/integrations/{integration.id}/join</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-152"><a class="header" href="#place-holder-text-wow-152">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/invites</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-153"><a class="header" href="#place-holder-text-wow-153">Place holder text, wow!</a></h2>
+<p><get>/invites/{invite.code}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-154"><a class="header" href="#place-holder-text-wow-154">Place holder text, wow!</a></h2>
+<p><delete>/invites/{invite.code}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-155"><a class="header" href="#place-holder-text-wow-155">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/requests</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-156"><a class="header" href="#place-holder-text-wow-156">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/requests</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-157"><a class="header" href="#place-holder-text-wow-157">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/requests/@me</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-158"><a class="header" href="#place-holder-text-wow-158">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/requests/@me</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-159"><a class="header" href="#place-holder-text-wow-159">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/requests/{user.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-160"><a class="header" href="#place-holder-text-wow-160">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/requests/{user.id}/ack</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-161"><a class="header" href="#place-holder-text-wow-161">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/creator-monetization/enable-requests</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-162"><a class="header" href="#place-holder-text-wow-162">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/creator-monetization/enable-requests/{request.id}/accept-terms</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-163"><a class="header" href="#place-holder-text-wow-163">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/creator-monetization/requirements</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-164"><a class="header" href="#place-holder-text-wow-164">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/premium/subscriptions</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-165"><a class="header" href="#place-holder-text-wow-165">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/premium/subscriptions</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-166"><a class="header" href="#place-holder-text-wow-166">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/premium/subscriptions/{subscription.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-167"><a class="header" href="#place-holder-text-wow-167">Place holder text, wow!</a></h2>
+<p><get>/subscription-plans/{subscription-plan.id}/guild-role-subscription-group-listing</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-168"><a class="header" href="#place-holder-text-wow-168">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/scheduled-events</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-169"><a class="header" href="#place-holder-text-wow-169">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/scheduled-events</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-170"><a class="header" href="#place-holder-text-wow-170">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-171"><a class="header" href="#place-holder-text-wow-171">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-172"><a class="header" href="#place-holder-text-wow-172">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-173"><a class="header" href="#place-holder-text-wow-173">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-174"><a class="header" href="#place-holder-text-wow-174">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/scheduled-events/{event.id}/users/@me</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-175"><a class="header" href="#place-holder-text-wow-175">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/scheduled-events/{event.id}/users/@me</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-176"><a class="header" href="#place-holder-text-wow-176">Place holder text, wow!</a></h2>
+<p><post>/stage-instances</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-177"><a class="header" href="#place-holder-text-wow-177">Place holder text, wow!</a></h2>
+<p><get>/stage-instances/extra</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-178"><a class="header" href="#place-holder-text-wow-178">Place holder text, wow!</a></h2>
+<p><get>/stage-instances/{channel.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-179"><a class="header" href="#place-holder-text-wow-179">Place holder text, wow!</a></h2>
+<p><patch>/stage-instances/{channel.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-180"><a class="header" href="#place-holder-text-wow-180">Place holder text, wow!</a></h2>
+<p><delete>/stage-instances/{channel.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-181"><a class="header" href="#place-holder-text-wow-181">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/auto-moderation/rules</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-182"><a class="header" href="#place-holder-text-wow-182">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/auto-moderation/rules/{rule.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-183"><a class="header" href="#place-holder-text-wow-183">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/auto-moderation/rules/{rule.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-184"><a class="header" href="#place-holder-text-wow-184">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/analytics/engagement/overview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-185"><a class="header" href="#place-holder-text-wow-185">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/analytics/growth-activation/overview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-186"><a class="header" href="#place-holder-text-wow-186">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/analytics/growth-activation/retention</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-187"><a class="header" href="#place-holder-text-wow-187">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/analytics/member-insights</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-188"><a class="header" href="#place-holder-text-wow-188">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/analytics/overview</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-189"><a class="header" href="#place-holder-text-wow-189">Place holder text, wow!</a></h2>
+<p><put>/guilds/{guild.id}/discovery-categories/{discoverable-server-category.id}</put></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-190"><a class="header" href="#place-holder-text-wow-190">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/discovery-categories/{discoverable-server-category.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-191"><a class="header" href="#place-holder-text-wow-191">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/discovery-metadata</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-192"><a class="header" href="#place-holder-text-wow-192">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/discovery-metadata</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-193"><a class="header" href="#place-holder-text-wow-193">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/discovery-requirements</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-194"><a class="header" href="#place-holder-text-wow-194">Place holder text, wow!</a></h2>
+<p><get>/discovery/{guild.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-195"><a class="header" href="#place-holder-text-wow-195">Place holder text, wow!</a></h2>
+<p><post>/partners/apply</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-196"><a class="header" href="#place-holder-text-wow-196">Place holder text, wow!</a></h2>
+<p><get>/partners/connections</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-197"><a class="header" href="#place-holder-text-wow-197">Place holder text, wow!</a></h2>
+<p><get>/partners/{guild.id}/requirements</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-198"><a class="header" href="#place-holder-text-wow-198">Place holder text, wow!</a></h2>
+<p><post>/guilds/automations/email-domain-lookup</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-199"><a class="header" href="#place-holder-text-wow-199">Place holder text, wow!</a></h2>
+<p><post>/guilds/automations/email-domain-lookup/verify</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-200"><a class="header" href="#place-holder-text-wow-200">Place holder text, wow!</a></h2>
+<p><post>/guilds/automations/email-domain-lookup/verify-code</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-201"><a class="header" href="#place-holder-text-wow-201">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/directory-entries</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-202"><a class="header" href="#place-holder-text-wow-202">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/directory-entries/counts</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-203"><a class="header" href="#place-holder-text-wow-203">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/directory-entries/list</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-204"><a class="header" href="#place-holder-text-wow-204">Place holder text, wow!</a></h2>
+<p><get>/channels/{channel.id}/directory-entries/search</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-205"><a class="header" href="#place-holder-text-wow-205">Place holder text, wow!</a></h2>
+<p><post>/channels/{channel.id}/directory-entry/{entity.id}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-206"><a class="header" href="#place-holder-text-wow-206">Place holder text, wow!</a></h2>
+<p><patch>/channels/{channel.id}/directory-entry/{entity.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-207"><a class="header" href="#place-holder-text-wow-207">Place holder text, wow!</a></h2>
+<p><delete>/channels/{channel.id}/directory-entry/{entity.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-208"><a class="header" href="#place-holder-text-wow-208">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/directory-entries/broadcast</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-209"><a class="header" href="#place-holder-text-wow-209">Place holder text, wow!</a></h2>
+<p><post>/hub-waitlist/signup</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-210"><a class="header" href="#place-holder-text-wow-210">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/emojis</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-211"><a class="header" href="#place-holder-text-wow-211">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/emojis</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-212"><a class="header" href="#place-holder-text-wow-212">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/emojis/{emoji.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-213"><a class="header" href="#place-holder-text-wow-213">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/emojis/{emoji.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-214"><a class="header" href="#place-holder-text-wow-214">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/emojis/{emoji.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-215"><a class="header" href="#place-holder-text-wow-215">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/stickers</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-216"><a class="header" href="#place-holder-text-wow-216">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/stickers</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-217"><a class="header" href="#place-holder-text-wow-217">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/stickers/{sticker.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-218"><a class="header" href="#place-holder-text-wow-218">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/stickers/{sticker.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-219"><a class="header" href="#place-holder-text-wow-219">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/stickers/{sticker.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-220"><a class="header" href="#place-holder-text-wow-220">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/voice-states/@me</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-221"><a class="header" href="#place-holder-text-wow-221">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/voice-states/{user.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-222"><a class="header" href="#place-holder-text-wow-222">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/soundboard-sounds</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-223"><a class="header" href="#place-holder-text-wow-223">Place holder text, wow!</a></h2>
+<p><post>/guilds/{guild.id}/soundboard-sounds</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-224"><a class="header" href="#place-holder-text-wow-224">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/soundboard-sounds/{sound.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-225"><a class="header" href="#place-holder-text-wow-225">Place holder text, wow!</a></h2>
+<p><delete>/guilds/{guild.id}/soundboard-sounds/{sound.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-226"><a class="header" href="#place-holder-text-wow-226">Place holder text, wow!</a></h2>
+<p><post>/activities</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-227"><a class="header" href="#place-holder-text-wow-227">Place holder text, wow!</a></h2>
+<p><post>/activities/guilds/{guild.id}/enable-wtp</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-228"><a class="header" href="#place-holder-text-wow-228">Place holder text, wow!</a></h2>
+<p><get>/activities/guilds/{guild.id}/shelf</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-229"><a class="header" href="#place-holder-text-wow-229">Place holder text, wow!</a></h2>
+<p><post>/activities/guilds/{guild.id}/{channel.id}/{application.id}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-230"><a class="header" href="#place-holder-text-wow-230">Place holder text, wow!</a></h2>
+<p><get>/activities/statistics/applications/{application.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-231"><a class="header" href="#place-holder-text-wow-231">Place holder text, wow!</a></h2>
+<p><get>/voice/regions</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-232"><a class="header" href="#place-holder-text-wow-232">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/widget</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-233"><a class="header" href="#place-holder-text-wow-233">Place holder text, wow!</a></h2>
+<p><patch>/guilds/{guild.id}/widget</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-234"><a class="header" href="#place-holder-text-wow-234">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/widget.json</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-235"><a class="header" href="#place-holder-text-wow-235">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/widget.png</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-236"><a class="header" href="#place-holder-text-wow-236">Place holder text, wow!</a></h2>
+<p><get>/guilds/{guild.id}/webhooks</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-237"><a class="header" href="#place-holder-text-wow-237">Place holder text, wow!</a></h2>
+<p><post>/webhooks/{application.id}/{interaction.token}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-238"><a class="header" href="#place-holder-text-wow-238">Place holder text, wow!</a></h2>
+<p><get>/webhooks/{application.id}/{interaction.token}/messages/@original</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-239"><a class="header" href="#place-holder-text-wow-239">Place holder text, wow!</a></h2>
+<p><patch>/webhooks/{application.id}/{interaction.token}/messages/@original</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-240"><a class="header" href="#place-holder-text-wow-240">Place holder text, wow!</a></h2>
+<p><delete>/webhooks/{application.id}/{interaction.token}/messages/@original</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-241"><a class="header" href="#place-holder-text-wow-241">Place holder text, wow!</a></h2>
+<p><get>/webhooks/{application.id}/{interaction.token}/messages/{message.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-242"><a class="header" href="#place-holder-text-wow-242">Place holder text, wow!</a></h2>
+<p><patch>/webhooks/{application.id}/{interaction.token}/messages/{message.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-243"><a class="header" href="#place-holder-text-wow-243">Place holder text, wow!</a></h2>
+<p><delete>/webhooks/{application.id}/{interaction.token}/messages/{message.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-244"><a class="header" href="#place-holder-text-wow-244">Place holder text, wow!</a></h2>
+<p><patch>/webhooks/{webhook.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-245"><a class="header" href="#place-holder-text-wow-245">Place holder text, wow!</a></h2>
+<p><delete>/webhooks/{webhook.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-246"><a class="header" href="#place-holder-text-wow-246">Place holder text, wow!</a></h2>
+<p><get>/webhooks/{webhook.id}/{webhook.token}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-247"><a class="header" href="#place-holder-text-wow-247">Place holder text, wow!</a></h2>
+<p><post>/webhooks/{webhook.id}/{webhook.token}</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-248"><a class="header" href="#place-holder-text-wow-248">Place holder text, wow!</a></h2>
+<p><patch>/webhooks/{webhook.id}/{webhook.token}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-249"><a class="header" href="#place-holder-text-wow-249">Place holder text, wow!</a></h2>
+<p><delete>/webhooks/{webhook.id}/{webhook.token}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-250"><a class="header" href="#place-holder-text-wow-250">Place holder text, wow!</a></h2>
+<p><post>/webhooks/{webhook.id}/{webhook.token}/github</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-251"><a class="header" href="#place-holder-text-wow-251">Place holder text, wow!</a></h2>
+<p><get>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</get></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-252"><a class="header" href="#place-holder-text-wow-252">Place holder text, wow!</a></h2>
+<p><patch>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</patch></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-253"><a class="header" href="#place-holder-text-wow-253">Place holder text, wow!</a></h2>
+<p><delete>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</delete></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+<h2 id="place-holder-text-wow-254"><a class="header" href="#place-holder-text-wow-254">Place holder text, wow!</a></h2>
+<p><post>/webhooks/{webhook.id}/{webhook.token}/slack</post></p>
+<br>
+<p><strong>Description</strong></p>
+<p>Place holder text, wow!</p>
+<br>
+<p><strong>Body</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Queries</strong></p>
+<br>
+<p>None</p>
+<br>
+<p><strong>Response</strong></p>
+<br>
+<p>None</p>
+<br>
+<br>
+
+            </div>
+            <div class="navigation">
+                <a href="endpoints/cdn.html" class="nav prev">
+                    <div class="nav-button prev">
+                        <span class="material-icons round">arrow_back_ios_new</span>
+                    </div>
+                    <span class="nav-title">CDN</span>
+                </a>
+                <a href="endpoints/user.html" class="nav next">
+                    <span class="nav-title">Users</span>
+                    <div class="nav-button next">
+                        <span class="material-icons round">arrow_forward_ios</span>
+                    </div>
+                </a>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        twemoji.parse(document.body);
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return undefined;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        let hlword = getParameterByName('highlight');
+
+        typeof hlword !== "undefined" ? (new Mark(".chapter-contents")).mark(hlword, { className: "highlight-search", exclude: ["h1", "h2", "h3", "h4", "h5", "h6", ".spoiler"] }) : null;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+/*
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+@import "./css/variables.css";
+
+/* PrismJS 1.26.0
+https://prismjs.com/download.html#themes=prism&languages=markup+clike+javascript+diff+json+json5+jsonp+markdown+python+typescript&plugins=show-language+toolbar */
+
+pre {
+  color: var(--text-primary);
+  background: var(--prism-background);
+  border-radius: var(--element-border-radius);
+  padding: var(--element-padding) calc(var(--element-padding) * 2);
+  margin: calc(var(--element-padding) * 4) 0;
+  overflow: auto;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.token.operator,
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--prism-comment);
+  font-style: normal;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.type-args,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--prism-variable);
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--prism-attribute);
+}
+
+.token.string,
+.token.tag.attr-value,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--prism-string);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--prism-keyword);
+}
+
+.token.function,
+.token.class-name,
+.token[class*="class-name"],
+.token.boolean {
+  color: var(--prism-function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--prism-variable);
+}
+
+.token.important,
+.token.bold {
+  font-weight: 500;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar>.toolbar {
+  position: absolute;
+  top: calc(var(--element-padding) * -3);
+  right: var(--element-padding);
+  font-family: var(--font-code);
+  font-weight: 500;
+  font-size: 0.75rem;
+}

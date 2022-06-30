@@ -1,0 +1,584 @@
+/*
+Copyright 2022 한승민
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+@import "./variables.css";
+
+/* MDBoook CSS */
+
+.hidden {
+    display: none;
+}
+
+.footnote-definition::before {
+    display: inline-block;
+    content: "-";
+    width: 20px;
+}
+
+.footnote-definition p {
+    display: inline;
+}
+
+/* Main CSS */
+
+.page {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.page-content {
+    position: relative;
+    min-height: 100vh;
+    width: calc(100% - var(--sidebar-width) - (var(--page-margin) * 2));
+    line-height: 1.5rem;
+    margin-left: calc(var(--page-margin) + var(--sidebar-width));
+    overflow: hidden;
+    padding: calc(var(--element-padding) * 2) 0 0;
+    transition: width 0.2s ease-in-out, margin-left 0.2s ease-in-out;
+}
+
+.chapter-contents {
+    padding-top: calc(var(--element-padding) * 2);
+    margin-bottom: var(--footer-height);
+}
+
+html.sidebar-hidden .page-content {
+    width: calc(100% - (var(--page-margin) * 2));
+    margin-left: var(--page-margin);
+}
+
+.page-content img,
+.page-content video {
+    max-width: 100%;
+}
+
+/* Emojis */
+
+.emoji {
+    position: relative;
+    top: 5px;
+    width: 20px;
+    border-radius: 0;
+}
+
+/* User Badges */
+
+.user {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 5px;
+    background: var(--alternative-background);
+    color: var(--text-primary);
+    width: fit-content;
+    padding: 5px;
+    padding-right: 7px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.65rem;
+}
+
+.user img {
+    vertical-align: middle;
+    border-radius: 20px;
+    margin-right: 5px;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.user .discriminator {
+    color: var(--text-muted);
+}
+
+.user .username,
+.user .discriminator {
+    line-height: 0;
+}
+
+/* Indicators */
+
+.undoc,
+.nobot,
+.iandeploy {
+    display: inline-block;
+    position: relative;
+    fill: var(--text-muted);
+    cursor: default;
+    line-height: 0.5rem;
+    padding: 0 calc(var(--element-padding) / 2);
+    font-weight: 500;
+}
+
+.undoc:hover::before,
+.nobot:hover::before,
+.iandeploy:hover::before {
+    display: inline-block;
+}
+
+.undoc::before,
+.nobot::before,
+.iandeploy::before {
+    display: none;
+    position: absolute;
+    width: 120px;
+    padding: var(--element-padding);
+    background: var(--alternative-background);
+    border-radius: var(--element-border-radius);
+    color: var(--text-primary);
+    line-height: normal;
+    font-size: 0.7rem;
+    text-align: center;
+
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.undoc::before {
+    content: "This is not officially documented.";
+}
+
+.nobot::before {
+    content: "This is not usable by bots.";
+}
+
+.iandeploy::before {
+    content: "IAN 2 DEPLOY!!!";
+}
+
+/* HTTP methods */
+
+.endpoint {
+    display: inline-block;
+    padding: calc(var(--element-padding) / 2) 0;
+}
+
+.endpoint-c {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-code);
+}
+
+.http-method {
+    font-size: 0.75rem;
+    padding: calc(var(--element-padding) / 2) var(--element-padding);
+    margin-right: var(--element-padding);
+    border-radius: var(--element-border-radius);
+}
+
+.http-method.get,
+.http-method.head,
+.http-method.options,
+.http-method.trace {
+    background: var(--note-background);
+    border: solid 2px var(--note-border-color);
+}
+
+.http-method.post,
+.http-method.put,
+.http-method.patch,
+.http-method.connect {
+    background: var(--info-background);
+    border: solid 2px var(--info-border-color);
+}
+
+.http-method.delete {
+    background: var(--warn-background);
+    border: solid 2px var(--warn-border-color);
+}
+
+/* Alert Boxes */
+
+.note,
+.info,
+.warn {
+    display: block;
+    width: 100%;
+    padding: var(--element-padding);
+    border-radius: var(--element-border-radius);
+    color: var(--alert-box-color);
+    margin: 0.75rem 0;
+    font-weight: 400;
+}
+
+.note {
+    border: solid 1px var(--note-border-color);
+    background: var(--note-background);
+}
+
+.info {
+    border: solid 1px var(--info-border-color);
+    background: var(--info-background);
+}
+
+.warn {
+    border: solid 1px var(--warn-border-color);
+    background: var(--warn-background);
+}
+
+/* Spoliers */
+
+input.spoiler {
+    appearance: none;
+    width: 0;
+    height: 0;
+}
+
+input.spoiler+label {
+    border-radius: var(--element-border-radius);
+    padding: 2px var(--element-padding);
+    background: var(--s-hidden-background);
+    color: var(--alternative-background);
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input:checked+label {
+    background: var(--s-visible-background);
+    color: var(--text-primary);
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: inherit;
+    -khtml-user-select: inherit;
+    -moz-user-select: inherit;
+    -ms-user-select: inherit;
+    user-select: inherit;
+}
+
+/* Highlight */
+
+.highlight-search {
+    background: #FEE75C;
+    padding: 0 calc(var(--element-padding) / 2);
+    border-radius: calc(var(--element-border-radius) / 2);
+}
+
+/* Sidebar */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: var(--sidebar-width);
+    background: var(--alternative-background);
+    transition: left 0.2s ease-in-out;
+}
+
+html.sidebar-hidden .sidebar {
+    left: calc(var(--sidebar-width) * -1);
+}
+
+/* Header */
+
+.sb_header {
+    padding: var(--element-padding) var(--element-padding);
+    display: flex;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: padding 0.2s ease-in-out;
+}
+
+.sb_header a {
+    color: var(--text-primary);
+}
+
+.sb_header a img {
+    vertical-align: middle;
+}
+
+/* Search */
+
+.search {
+    padding: var(--element-padding)
+}
+
+#searchbar-outer #searchbar {
+    display: inline-block;
+    width: 100%;
+    background: var(--main-background);
+    padding: var(--element-padding);
+    border-radius: var(--element-border-radius);
+    border: none;
+    color: var(--font-normal);
+}
+
+#searchresults-header {
+    padding: var(--element-padding);
+    font-family: var(--font-head);
+    color: var(--text-muted);
+}
+
+#searchresults {
+    width: 100%;
+    padding: var(--element-padding);
+    max-height: var(--sidebar-width);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: var(--font-code);
+    border-radius: var(--element-border-radius);
+    border: solid 1px var(--main-background);
+}
+
+#searchresults li {
+    list-style: none;
+    padding: var(--element-padding) 0;
+    font-size: 0.9rem;
+}
+
+#searchresults li a {
+    font-family: var(--font-head);
+    font-weight: 600;
+    padding-right: var(--element-padding);
+    color: var(--text-primary);
+}
+
+#searchresults li span {
+    color: var(--text-muted);
+}
+
+#searchresults li em {
+    color: var(--text-primary);
+    font-family: var(--font-head);
+}
+
+/* TOC Tree */
+
+.toctree {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    padding: var(--element-padding);
+    padding-left: 0;
+}
+
+.toctree a,
+.toctree li div {
+    display: block;
+    width: 100%;
+    padding: calc(var(--element-padding) * 1.25) var(--element-padding);
+    color: var(--text-primary);
+    border-radius: var(--element-border-radius);
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.toctree li div {
+    color: var(--text-muted);
+    cursor: default;
+}
+
+.toctree a.active,
+.toctree a.active:hover {
+    background: var(--brand-color);
+    color: var(--text-contrast);
+}
+
+.toctree a {
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.toctree a:hover {
+    background: var(--text-muted-t);
+    color: var(--text-contrast);
+}
+
+.toctree ol {
+    padding: 0;
+}
+
+.toctree li {
+    list-style: none;
+    padding-left: var(--element-padding);
+    margin: var(--element-padding) 0;
+}
+
+.toctree .part-title {
+    padding: calc(var(--element-padding) * 2);
+    color: var(--text-muted);
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.toctree .part-title::before {
+    display: inline-block;
+    content: "# ";
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    width: 15px;
+}
+
+/* Sidebar Toggle */
+
+.sidebartoggle {
+    position: fixed;
+    padding: var(--element-padding);
+    top: var(--element-padding);
+    left: calc(var(--sidebar-width) + var(--element-padding));
+    border-radius: var(--element-border-radius);
+    background: var(--alternative-background);
+    fill: var(--text-muted);
+    line-height: 0;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+.sidebartoggle:hover {
+    background: var(--main-background);
+    fill: var(--text-primary);
+}
+
+.sidebartoggle span {
+    font-size: 1rem;
+}
+
+html.sidebar-hidden .sidebartoggle {
+    left: var(--element-padding);
+}
+
+/* Settings */
+
+.settings {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: var(--element-padding);
+    right: var(--element-padding);
+    border-radius: var(--element-border-radius);
+    background: var(--alternative-background);
+    line-height: 0;
+    cursor: pointer;
+
+    transition: right 0.2s ease-in-out;
+    z-index: 5;
+}
+
+.settings span {
+    font-size: 1rem;
+}
+
+.giturl,
+.gitedit,
+.themetoggle {
+    padding: var(--element-padding);
+    color: var(--text-muted);
+    fill: var(--text-muted);
+    border-radius: var(--element-border-radius);
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.giturl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.giturl:hover,
+.gitedit:hover,
+.themetoggle:hover {
+    color: var(--text-primary);
+    fill: var(--text-primary);
+    background: var(--main-background);
+}
+
+/* Navigation */
+
+.navigation {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--footer-height);
+    padding: var(--element-padding);
+}
+
+.navigation .nav {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    color: var(--text-primary);
+    font-family: var(--font-head);
+    font-weight: 600;
+}
+
+.navigation .nav .nav-button {
+    padding: 0 var(--element-padding);
+}
+
+.navigation .nav.prev {
+    margin-right: auto;
+}
+
+.navigation .nav.next {
+    margin-left: auto;
+}
+
+/* Media queries */
+
+@media (max-width: 800px) {
+    .sidebartoggle {
+        left: calc(var(--sidebar-width) - var(--element-padding) * 3 - 1.25rem);
+    }
+
+    .sb_header {
+        padding: calc(var(--element-padding) * 4) var(--element-padding) !important;
+    }
+
+    .sidebartoggle span,
+    .giturl span,
+    .gitedit span,
+    .themetoggle span {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 700px) {
+    html.sidebar-visible .page-content {
+        width: calc(100% - (var(--page-margin) * 2));
+        margin-left: calc(var(--page-margin) + var(--sidebar-width));
+    }
+
+    html.sidebar-visible .settings {
+        right: calc(var(--element-padding) * -2 - 1.25rem);
+    }
+
+    .navigation .nav .nav-title {
+        display: none;
+    }
+}
+
+@media (max-width: 333px) {
+    body * {
+        display: none;
+    }
+
+    body::before {
+        content: "Device size TOO SMALL!";
+    }
+}
