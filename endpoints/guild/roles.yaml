@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../endpoints.schema.json
 
-/guilds/{guild.id}/role-prompts:
+/guilds/{guild.id}/onboarding-prompts:
   get:
     x-indicators: []
     x-display-name: Place holder text, wow!
@@ -22,7 +22,7 @@
     x-body: null
     x-query: null
     x-response: null
-/guilds/{guild.id}/role-prompts/{prompt.id}:
+/guilds/{guild.id}/onboarding-prompts/{prompt.id}:
   delete:
     x-indicators: []
     x-display-name: Place holder text, wow!

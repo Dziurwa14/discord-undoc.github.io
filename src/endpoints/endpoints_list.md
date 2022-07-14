@@ -75,6 +75,7 @@
 - `/billing/verify-purchase-request` - `POST`
 - `/branches` - `POST`
 - `/channel-icons/{channel.id}/{hash}.{PNG||JPEG||WebP||GIF}` - `GET`
+- `/channels/{channel.id}/attachments` - `POST`
 - `/channels/{channel.id}/application-commands/search` - `GET`
 - `/channels/{channel.id}/call/ring` - `POST`
 - `/channels/{channel.id}/call/stop-ringing` - `POST`
@@ -214,6 +215,7 @@
 - `/guilds/{guild.id}/members` - `GET`
 - `/guilds/{guild.id}/messages/search` - `GET`
 - `/guilds/{guild.id}/mfa` - `POST`
+- `/guilds/{guild.id}/migrate-commands-scope` - `POST`
 - `/guilds/{guild.id}/premium/subscriptions/{subscription.id}` - `DELETE`
 - `/guilds/{guild.id}/premium/subscriptions` - `GET, PUT`
 - `/guilds/{guild.id}/preview` - `GET`
@@ -223,8 +225,8 @@
 - `/guilds/{guild.id}/requests/{user.id}/ack` - `POST`
 - `/guilds/{guild.id}/requests/{user.id}` - `PATCH`
 - `/guilds/{guild.id}/requests` - `GET, PATCH`
-- `/guilds/{guild.id}/role-prompts/{prompt.id}` - `DELETE`
-- `/guilds/{guild.id}/role-prompts` - `GET, PUT, POST`
+- `/guilds/{guild.id}/onboarding-prompts/{prompt.id}` - `DELETE`
+- `/guilds/{guild.id}/onboarding-prompts` - `GET, PUT, POST`
 - `/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}/subscription-listings/{listing.id}` - `POST, PATCH, DELETE`
 - `/guilds/{guild.id}/role-subscriptions/group-listings/{group-listing.id}` - `GET, PATCH, POST, DELETE`
 - `/guilds/{guild.id}/role-subscriptions/settings` - `GET, PATCH`
