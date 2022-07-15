@@ -45,6 +45,7 @@
 - `/applications/{application.id}/payment-payout-groups` - `GET`
 - `/applications/{application.id}/public` - `GET`
 - `/applications/{application.id}/skus` - `GET`
+- `/applications/{application.id}/subscription-group-listings/{listing.id}` - `GET, PATCH, DELTE`
 - `/applications` - `POST`
 - `/auth/authorize-ip` - `POST`
 - `/auth/forgot` - `POST`
@@ -195,6 +196,7 @@
 - `/guilds/{guild.id}/discovery-splashes/{hash}.{PNG||JPEG||WebP}` - `GET`
 - `/guilds/{guild.id}/emojis/{emoji.id}` - `GET, PATCH, DELETE`
 - `/guilds/{guild.id}/emojis` - `GET, POST`
+- `/guilds/{guild.id}/entitlements` -  `GET`
 - `/guilds/{guild.id}/guild-feed/feature` - `PUT, DELETE`
 - `/guilds/{guild.id}/guild-feed/mark-seen` - `POST`
 - `/guilds/{guild.id}/guild-feed/preference` - `PUT, DELETE`

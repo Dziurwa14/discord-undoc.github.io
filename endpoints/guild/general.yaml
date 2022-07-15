@@ -30,6 +30,14 @@
     x-body: null
     x-query: null
     x-response: null
+/guilds/{guild.id}/entitlements:
+  get:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /guilds/{guild.id}/vanity-url:
   get:
     x-indicators: []

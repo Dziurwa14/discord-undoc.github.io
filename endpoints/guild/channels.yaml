@@ -52,6 +52,14 @@
     x-body: null
     x-query: null
     x-response: null
+/channels/{channel.id}/attachments:
+post:
+    x-indicators: []
+    x-display-name: Place holder text, wow!
+    x-description: Place holder text, wow!
+    x-body: null
+    x-query: null
+    x-response: null
 /channels/{channel.id}/application-commands/search:
   get:
     x-indicators: []
